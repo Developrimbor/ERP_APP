@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace ERP_APP
 {
@@ -31,6 +32,19 @@ namespace ERP_APP
         private void textEdit2_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        sqlBaglanti bgl =  new sqlBaglanti();
+        void listele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", LANCODE AS \"DİL KODU\", LANTEXT AS \"DİL ADI\" FROM BSMGRCDMGEN002;\r\n", bgl.baglanti());
+            da.Fill(dt);   
+            dataFirmaGrid.DataSource = dt;
+        }
+        private void firmaForm_Load(object sender, EventArgs e)
+        {
+            listele();
         }
     }
 }

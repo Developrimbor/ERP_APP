@@ -25,6 +25,9 @@ namespace ERP_APP
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            firmaForm xtraForm1 = new firmaForm();
+              
+            xtraForm1.Show();            
 
         }
 

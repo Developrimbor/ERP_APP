@@ -186,7 +186,7 @@
             labelDilName.Size = new Size(54, 29);
             labelDilName.TabIndex = 13;
             labelDilName.Text = "DİL ADI";
-            labelDilName.Click += this.labelControl1_Click;
+            //labelDilName.Click += this.labelControl1_Click;
             // 
             // dilForm
             // 

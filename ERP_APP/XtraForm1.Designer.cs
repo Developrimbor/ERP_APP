@@ -176,6 +176,7 @@
             IsMdiContainer = true;
             Name = "firmaForm";
             Text = "FİRMA";
+            Load += firmaForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataFirmaGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerFirmaText).EndInit();
