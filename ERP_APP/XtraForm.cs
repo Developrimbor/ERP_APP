@@ -117,9 +117,9 @@ namespace ERP_APP
 
         private void anaEkran_urunAgaci_Click(object sender, EventArgs e)
         {
-            urunAgaciForm xtraForm8 = new urunAgaciForm();
+            anaEkranUrunAgaciForm xtraForm15 = new anaEkranUrunAgaciForm();
 
-            xtraForm8.Show();
+            xtraForm15.Show();
         }
 
         private void anaEkran_materyal_Click(object sender, EventArgs e)
@@ -128,5 +128,13 @@ namespace ERP_APP
 
             xtraForm12.Show();
         }
+
+        private void anaEkran_rotaYonetimi_Click(object sender, EventArgs e)
+        {
+            rotaYonForm xtraForm16 = new rotaYonForm();
+
+            xtraForm16.Show();
+        }
+
     }
 }
