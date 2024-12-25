@@ -11,7 +11,7 @@ namespace ERP_APP
     {
         public SqlConnection baglanti()
         {
-            SqlConnection baglan = new SqlConnection(@"Data Source=DESKTOP-70DH5KP\SQLEXPRESS;Initial Catalog=CDM_ERP;Integrated Security=True;TrustServerCertificate=True");
+            SqlConnection baglan = new SqlConnection(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CDM_ERP;Integrated Security=True;TrustServerCertificate=True");
 
             baglan.Open();
             return baglan;
