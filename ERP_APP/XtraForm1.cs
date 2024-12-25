@@ -14,7 +14,6 @@ namespace ERP_APP
 {
     public partial class firmaForm : DevExpress.XtraEditors.XtraForm
     {
-        //deneme
         public firmaForm()
         {
             InitializeComponent();
