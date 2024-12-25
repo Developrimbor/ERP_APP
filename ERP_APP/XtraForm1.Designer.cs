@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(firmaForm));
             dataFirmaGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             islemlerFirmaText = new DevExpress.XtraEditors.GroupControl();
@@ -80,44 +81,68 @@
             // 
             // dataAddButton
             // 
+            dataAddButton.Appearance.BackColor = SystemColors.Menu;
+            dataAddButton.Appearance.Options.UseBackColor = true;
+            dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
+            dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
             dataAddButton.Location = new Point(193, 32);
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(32, 32);
             dataAddButton.TabIndex = 4;
-            dataAddButton.Text = "ADD";
             dataAddButton.Click += simpleButton1_Click;
             // 
             // deleteButton
             // 
+            deleteButton.Appearance.BackColor = SystemColors.Menu;
+            deleteButton.Appearance.Options.UseBackColor = true;
+            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
+            deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
             deleteButton.Location = new Point(253, 32);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(32, 32);
             deleteButton.TabIndex = 3;
-            deleteButton.Text = "DELETE";
             // 
             // editButton
             // 
+            editButton.Appearance.BackColor = SystemColors.Menu;
+            editButton.Appearance.Options.UseBackColor = true;
+            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
+            editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
             editButton.Location = new Point(133, 32);
             editButton.Name = "editButton";
             editButton.Size = new Size(32, 32);
             editButton.TabIndex = 2;
-            editButton.Text = "EDIT";
             // 
             // onlyViewButton
             // 
+            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
+            onlyViewButton.Appearance.Options.UseBackColor = true;
+            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
+            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
             onlyViewButton.Location = new Point(73, 32);
             onlyViewButton.Name = "onlyViewButton";
             onlyViewButton.Size = new Size(32, 32);
             onlyViewButton.TabIndex = 1;
-            onlyViewButton.Text = "OnlyView";
             // 
             // searchButton
             // 
+            searchButton.Appearance.BackColor = SystemColors.Menu;
+            searchButton.Appearance.BorderColor = SystemColors.Menu;
+            searchButton.Appearance.Options.UseBackColor = true;
+            searchButton.Appearance.Options.UseBorderColor = true;
+            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
+            searchButton.BackgroundImageLayout = ImageLayout.None;
+            searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
             searchButton.Location = new Point(13, 32);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(32, 32);
             searchButton.TabIndex = 0;
-            searchButton.Text = "SEARCH";
             // 
             // firmaSearchControl
             // 
@@ -173,6 +198,7 @@
             Controls.Add(firmaSearchControl);
             Controls.Add(islemlerFirmaText);
             Controls.Add(dataFirmaGrid);
+            IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("firmaForm.IconOptions.SvgImage");
             IsMdiContainer = true;
             Name = "firmaForm";
             Text = "FİRMA";

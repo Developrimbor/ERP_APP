@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sehirForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            textSehirUlkeCode = new DevExpress.XtraEditors.TextEdit();
+            labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textSehirName = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textSehirCode = new DevExpress.XtraEditors.TextEdit();
@@ -43,10 +46,9 @@
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textSehirUlkeCode = new DevExpress.XtraEditors.TextEdit();
-            labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).BeginInit();
@@ -54,7 +56,6 @@
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).BeginInit();
             SuspendLayout();
             // 
             // sehirSearchControl
@@ -72,6 +73,23 @@
             sehirSearchControl.Size = new Size(1210, 169);
             sehirSearchControl.TabIndex = 12;
             sehirSearchControl.Text = "Arama";
+            // 
+            // textSehirUlkeCode
+            // 
+            textSehirUlkeCode.Location = new Point(645, 90);
+            textSehirUlkeCode.Name = "textSehirUlkeCode";
+            textSehirUlkeCode.Size = new Size(154, 20);
+            textSehirUlkeCode.TabIndex = 16;
+            // 
+            // labelSehirUlkeCode
+            // 
+            labelSehirUlkeCode.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelSehirUlkeCode.Appearance.Options.UseFont = true;
+            labelSehirUlkeCode.Location = new Point(645, 55);
+            labelSehirUlkeCode.Name = "labelSehirUlkeCode";
+            labelSehirUlkeCode.Size = new Size(89, 29);
+            labelSehirUlkeCode.TabIndex = 15;
+            labelSehirUlkeCode.Text = "ÜLKE KODU";
             // 
             // textSehirName
             // 
@@ -139,43 +157,67 @@
             // 
             // dataAddButton
             // 
+            dataAddButton.Appearance.BackColor = SystemColors.Menu;
+            dataAddButton.Appearance.Options.UseBackColor = true;
+            dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
+            dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
             dataAddButton.Location = new Point(193, 32);
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(32, 32);
-            dataAddButton.TabIndex = 4;
-            dataAddButton.Text = "ADD";
+            dataAddButton.TabIndex = 9;
             // 
             // deleteButton
             // 
+            deleteButton.Appearance.BackColor = SystemColors.Menu;
+            deleteButton.Appearance.Options.UseBackColor = true;
+            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
+            deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
             deleteButton.Location = new Point(253, 32);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(32, 32);
-            deleteButton.TabIndex = 3;
-            deleteButton.Text = "DELETE";
+            deleteButton.TabIndex = 8;
             // 
             // editButton
             // 
+            editButton.Appearance.BackColor = SystemColors.Menu;
+            editButton.Appearance.Options.UseBackColor = true;
+            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
+            editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
             editButton.Location = new Point(133, 32);
             editButton.Name = "editButton";
             editButton.Size = new Size(32, 32);
-            editButton.TabIndex = 2;
-            editButton.Text = "EDIT";
+            editButton.TabIndex = 7;
             // 
             // onlyViewButton
             // 
+            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
+            onlyViewButton.Appearance.Options.UseBackColor = true;
+            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
+            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
             onlyViewButton.Location = new Point(73, 32);
             onlyViewButton.Name = "onlyViewButton";
             onlyViewButton.Size = new Size(32, 32);
-            onlyViewButton.TabIndex = 1;
-            onlyViewButton.Text = "OnlyView";
+            onlyViewButton.TabIndex = 6;
             // 
             // searchButton
             // 
+            searchButton.Appearance.BackColor = SystemColors.Menu;
+            searchButton.Appearance.BorderColor = SystemColors.Menu;
+            searchButton.Appearance.Options.UseBackColor = true;
+            searchButton.Appearance.Options.UseBorderColor = true;
+            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
+            searchButton.BackgroundImageLayout = ImageLayout.None;
+            searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
             searchButton.Location = new Point(13, 32);
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(32, 32);
-            searchButton.TabIndex = 0;
-            searchButton.Text = "SEARCH";
+            searchButton.TabIndex = 5;
             // 
             // dataSehirGrid
             // 
@@ -191,23 +233,6 @@
             gridView1.GridControl = dataSehirGrid;
             gridView1.Name = "gridView1";
             // 
-            // textSehirUlkeCode
-            // 
-            textSehirUlkeCode.Location = new Point(645, 90);
-            textSehirUlkeCode.Name = "textSehirUlkeCode";
-            textSehirUlkeCode.Size = new Size(154, 20);
-            textSehirUlkeCode.TabIndex = 16;
-            // 
-            // labelSehirUlkeCode
-            // 
-            labelSehirUlkeCode.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
-            labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(645, 55);
-            labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(89, 29);
-            labelSehirUlkeCode.TabIndex = 15;
-            labelSehirUlkeCode.Text = "ÜLKE KODU";
-            // 
             // sehirForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -221,6 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
@@ -228,7 +254,6 @@
             islemlerSehirText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -242,14 +267,14 @@
         private DevExpress.XtraEditors.TextEdit textSehirFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelSehirFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
+        private DevExpress.XtraGrid.GridControl dataSehirGrid;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.TextEdit textSehirUlkeCode;
+        private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.SimpleButton dataAddButton;
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton searchButton;
-        private DevExpress.XtraGrid.GridControl dataSehirGrid;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TextEdit textSehirUlkeCode;
-        private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
     }
 }

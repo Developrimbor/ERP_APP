@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             control_firma = new DevExpress.XtraEditors.SimpleButton();
             control_birim = new DevExpress.XtraEditors.SimpleButton();
             control_malzemeTipi = new DevExpress.XtraEditors.SimpleButton();
@@ -279,6 +280,8 @@
             Controls.Add(control_dil);
             Controls.Add(control_birim);
             Controls.Add(control_firma);
+            IconOptions.ColorizeInactiveIcon = DevExpress.Utils.DefaultBoolean.True;
+            IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("mainForm.IconOptions.SvgImage");
             Name = "mainForm";
             Text = "ERP_CDM";
             ((System.ComponentModel.ISupportInitialize)control_table.Properties).EndInit();

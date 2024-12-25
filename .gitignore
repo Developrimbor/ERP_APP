@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ERP_APP/Resources/Delete.svg
+/ERP_APP/Resources/Delete1.svg
+/ERP_APP/Resources/Delete2.svg
+/ERP_APP/Resources/Delete3.svg

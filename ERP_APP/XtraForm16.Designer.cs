@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaYonForm));
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            dataAddButton = new DevExpress.XtraEditors.SimpleButton();
-            deleteButton = new DevExpress.XtraEditors.SimpleButton();
-            editButton = new DevExpress.XtraEditors.SimpleButton();
-            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
-            searchButton = new DevExpress.XtraEditors.SimpleButton();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            textEdit7 = new DevExpress.XtraEditors.TextEdit();
+            labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
             textEdit5 = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -57,15 +57,18 @@
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textEdit7 = new DevExpress.XtraEditors.TextEdit();
-            labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            textEdit6 = new DevExpress.XtraEditors.TextEdit();
-            labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            dataAddButton = new DevExpress.XtraEditors.SimpleButton();
+            deleteButton = new DevExpress.XtraEditors.SimpleButton();
+            editButton = new DevExpress.XtraEditors.SimpleButton();
+            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
+            searchButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit7.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit6.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).BeginInit();
@@ -76,8 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit7.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit6.Properties).BeginInit();
             SuspendLayout();
             // 
             // textEdit2
@@ -87,58 +88,18 @@
             textEdit2.Size = new Size(20, 20);
             textEdit2.TabIndex = 28;
             // 
-            // dataAddButton
-            // 
-            dataAddButton.Location = new Point(193, 32);
-            dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(32, 32);
-            dataAddButton.TabIndex = 4;
-            dataAddButton.Text = "ADD";
-            // 
-            // deleteButton
-            // 
-            deleteButton.Location = new Point(253, 32);
-            deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(32, 32);
-            deleteButton.TabIndex = 3;
-            deleteButton.Text = "DELETE";
-            // 
-            // editButton
-            // 
-            editButton.Location = new Point(133, 32);
-            editButton.Name = "editButton";
-            editButton.Size = new Size(32, 32);
-            editButton.TabIndex = 2;
-            editButton.Text = "EDIT";
-            // 
-            // onlyViewButton
-            // 
-            onlyViewButton.Location = new Point(73, 32);
-            onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(32, 32);
-            onlyViewButton.TabIndex = 1;
-            onlyViewButton.Text = "OnlyView";
-            // 
             // islemlerSehirText
             // 
             islemlerSehirText.Controls.Add(dataAddButton);
-            islemlerSehirText.Controls.Add(deleteButton);
-            islemlerSehirText.Controls.Add(editButton);
-            islemlerSehirText.Controls.Add(onlyViewButton);
             islemlerSehirText.Controls.Add(searchButton);
+            islemlerSehirText.Controls.Add(deleteButton);
+            islemlerSehirText.Controls.Add(onlyViewButton);
+            islemlerSehirText.Controls.Add(editButton);
             islemlerSehirText.Location = new Point(-1, 169);
             islemlerSehirText.Name = "islemlerSehirText";
             islemlerSehirText.Size = new Size(1210, 73);
             islemlerSehirText.TabIndex = 44;
             islemlerSehirText.Text = "İşlemler";
-            // 
-            // searchButton
-            // 
-            searchButton.Location = new Point(13, 32);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(32, 32);
-            searchButton.TabIndex = 0;
-            searchButton.Text = "SEARCH";
             // 
             // sehirSearchControl
             // 
@@ -169,6 +130,40 @@
             sehirSearchControl.Size = new Size(1210, 169);
             sehirSearchControl.TabIndex = 45;
             sehirSearchControl.Text = "Arama";
+            // 
+            // textEdit7
+            // 
+            textEdit7.Location = new Point(599, 132);
+            textEdit7.Name = "textEdit7";
+            textEdit7.Size = new Size(154, 20);
+            textEdit7.TabIndex = 36;
+            // 
+            // labelControl7
+            // 
+            labelControl7.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl7.Appearance.Options.UseFont = true;
+            labelControl7.Location = new Point(600, 97);
+            labelControl7.Name = "labelControl7";
+            labelControl7.Size = new Size(128, 29);
+            labelControl7.TabIndex = 35;
+            labelControl7.Text = "ÇİZİM NUMARASI";
+            // 
+            // textEdit6
+            // 
+            textEdit6.Location = new Point(425, 132);
+            textEdit6.Name = "textEdit6";
+            textEdit6.Size = new Size(154, 20);
+            textEdit6.TabIndex = 34;
+            // 
+            // labelControl6
+            // 
+            labelControl6.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl6.Appearance.Options.UseFont = true;
+            labelControl6.Location = new Point(426, 97);
+            labelControl6.Name = "labelControl6";
+            labelControl6.Size = new Size(116, 29);
+            labelControl6.TabIndex = 33;
+            labelControl6.Text = "TEMEL MİKTAR";
             // 
             // labelControl2
             // 
@@ -318,9 +313,9 @@
             // 
             // dataGrid
             // 
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.RelationName = "Level2";
-            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode3, gridLevelNode4 });
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1, gridLevelNode2 });
             dataGrid.Location = new Point(-1, 241);
             dataGrid.MainView = gridView1;
             dataGrid.Name = "dataGrid";
@@ -333,39 +328,69 @@
             gridView1.GridControl = dataGrid;
             gridView1.Name = "gridView1";
             // 
-            // textEdit7
+            // dataAddButton
             // 
-            textEdit7.Location = new Point(599, 132);
-            textEdit7.Name = "textEdit7";
-            textEdit7.Size = new Size(154, 20);
-            textEdit7.TabIndex = 36;
+            dataAddButton.Appearance.BackColor = SystemColors.Menu;
+            dataAddButton.Appearance.Options.UseBackColor = true;
+            dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
+            dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
+            dataAddButton.Location = new Point(193, 32);
+            dataAddButton.Name = "dataAddButton";
+            dataAddButton.Size = new Size(32, 32);
+            dataAddButton.TabIndex = 50;
             // 
-            // labelControl7
+            // deleteButton
             // 
-            labelControl7.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
-            labelControl7.Appearance.Options.UseFont = true;
-            labelControl7.Location = new Point(600, 97);
-            labelControl7.Name = "labelControl7";
-            labelControl7.Size = new Size(128, 29);
-            labelControl7.TabIndex = 35;
-            labelControl7.Text = "ÇİZİM NUMARASI";
+            deleteButton.Appearance.BackColor = SystemColors.Menu;
+            deleteButton.Appearance.Options.UseBackColor = true;
+            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
+            deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
+            deleteButton.Location = new Point(253, 32);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(32, 32);
+            deleteButton.TabIndex = 49;
             // 
-            // textEdit6
+            // editButton
             // 
-            textEdit6.Location = new Point(425, 132);
-            textEdit6.Name = "textEdit6";
-            textEdit6.Size = new Size(154, 20);
-            textEdit6.TabIndex = 34;
+            editButton.Appearance.BackColor = SystemColors.Menu;
+            editButton.Appearance.Options.UseBackColor = true;
+            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
+            editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
+            editButton.Location = new Point(133, 32);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(32, 32);
+            editButton.TabIndex = 48;
             // 
-            // labelControl6
+            // onlyViewButton
             // 
-            labelControl6.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
-            labelControl6.Appearance.Options.UseFont = true;
-            labelControl6.Location = new Point(426, 97);
-            labelControl6.Name = "labelControl6";
-            labelControl6.Size = new Size(116, 29);
-            labelControl6.TabIndex = 33;
-            labelControl6.Text = "TEMEL MİKTAR";
+            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
+            onlyViewButton.Appearance.Options.UseBackColor = true;
+            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
+            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
+            onlyViewButton.Location = new Point(73, 32);
+            onlyViewButton.Name = "onlyViewButton";
+            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.TabIndex = 47;
+            // 
+            // searchButton
+            // 
+            searchButton.Appearance.BackColor = SystemColors.Menu;
+            searchButton.Appearance.BorderColor = SystemColors.Menu;
+            searchButton.Appearance.Options.UseBackColor = true;
+            searchButton.Appearance.Options.UseBorderColor = true;
+            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
+            searchButton.BackgroundImageLayout = ImageLayout.None;
+            searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
+            searchButton.Location = new Point(13, 32);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(32, 32);
+            searchButton.TabIndex = 46;
             // 
             // rotaYonForm
             // 
@@ -383,6 +408,8 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)textEdit7.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textEdit6.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textEdit3.Properties).EndInit();
@@ -393,20 +420,13 @@
             ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit7.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit6.Properties).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.SimpleButton dataAddButton;
-        private DevExpress.XtraEditors.SimpleButton deleteButton;
-        private DevExpress.XtraEditors.SimpleButton editButton;
-        private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
-        private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEdit5;
@@ -431,5 +451,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit textEdit6;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.SimpleButton dataAddButton;
+        private DevExpress.XtraEditors.SimpleButton searchButton;
+        private DevExpress.XtraEditors.SimpleButton deleteButton;
+        private DevExpress.XtraEditors.SimpleButton onlyViewButton;
+        private DevExpress.XtraEditors.SimpleButton editButton;
     }
 }
