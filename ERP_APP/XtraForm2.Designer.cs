@@ -44,6 +44,7 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataDilGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)dilSearchControl).BeginInit();
             dilSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textDilName.Properties).BeginInit();
@@ -123,6 +124,7 @@
             // 
             // islemlerDilText
             // 
+            islemlerDilText.Controls.Add(homePageButton);
             islemlerDilText.Controls.Add(dataAddButton);
             islemlerDilText.Controls.Add(searchButton);
             islemlerDilText.Controls.Add(deleteButton);
@@ -212,6 +214,18 @@
             gridView1.GridControl = dataDilGrid;
             gridView1.Name = "gridView1";
             // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 43;
+            homePageButton.Click += homePageButton_Click;
+            // 
             // dilForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -253,5 +267,6 @@
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
+        private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }

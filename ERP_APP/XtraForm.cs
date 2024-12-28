@@ -28,6 +28,7 @@ namespace ERP_APP
             firmaForm xtraForm1 = new firmaForm();
 
             xtraForm1.Show();
+            this.Hide();
 
         }
 
@@ -36,6 +37,8 @@ namespace ERP_APP
             urunAgaciForm xtraForm8 = new urunAgaciForm();
 
             xtraForm8.Show();
+            this.Hide();
+
         }
 
         private void control_dil_Click(object sender, EventArgs e)
@@ -43,6 +46,8 @@ namespace ERP_APP
             dilForm xtraForm2 = new dilForm();
 
             xtraForm2.Show();
+            this.Hide();
+
         }
 
         private void control_birim_Click(object sender, EventArgs e)
@@ -50,6 +55,8 @@ namespace ERP_APP
             birimForm xtraForm5 = new birimForm();
 
             xtraForm5.Show();
+            this.Hide();
+
         }
 
         private void control_malzemeTipi_Click(object sender, EventArgs e)
@@ -57,6 +64,8 @@ namespace ERP_APP
             malzForm xtraForm6 = new malzForm();
 
             xtraForm6.Show();
+            this.Hide();
+
         }
 
         private void control_ülke_Click(object sender, EventArgs e)
@@ -64,6 +73,8 @@ namespace ERP_APP
             ulkeForm xtraForm3 = new ulkeForm();
 
             xtraForm3.Show();
+            this.Hide();
+
         }
 
         private void control_maliyet_merkezi_Click(object sender, EventArgs e)
@@ -71,6 +82,8 @@ namespace ERP_APP
             malMerForm xtraForm7 = new malMerForm();
 
             xtraForm7.Show();
+            this.Hide();
+
         }
 
         private void control_sehir_Click(object sender, EventArgs e)
@@ -78,6 +91,8 @@ namespace ERP_APP
             sehirForm xtraForm4 = new sehirForm();
 
             xtraForm4.Show();
+            this.Hide();
+
         }
 
         private void control_rotaTipi_Click(object sender, EventArgs e)
@@ -85,6 +100,8 @@ namespace ERP_APP
             rotaTypeForm xtraForm9 = new rotaTypeForm();
 
             xtraForm9.Show();
+            this.Hide();
+
         }
 
         private void control_isMerkeziTipi_Click(object sender, EventArgs e)
@@ -92,6 +109,8 @@ namespace ERP_APP
             isMerkezTipiForm xtraForm10 = new isMerkezTipiForm();
 
             xtraForm10.Show();
+            this.Hide();
+
         }
 
         private void control_operasyonTipi_Click(object sender, EventArgs e)
@@ -99,6 +118,8 @@ namespace ERP_APP
             oprsTypeForm xtraForm11 = new oprsTypeForm();
 
             xtraForm11.Show();
+            this.Hide();
+
         }
 
         private void anaEkran_maliyetMerkezi_Click(object sender, EventArgs e)
@@ -106,6 +127,8 @@ namespace ERP_APP
             costCenterForm xtraForm13 = new costCenterForm();
 
             xtraForm13.Show();
+            this.Hide();
+
         }
 
         private void anaEkran_isMerkezi_Click(object sender, EventArgs e)
@@ -113,6 +136,8 @@ namespace ERP_APP
             workCenterForm xtraForm14 = new workCenterForm();
 
             xtraForm14.Show();
+            this.Hide();
+
         }
 
         private void anaEkran_urunAgaci_Click(object sender, EventArgs e)
@@ -120,6 +145,8 @@ namespace ERP_APP
             anaEkranUrunAgaciForm xtraForm15 = new anaEkranUrunAgaciForm();
 
             xtraForm15.Show();
+            this.Hide();
+            
         }
 
         private void anaEkran_materyal_Click(object sender, EventArgs e)
@@ -127,6 +154,8 @@ namespace ERP_APP
             matInfoForm xtraForm12 = new matInfoForm();
 
             xtraForm12.Show();
+            this.Hide();
+
         }
 
         private void anaEkran_rotaYonetimi_Click(object sender, EventArgs e)
@@ -134,6 +163,8 @@ namespace ERP_APP
             rotaYonForm xtraForm16 = new rotaYonForm();
 
             xtraForm16.Show();
+            this.Hide();
+
         }
 
     }

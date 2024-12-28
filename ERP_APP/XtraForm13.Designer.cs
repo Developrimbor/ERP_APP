@@ -49,6 +49,7 @@
             textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
@@ -246,6 +247,7 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(homePageButton);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
@@ -256,6 +258,18 @@
             islemlerSehirText.Size = new Size(1210, 73);
             islemlerSehirText.TabIndex = 35;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 42;
+            homePageButton.Click += homePageButton_Click;
             // 
             // dataAddButton
             // 
@@ -288,7 +302,6 @@
             // 
             deleteButton.Appearance.BackColor = SystemColors.Menu;
             deleteButton.Appearance.Options.UseBackColor = true;
-            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
             deleteButton.Location = new Point(253, 32);
@@ -376,5 +389,6 @@
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
+        private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }

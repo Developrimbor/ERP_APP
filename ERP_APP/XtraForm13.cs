@@ -17,5 +17,14 @@ namespace ERP_APP
         {
             InitializeComponent();
         }
+
+        private void homePageButton_Click(object sender, EventArgs e)
+        {
+            mainForm xtraForm = new mainForm();
+
+            xtraForm.Show();
+            this.Hide();
+
+        }
     }
 }

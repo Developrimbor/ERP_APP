@@ -56,6 +56,7 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
@@ -254,6 +255,7 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(homePageButton);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
@@ -343,6 +345,18 @@
             gridView1.GridControl = dataGrid;
             gridView1.Name = "gridView1";
             // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 43;
+            homePageButton.Click += homePageButton_Click;
+            // 
             // matInfoForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -401,5 +415,6 @@
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
+        private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }

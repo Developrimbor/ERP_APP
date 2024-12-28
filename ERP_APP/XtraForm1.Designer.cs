@@ -42,6 +42,7 @@
             labelFirmaInfo = new DevExpress.XtraEditors.LabelControl();
             textFirmaNameEdit = new DevExpress.XtraEditors.TextEdit();
             labelFirmaName = new DevExpress.XtraEditors.LabelControl();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)dataFirmaGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerFirmaText).BeginInit();
@@ -68,6 +69,7 @@
             // 
             // islemlerFirmaText
             // 
+            islemlerFirmaText.Controls.Add(homePageButton);
             islemlerFirmaText.Controls.Add(dataAddButton);
             islemlerFirmaText.Controls.Add(deleteButton);
             islemlerFirmaText.Controls.Add(editButton);
@@ -190,6 +192,18 @@
             labelFirmaName.TabIndex = 9;
             labelFirmaName.Text = "FİRMA";
             // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 43;
+            homePageButton.Click += homePageButton_Click;
+            // 
             // firmaForm
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -230,5 +244,6 @@
         private DevExpress.XtraEditors.LabelControl labelFirmaInfo;
         private DevExpress.XtraEditors.TextEdit textFirmaNameEdit;
         private DevExpress.XtraEditors.LabelControl labelFirmaName;
+        private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }

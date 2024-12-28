@@ -33,6 +33,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaYonForm));
             textEdit2 = new DevExpress.XtraEditors.TextEdit();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            dataAddButton = new DevExpress.XtraEditors.SimpleButton();
+            searchButton = new DevExpress.XtraEditors.SimpleButton();
+            deleteButton = new DevExpress.XtraEditors.SimpleButton();
+            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
+            editButton = new DevExpress.XtraEditors.SimpleButton();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
             textEdit7 = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -57,11 +62,7 @@
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            dataAddButton = new DevExpress.XtraEditors.SimpleButton();
-            deleteButton = new DevExpress.XtraEditors.SimpleButton();
-            editButton = new DevExpress.XtraEditors.SimpleButton();
-            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
-            searchButton = new DevExpress.XtraEditors.SimpleButton();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)textEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(homePageButton);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
@@ -100,6 +102,70 @@
             islemlerSehirText.Size = new Size(1210, 73);
             islemlerSehirText.TabIndex = 44;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // dataAddButton
+            // 
+            dataAddButton.Appearance.BackColor = SystemColors.Menu;
+            dataAddButton.Appearance.Options.UseBackColor = true;
+            dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
+            dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
+            dataAddButton.Location = new Point(193, 32);
+            dataAddButton.Name = "dataAddButton";
+            dataAddButton.Size = new Size(32, 32);
+            dataAddButton.TabIndex = 50;
+            // 
+            // searchButton
+            // 
+            searchButton.Appearance.BackColor = SystemColors.Menu;
+            searchButton.Appearance.BorderColor = SystemColors.Menu;
+            searchButton.Appearance.Options.UseBackColor = true;
+            searchButton.Appearance.Options.UseBorderColor = true;
+            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
+            searchButton.BackgroundImageLayout = ImageLayout.None;
+            searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
+            searchButton.Location = new Point(13, 32);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(32, 32);
+            searchButton.TabIndex = 46;
+            // 
+            // deleteButton
+            // 
+            deleteButton.Appearance.BackColor = SystemColors.Menu;
+            deleteButton.Appearance.Options.UseBackColor = true;
+            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
+            deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
+            deleteButton.Location = new Point(253, 32);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(32, 32);
+            deleteButton.TabIndex = 49;
+            // 
+            // onlyViewButton
+            // 
+            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
+            onlyViewButton.Appearance.Options.UseBackColor = true;
+            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
+            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
+            onlyViewButton.Location = new Point(73, 32);
+            onlyViewButton.Name = "onlyViewButton";
+            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.TabIndex = 47;
+            // 
+            // editButton
+            // 
+            editButton.Appearance.BackColor = SystemColors.Menu;
+            editButton.Appearance.Options.UseBackColor = true;
+            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
+            editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
+            editButton.Location = new Point(133, 32);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(32, 32);
+            editButton.TabIndex = 48;
             // 
             // sehirSearchControl
             // 
@@ -328,69 +394,17 @@
             gridView1.GridControl = dataGrid;
             gridView1.Name = "gridView1";
             // 
-            // dataAddButton
+            // homePageButton
             // 
-            dataAddButton.Appearance.BackColor = SystemColors.Menu;
-            dataAddButton.Appearance.Options.UseBackColor = true;
-            dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
-            dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(193, 32);
-            dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(32, 32);
-            dataAddButton.TabIndex = 50;
-            // 
-            // deleteButton
-            // 
-            deleteButton.Appearance.BackColor = SystemColors.Menu;
-            deleteButton.Appearance.Options.UseBackColor = true;
-            deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
-            deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
-            deleteButton.Location = new Point(253, 32);
-            deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(32, 32);
-            deleteButton.TabIndex = 49;
-            // 
-            // editButton
-            // 
-            editButton.Appearance.BackColor = SystemColors.Menu;
-            editButton.Appearance.Options.UseBackColor = true;
-            editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
-            editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(133, 32);
-            editButton.Name = "editButton";
-            editButton.Size = new Size(32, 32);
-            editButton.TabIndex = 48;
-            // 
-            // onlyViewButton
-            // 
-            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
-            onlyViewButton.Appearance.Options.UseBackColor = true;
-            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
-            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(73, 32);
-            onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(32, 32);
-            onlyViewButton.TabIndex = 47;
-            // 
-            // searchButton
-            // 
-            searchButton.Appearance.BackColor = SystemColors.Menu;
-            searchButton.Appearance.BorderColor = SystemColors.Menu;
-            searchButton.Appearance.Options.UseBackColor = true;
-            searchButton.Appearance.Options.UseBorderColor = true;
-            searchButton.BackgroundImage = (Image)resources.GetObject("searchButton.BackgroundImage");
-            searchButton.BackgroundImageLayout = ImageLayout.None;
-            searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
-            searchButton.Location = new Point(13, 32);
-            searchButton.Name = "searchButton";
-            searchButton.Size = new Size(32, 32);
-            searchButton.TabIndex = 46;
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 51;
+            homePageButton.Click += homePageButton_Click;
             // 
             // rotaYonForm
             // 
@@ -456,5 +470,6 @@
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
+        private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }
