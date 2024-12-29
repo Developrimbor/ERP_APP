@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.RichEdit.Core.Accessibility;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,8 +35,18 @@ namespace ERP_APP
         }
         private void dilForm_Load(object sender, EventArgs e)
         {
-            listele();
+
+
+
         }
+        //private void dataDilGrid_FocusedRowChanged (object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        //{
+
+        //    DataRow dr = dataDilGrid.GetDataRow(gridView1.FocusedRowHandle);
+        //    textDilFirmaCode.Text = dr["COMCODE"].ToString();
+        //    textDilCode.Text = dr["LANCODE"].ToString();
+        //    textDilName.Text = dr["LANTEXT"].ToString();
+        // }
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
@@ -44,5 +55,81 @@ namespace ERP_APP
             xtraForm.Show();
             this.Hide();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            listele();
+        }
+
+        private void dataAddButton_Click(object sender, EventArgs e)
+        {
+            ButtonGüncelle.Visible = false;
+            ButtonKaydet.Visible = true;
+            textDilCode.ReadOnly = false;
+            textDilFirmaCode.ReadOnly = false;
+            textDilName.ReadOnly = false;
+            textDilCode.Text = string.Empty;
+            textDilFirmaCode.Text = string.Empty;
+            textDilName.Text = string.Empty;
+        }
+
+        private void ButtonKaydet_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN002 (COMCODE,LANCODE,LANTEXT) values (@p1,@p2,@p3)", bgl.baglanti());
+            komut.Parameters.AddWithValue("@p1", textDilFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p2", textDilCode.Text);
+            komut.Parameters.AddWithValue("@p3", textDilName.Text);
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listele();
+        }
+
+        private void gridView1_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
+        {
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            if (dr != null)
+            {
+
+                textDilFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                textDilCode.Text = dr["DİL KODU"].ToString();
+                textDilName.Text = dr["DİL ADI"].ToString();
+
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            ButtonGüncelle.Visible = true;
+            textDilCode.ReadOnly = false;
+            textDilFirmaCode.ReadOnly = false;
+            textDilName.ReadOnly = false;
+
+        }
+
+
+        private void ButtonGüncelle_Click(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN002 SET COMCODE = @P1, LANCODE = @P2, LANTEXT = @P3 WHERE LANCODE = @P2", bgl.baglanti());
+            komut.Parameters.AddWithValue("@P1", textDilFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P2", textDilCode.Text);
+            komut.Parameters.AddWithValue("@P3", textDilName.Text);
+
+            komut.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            listele();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMGEN002 where LANCODE=@p1", bgl.baglanti());
+            komutsil.Parameters.AddWithValue("@p1", textDilCode.Text);
+            komutsil.ExecuteNonQuery();
+            bgl.baglanti().Close();
+            MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            listele();
+        }
     }
 }
+
