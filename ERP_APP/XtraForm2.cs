@@ -100,6 +100,7 @@ namespace ERP_APP
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             textDilCode.ReadOnly = false;
             textDilFirmaCode.ReadOnly = false;
@@ -123,13 +124,29 @@ namespace ERP_APP
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMGEN002 where LANCODE=@p1", bgl.baglanti());
-            komutsil.Parameters.AddWithValue("@p1", textDilCode.Text);
-            komutsil.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            listele();
+            ButtonKaydet.Visible=false;
+            ButtonGüncelle.Visible=false;
+            // Soru sorma MessageBox
+            DialogResult result = MessageBox.Show("Silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                // SQL komutunu çalıştırma
+                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMGEN002 where LANCODE=@p1", bgl.baglanti());
+                komutsil.Parameters.AddWithValue("@p1", textDilCode.Text);
+                komutsil.ExecuteNonQuery();
+                bgl.baglanti().Close();
+
+                MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listele();
+            }
+            else
+            {
+                // Kullanıcı "İptal" butonuna basarsa hiçbir işlem yapılmaz
+                MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+
     }
 }
 
