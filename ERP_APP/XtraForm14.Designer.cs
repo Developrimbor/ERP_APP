@@ -34,6 +34,7 @@
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
@@ -56,7 +57,6 @@
             textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
@@ -75,20 +75,24 @@
             // 
             // dataGrid
             // 
+            dataGrid.EmbeddedNavigator.Margin = new Padding(4, 4, 4, 4);
             gridLevelNode1.RelationName = "Level1";
             gridLevelNode2.RelationName = "Level2";
             dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1, gridLevelNode2 });
-            dataGrid.Location = new Point(-1, 241);
+            dataGrid.Location = new Point(-1, 297);
             dataGrid.MainView = gridView1;
+            dataGrid.Margin = new Padding(4, 4, 4, 4);
             dataGrid.Name = "dataGrid";
-            dataGrid.Size = new Size(1210, 405);
+            dataGrid.Size = new Size(1412, 498);
             dataGrid.TabIndex = 37;
             dataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
+            gridView1.DetailHeight = 431;
             gridView1.GridControl = dataGrid;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             // 
             // islemlerSehirText
             // 
@@ -98,11 +102,25 @@
             islemlerSehirText.Controls.Add(editButton);
             islemlerSehirText.Controls.Add(onlyViewButton);
             islemlerSehirText.Controls.Add(searchButton);
-            islemlerSehirText.Location = new Point(-1, 169);
+            islemlerSehirText.Location = new Point(-1, 208);
+            islemlerSehirText.Margin = new Padding(4, 4, 4, 4);
             islemlerSehirText.Name = "islemlerSehirText";
-            islemlerSehirText.Size = new Size(1210, 73);
+            islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 38;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1358, 39);
+            homePageButton.Margin = new Padding(4, 4, 4, 4);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(37, 39);
+            homePageButton.TabIndex = 43;
+            homePageButton.Click += homePageButton_Click;
             // 
             // dataAddButton
             // 
@@ -111,9 +129,10 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(193, 32);
+            dataAddButton.Location = new Point(225, 39);
+            dataAddButton.Margin = new Padding(4, 4, 4, 4);
             dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(32, 32);
+            dataAddButton.Size = new Size(37, 39);
             dataAddButton.TabIndex = 9;
             // 
             // deleteButton
@@ -123,9 +142,10 @@
             deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
-            deleteButton.Location = new Point(253, 32);
+            deleteButton.Location = new Point(295, 39);
+            deleteButton.Margin = new Padding(4, 4, 4, 4);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(32, 32);
+            deleteButton.Size = new Size(37, 39);
             deleteButton.TabIndex = 8;
             // 
             // editButton
@@ -135,9 +155,10 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(133, 32);
+            editButton.Location = new Point(155, 39);
+            editButton.Margin = new Padding(4, 4, 4, 4);
             editButton.Name = "editButton";
-            editButton.Size = new Size(32, 32);
+            editButton.Size = new Size(37, 39);
             editButton.TabIndex = 7;
             // 
             // onlyViewButton
@@ -148,9 +169,10 @@
             onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
             onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(73, 32);
+            onlyViewButton.Location = new Point(85, 39);
+            onlyViewButton.Margin = new Padding(4, 4, 4, 4);
             onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.Size = new Size(37, 39);
             onlyViewButton.TabIndex = 6;
             // 
             // searchButton
@@ -163,144 +185,161 @@
             searchButton.BackgroundImageLayout = ImageLayout.None;
             searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
-            searchButton.Location = new Point(13, 32);
+            searchButton.Location = new Point(15, 39);
+            searchButton.Margin = new Padding(4, 4, 4, 4);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(32, 32);
+            searchButton.Size = new Size(37, 39);
             searchButton.TabIndex = 5;
             // 
             // textEdit5
             // 
-            textEdit5.Location = new Point(871, 132);
+            textEdit5.Location = new Point(1123, 162);
+            textEdit5.Margin = new Padding(4, 4, 4, 4);
             textEdit5.Name = "textEdit5";
-            textEdit5.Size = new Size(154, 20);
+            textEdit5.Size = new Size(180, 22);
             textEdit5.TabIndex = 26;
             // 
             // labelControl5
             // 
-            labelControl5.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl5.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(871, 97);
+            labelControl5.Location = new Point(1123, 119);
+            labelControl5.Margin = new Padding(4, 4, 4, 4);
             labelControl5.Name = "labelControl5";
-            labelControl5.Size = new Size(133, 29);
+            labelControl5.Size = new Size(186, 25);
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
             // 
             // textEdit4
             // 
-            textEdit4.Location = new Point(655, 132);
+            textEdit4.Location = new Point(775, 162);
+            textEdit4.Margin = new Padding(4, 4, 4, 4);
             textEdit4.Name = "textEdit4";
-            textEdit4.Size = new Size(154, 20);
+            textEdit4.Size = new Size(180, 22);
             textEdit4.TabIndex = 24;
             // 
             // labelControl4
             // 
-            labelControl4.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl4.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(655, 97);
+            labelControl4.Location = new Point(775, 119);
+            labelControl4.Margin = new Padding(4, 4, 4, 4);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(187, 29);
+            labelControl4.Size = new Size(261, 25);
             labelControl4.TabIndex = 23;
             labelControl4.Text = "GEÇERLİLİK BAŞLANGICI";
             // 
             // textEdit3
             // 
-            textEdit3.Location = new Point(655, 63);
+            textEdit3.Location = new Point(775, 78);
+            textEdit3.Margin = new Padding(4, 4, 4, 4);
             textEdit3.Name = "textEdit3";
-            textEdit3.Size = new Size(541, 20);
+            textEdit3.Size = new Size(611, 22);
             textEdit3.TabIndex = 22;
             // 
             // labelControl3
             // 
-            labelControl3.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl3.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(655, 28);
+            labelControl3.Location = new Point(775, 34);
+            labelControl3.Margin = new Padding(4, 4, 4, 4);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(208, 29);
+            labelControl3.Size = new Size(304, 25);
             labelControl3.TabIndex = 21;
-            labelControl3.Text = "MALZEME UZUN AÇIKLAMA";
+            labelControl3.Text = "İŞ MERKEZİ UZUN AÇIKLAMA";
             // 
             // textEdit1
             // 
-            textEdit1.Location = new Point(8, 132);
+            textEdit1.Location = new Point(9, 162);
+            textEdit1.Margin = new Padding(4, 4, 4, 4);
             textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(236, 20);
+            textEdit1.Size = new Size(275, 22);
             textEdit1.TabIndex = 18;
             // 
             // labelControl1
             // 
-            labelControl1.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelControl1.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(8, 97);
+            labelControl1.Location = new Point(9, 119);
+            labelControl1.Margin = new Padding(4, 4, 4, 4);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(135, 29);
+            labelControl1.Size = new Size(189, 25);
             labelControl1.TabIndex = 17;
             labelControl1.Text = "İŞ MERKEZİ KODU";
             // 
             // textSehirUlkeCode
             // 
-            textSehirUlkeCode.Location = new Point(258, 132);
+            textSehirUlkeCode.Location = new Point(301, 162);
+            textSehirUlkeCode.Margin = new Padding(4, 4, 4, 4);
             textSehirUlkeCode.Name = "textSehirUlkeCode";
-            textSehirUlkeCode.Size = new Size(154, 20);
+            textSehirUlkeCode.Size = new Size(180, 22);
             textSehirUlkeCode.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
-            labelSehirUlkeCode.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(258, 97);
+            labelSehirUlkeCode.Location = new Point(301, 119);
+            labelSehirUlkeCode.Margin = new Padding(4, 4, 4, 4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(161, 29);
+            labelSehirUlkeCode.Size = new Size(217, 25);
             labelSehirUlkeCode.TabIndex = 15;
             labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
             // 
             // textSehirName
             // 
-            textSehirName.Location = new Point(376, 63);
+            textSehirName.Location = new Point(439, 78);
+            textSehirName.Margin = new Padding(4, 4, 4, 4);
             textSehirName.Name = "textSehirName";
-            textSehirName.Size = new Size(264, 20);
+            textSehirName.Size = new Size(308, 22);
             textSehirName.TabIndex = 14;
             // 
             // labelSehirName
             // 
-            labelSehirName.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelSehirName.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirName.Appearance.Options.UseFont = true;
-            labelSehirName.Location = new Point(376, 28);
+            labelSehirName.Location = new Point(439, 34);
+            labelSehirName.Margin = new Padding(4, 4, 4, 4);
             labelSehirName.Name = "labelSehirName";
-            labelSehirName.Size = new Size(215, 29);
+            labelSehirName.Size = new Size(317, 25);
             labelSehirName.TabIndex = 13;
-            labelSehirName.Text = "MALZEME KISA AÇIKLAMASI";
+            labelSehirName.Text = "İŞ MERKEZİ KISA AÇIKLAMASI";
             // 
             // textSehirCode
             // 
-            textSehirCode.Location = new Point(167, 63);
+            textSehirCode.Location = new Point(195, 78);
+            textSehirCode.Margin = new Padding(4, 4, 4, 4);
             textSehirCode.Name = "textSehirCode";
-            textSehirCode.Size = new Size(195, 20);
+            textSehirCode.Size = new Size(227, 22);
             textSehirCode.TabIndex = 12;
             // 
             // labelSehirCode
             // 
-            labelSehirCode.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelSehirCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirCode.Appearance.Options.UseFont = true;
-            labelSehirCode.Location = new Point(167, 28);
+            labelSehirCode.Location = new Point(195, 34);
+            labelSehirCode.Margin = new Padding(4, 4, 4, 4);
             labelSehirCode.Name = "labelSehirCode";
-            labelSehirCode.Size = new Size(119, 29);
+            labelSehirCode.Size = new Size(167, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "İŞ MERKEZİ TİPİ";
             // 
             // textSehirFirmaCode
             // 
-            textSehirFirmaCode.Location = new Point(8, 63);
+            textSehirFirmaCode.Location = new Point(9, 78);
+            textSehirFirmaCode.Margin = new Padding(4, 4, 4, 4);
             textSehirFirmaCode.Name = "textSehirFirmaCode";
-            textSehirFirmaCode.Size = new Size(144, 20);
+            textSehirFirmaCode.Size = new Size(168, 22);
             textSehirFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
-            labelBirimFirmaCode.Appearance.Font = new Font("Bai Jamjuree SemiBold", 12F, FontStyle.Bold);
+            labelBirimFirmaCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelBirimFirmaCode.Appearance.Options.UseFont = true;
-            labelBirimFirmaCode.Location = new Point(8, 28);
+            labelBirimFirmaCode.Location = new Point(9, 34);
+            labelBirimFirmaCode.Margin = new Padding(4, 4, 4, 4);
             labelBirimFirmaCode.Name = "labelBirimFirmaCode";
-            labelBirimFirmaCode.Size = new Size(97, 29);
+            labelBirimFirmaCode.Size = new Size(134, 25);
             labelBirimFirmaCode.TabIndex = 9;
             labelBirimFirmaCode.Text = "FİRMA KODU";
             // 
@@ -323,31 +362,21 @@
             sehirSearchControl.Controls.Add(textSehirFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
+            sehirSearchControl.Margin = new Padding(4, 4, 4, 4);
             sehirSearchControl.Name = "sehirSearchControl";
-            sehirSearchControl.Size = new Size(1210, 169);
+            sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 39;
             sehirSearchControl.Text = "Arama";
             // 
-            // homePageButton
-            // 
-            homePageButton.Appearance.BackColor = SystemColors.Menu;
-            homePageButton.Appearance.Options.UseBackColor = true;
-            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1164, 32);
-            homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(32, 32);
-            homePageButton.TabIndex = 43;
-            homePageButton.Click += homePageButton_Click;
-            // 
             // workCenterForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 647);
+            ClientSize = new Size(1410, 796);
             Controls.Add(dataGrid);
             Controls.Add(islemlerSehirText);
             Controls.Add(sehirSearchControl);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "workCenterForm";
             Text = "İŞ MERKEZİ";
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
