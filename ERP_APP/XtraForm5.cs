@@ -34,10 +34,11 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textBirimCode.Text = dr["ŞEHİR KODU"].ToString();
+                textBirimCode.Text = dr["BİRİM KODU"].ToString();
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
-                textBirimName.Text = dr["ŞEHİR ADI"].ToString();
-                textIsAnaBirimCode.Text = dr["ÜLKE KODU"].ToString();
+                textBirimName.Text = dr["BİRİM ADI"].ToString();
+                textIsAnaBirimCode.Text = dr["ANA BİRİM Mİ"].ToString();
+                textAnabirimCode.Text = dr["ANA BİRİM KODU"].ToString();
 
 
             }
