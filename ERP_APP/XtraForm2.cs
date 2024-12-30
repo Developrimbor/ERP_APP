@@ -25,14 +25,7 @@ namespace ERP_APP
 
         }
 
-        sqlBaglanti bgl = new sqlBaglanti();
-        void listele()
-        {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", LANCODE AS \"DİL KODU\", LANTEXT AS \"DİL ADI\" FROM BSMGRCDMGEN002;\r\n", bgl.baglanti());
-            da.Fill(dt);
-            dataDilGrid.DataSource = dt;
-        }
+        
         private void dilForm_Load(object sender, EventArgs e)
         {
 
@@ -47,6 +40,15 @@ namespace ERP_APP
 
             xtraForm.Show();
             this.Hide();
+        }
+
+        sqlBaglanti bgl = new sqlBaglanti();
+        void listele()
+        {
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", LANCODE AS \"DİL KODU\", LANTEXT AS \"DİL ADI\" FROM BSMGRCDMGEN002;\r\n", bgl.baglanti());
+            da.Fill(dt);
+            dataDilGrid.DataSource = dt;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -75,11 +77,14 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textDilFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textDilCode.Text);
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
+
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
+
             textDilCode.Text = string.Empty;
             textDilFirmaCode.Text = string.Empty ;
             textDilName.Text = string.Empty;
+
             textDilCode.ReadOnly = true;
             textDilFirmaCode.ReadOnly = true;
             textDilName.ReadOnly = true;

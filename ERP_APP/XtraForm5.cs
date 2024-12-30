@@ -78,7 +78,7 @@ namespace ERP_APP
             textBirimCode.ReadOnly = false;
             textBirimName.ReadOnly = false;
             textIsAnaBirimCode.ReadOnly = false;
-            textIsAnaBirimCode.ReadOnly = false;
+            textAnabirimCode.ReadOnly = false;
         }
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
             komut.Parameters.AddWithValue("@p3", textBirimName.Text);
             komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
-            komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
+            komut.Parameters.AddWithValue("@p5", textAnabirimCode.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -121,13 +121,13 @@ namespace ERP_APP
             textBirimCode.ReadOnly = false;
             textBirimName.ReadOnly = false;
             textIsAnaBirimCode.ReadOnly = false;
-            textIsAnaBirimCode.ReadOnly = false;
+            textAnabirimCode.ReadOnly = false;
 
             textFirmaCode.Text = string.Empty;
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
             textIsAnaBirimCode.Text = string.Empty;
-            textIsAnaBirimCode.Text = string.Empty;
+            textAnabirimCode.Text = string.Empty;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -148,7 +148,7 @@ namespace ERP_APP
                 textBirimCode.ReadOnly = true;
                 textBirimName.ReadOnly = true;
                 textIsAnaBirimCode.ReadOnly = true;
-                textIsAnaBirimCode.ReadOnly = true;
+                textAnabirimCode.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -163,10 +163,10 @@ namespace ERP_APP
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN005 (COMCODE,UNITCODE,UNITTEXT,ISMAINUNIT,MAINUNITCODE) values (@p1,@p2,@p3,@p4,@p5)", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
-            komut.Parameters.AddWithValue("@p2", textBirimName.Text);
+            komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
             komut.Parameters.AddWithValue("@p3", textBirimName.Text);
             komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
-            komut.Parameters.AddWithValue("@p5", textIsAnaBirimCode.Text);
+            komut.Parameters.AddWithValue("@p5", textAnabirimCode.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -175,13 +175,13 @@ namespace ERP_APP
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
             textIsAnaBirimCode.Text = string.Empty;
-            textIsAnaBirimCode.Text = string.Empty;
+            textAnabirimCode.Text = string.Empty;
 
             textFirmaCode.ReadOnly = true;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = true;
             textIsAnaBirimCode.ReadOnly = true;
-            textIsAnaBirimCode.ReadOnly = true;
+            textAnabirimCode.ReadOnly = true;
             ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();

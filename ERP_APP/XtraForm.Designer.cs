@@ -202,13 +202,13 @@
             control_table.Properties.Appearance.Options.UseBackColor = true;
             control_table.Properties.Appearance.Options.UseFont = true;
             control_table.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            control_table.Size = new Size(225, 34);
+            control_table.Size = new Size(249, 34);
             control_table.TabIndex = 13;
             // 
             // main_screen
             // 
             main_screen.EditValue = "ANA EKRANLAR";
-            main_screen.Location = new Point(762, 84);
+            main_screen.Location = new Point(755, 84);
             main_screen.Margin = new Padding(4);
             main_screen.Name = "main_screen";
             main_screen.Properties.Appearance.BackColor = SystemColors.Menu;
@@ -216,7 +216,7 @@
             main_screen.Properties.Appearance.Options.UseBackColor = true;
             main_screen.Properties.Appearance.Options.UseFont = true;
             main_screen.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            main_screen.Size = new Size(160, 34);
+            main_screen.Size = new Size(172, 34);
             main_screen.TabIndex = 14;
             // 
             // anaEkran_materyal
