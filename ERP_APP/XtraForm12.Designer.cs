@@ -30,63 +30,66 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(matInfoForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            richTextBox1 = new RichTextBox();
-            textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            textUzunAck = new DevExpress.XtraEditors.TextEdit();
+            textGecBit = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            textGecBas = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            textMalzTipi = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            textSehirUlkeCode = new DevExpress.XtraEditors.TextEdit();
+            textDilKodu = new DevExpress.XtraEditors.TextEdit();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
-            textSehirName = new DevExpress.XtraEditors.TextEdit();
+            textMalzKısaAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
-            textSehirCode = new DevExpress.XtraEditors.TextEdit();
+            textMalzKodu = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
+            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
+            ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataGrid = new DevExpress.XtraGrid.GridControl();
-            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            gridMalzemeBilgi = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textUzunAck.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzTipi.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textDilKodu.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridMalzemeBilgi).BeginInit();
             SuspendLayout();
             // 
             // sehirSearchControl
             // 
-            sehirSearchControl.Controls.Add(richTextBox1);
-            sehirSearchControl.Controls.Add(textEdit5);
+            sehirSearchControl.Controls.Add(textUzunAck);
+            sehirSearchControl.Controls.Add(textGecBit);
             sehirSearchControl.Controls.Add(labelControl5);
-            sehirSearchControl.Controls.Add(textEdit4);
+            sehirSearchControl.Controls.Add(textGecBas);
             sehirSearchControl.Controls.Add(labelControl4);
             sehirSearchControl.Controls.Add(labelControl3);
-            sehirSearchControl.Controls.Add(textEdit1);
+            sehirSearchControl.Controls.Add(textMalzTipi);
             sehirSearchControl.Controls.Add(labelControl1);
-            sehirSearchControl.Controls.Add(textSehirUlkeCode);
+            sehirSearchControl.Controls.Add(textDilKodu);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
-            sehirSearchControl.Controls.Add(textSehirName);
+            sehirSearchControl.Controls.Add(textMalzKısaAck);
             sehirSearchControl.Controls.Add(labelSehirName);
-            sehirSearchControl.Controls.Add(textSehirCode);
+            sehirSearchControl.Controls.Add(textMalzKodu);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textSehirFirmaCode);
+            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -95,21 +98,23 @@
             sehirSearchControl.TabIndex = 33;
             sehirSearchControl.Text = "Arama";
             // 
-            // richTextBox1
+            // textUzunAck
             // 
-            richTextBox1.Location = new Point(932, 66);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(463, 118);
-            richTextBox1.TabIndex = 44;
-            richTextBox1.Text = "";
+            textUzunAck.Location = new Point(765, 78);
+            textUzunAck.Margin = new Padding(4);
+            textUzunAck.Name = "textUzunAck";
+            textUzunAck.Properties.ReadOnly = true;
+            textUzunAck.Size = new Size(180, 22);
+            textUzunAck.TabIndex = 27;
             // 
-            // textEdit5
+            // textGecBit
             // 
-            textEdit5.Location = new Point(716, 162);
-            textEdit5.Margin = new Padding(4);
-            textEdit5.Name = "textEdit5";
-            textEdit5.Size = new Size(180, 22);
-            textEdit5.TabIndex = 26;
+            textGecBit.Location = new Point(716, 162);
+            textGecBit.Margin = new Padding(4);
+            textGecBit.Name = "textGecBit";
+            textGecBit.Properties.ReadOnly = true;
+            textGecBit.Size = new Size(180, 22);
+            textGecBit.TabIndex = 26;
             // 
             // labelControl5
             // 
@@ -122,13 +127,14 @@
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
             // 
-            // textEdit4
+            // textGecBas
             // 
-            textEdit4.Location = new Point(439, 162);
-            textEdit4.Margin = new Padding(4);
-            textEdit4.Name = "textEdit4";
-            textEdit4.Size = new Size(180, 22);
-            textEdit4.TabIndex = 24;
+            textGecBas.Location = new Point(439, 162);
+            textGecBas.Margin = new Padding(4);
+            textGecBas.Name = "textGecBas";
+            textGecBas.Properties.ReadOnly = true;
+            textGecBas.Size = new Size(180, 22);
+            textGecBas.TabIndex = 24;
             // 
             // labelControl4
             // 
@@ -145,20 +151,21 @@
             // 
             labelControl3.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(932, 34);
+            labelControl3.Location = new Point(765, 34);
             labelControl3.Margin = new Padding(4);
             labelControl3.Name = "labelControl3";
             labelControl3.Size = new Size(287, 25);
             labelControl3.TabIndex = 21;
             labelControl3.Text = "MALZEME UZUN AÇIKLAMA";
             // 
-            // textEdit1
+            // textMalzTipi
             // 
-            textEdit1.Location = new Point(9, 162);
-            textEdit1.Margin = new Padding(4);
-            textEdit1.Name = "textEdit1";
-            textEdit1.Size = new Size(180, 22);
-            textEdit1.TabIndex = 18;
+            textMalzTipi.Location = new Point(9, 162);
+            textMalzTipi.Margin = new Padding(4);
+            textMalzTipi.Name = "textMalzTipi";
+            textMalzTipi.Properties.ReadOnly = true;
+            textMalzTipi.Size = new Size(180, 22);
+            textMalzTipi.TabIndex = 18;
             // 
             // labelControl1
             // 
@@ -171,13 +178,14 @@
             labelControl1.TabIndex = 17;
             labelControl1.Text = "MALZEME TİPİ";
             // 
-            // textSehirUlkeCode
+            // textDilKodu
             // 
-            textSehirUlkeCode.Location = new Point(203, 162);
-            textSehirUlkeCode.Margin = new Padding(4);
-            textSehirUlkeCode.Name = "textSehirUlkeCode";
-            textSehirUlkeCode.Size = new Size(180, 22);
-            textSehirUlkeCode.TabIndex = 16;
+            textDilKodu.Location = new Point(203, 162);
+            textDilKodu.Margin = new Padding(4);
+            textDilKodu.Name = "textDilKodu";
+            textDilKodu.Properties.ReadOnly = true;
+            textDilKodu.Size = new Size(180, 22);
+            textDilKodu.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
@@ -190,13 +198,14 @@
             labelSehirUlkeCode.TabIndex = 15;
             labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
             // 
-            // textSehirName
+            // textMalzKısaAck
             // 
-            textSehirName.Location = new Point(439, 78);
-            textSehirName.Margin = new Padding(4);
-            textSehirName.Name = "textSehirName";
-            textSehirName.Size = new Size(308, 22);
-            textSehirName.TabIndex = 14;
+            textMalzKısaAck.Location = new Point(439, 78);
+            textMalzKısaAck.Margin = new Padding(4);
+            textMalzKısaAck.Name = "textMalzKısaAck";
+            textMalzKısaAck.Properties.ReadOnly = true;
+            textMalzKısaAck.Size = new Size(308, 22);
+            textMalzKısaAck.TabIndex = 14;
             // 
             // labelSehirName
             // 
@@ -209,13 +218,14 @@
             labelSehirName.TabIndex = 13;
             labelSehirName.Text = "MALZEME KISA AÇIKLAMASI";
             // 
-            // textSehirCode
+            // textMalzKodu
             // 
-            textSehirCode.Location = new Point(203, 78);
-            textSehirCode.Margin = new Padding(4);
-            textSehirCode.Name = "textSehirCode";
-            textSehirCode.Size = new Size(220, 22);
-            textSehirCode.TabIndex = 12;
+            textMalzKodu.Location = new Point(203, 78);
+            textMalzKodu.Margin = new Padding(4);
+            textMalzKodu.Name = "textMalzKodu";
+            textMalzKodu.Properties.ReadOnly = true;
+            textMalzKodu.Size = new Size(220, 22);
+            textMalzKodu.TabIndex = 12;
             // 
             // labelSehirCode
             // 
@@ -228,13 +238,14 @@
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "MALZEME KODU";
             // 
-            // textSehirFirmaCode
+            // textFirmaCode
             // 
-            textSehirFirmaCode.Location = new Point(9, 78);
-            textSehirFirmaCode.Margin = new Padding(4);
-            textSehirFirmaCode.Name = "textSehirFirmaCode";
-            textSehirFirmaCode.Size = new Size(180, 22);
-            textSehirFirmaCode.TabIndex = 10;
+            textFirmaCode.Location = new Point(9, 78);
+            textFirmaCode.Margin = new Padding(4);
+            textFirmaCode.Name = "textFirmaCode";
+            textFirmaCode.Properties.ReadOnly = true;
+            textFirmaCode.Size = new Size(180, 22);
+            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
@@ -249,7 +260,9 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(ButtonKaydet);
             islemlerSehirText.Controls.Add(homePageButton);
+            islemlerSehirText.Controls.Add(ButtonGüncelle);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
@@ -261,6 +274,16 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 32;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // ButtonKaydet
+            // 
+            ButtonKaydet.Location = new Point(1211, 43);
+            ButtonKaydet.Name = "ButtonKaydet";
+            ButtonKaydet.Size = new Size(118, 36);
+            ButtonKaydet.TabIndex = 50;
+            ButtonKaydet.Text = "Kaydet";
+            ButtonKaydet.Visible = false;
+            ButtonKaydet.Click += ButtonKaydet_Click;
             // 
             // homePageButton
             // 
@@ -275,6 +298,16 @@
             homePageButton.TabIndex = 43;
             homePageButton.Click += homePageButton_Click;
             // 
+            // ButtonGüncelle
+            // 
+            ButtonGüncelle.Location = new Point(1087, 42);
+            ButtonGüncelle.Name = "ButtonGüncelle";
+            ButtonGüncelle.Size = new Size(118, 36);
+            ButtonGüncelle.TabIndex = 49;
+            ButtonGüncelle.Text = "Güncelle";
+            ButtonGüncelle.Visible = false;
+            ButtonGüncelle.Click += ButtonGüncelle_Click;
+            // 
             // dataAddButton
             // 
             dataAddButton.Appearance.BackColor = SystemColors.Menu;
@@ -287,6 +320,7 @@
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(37, 39);
             dataAddButton.TabIndex = 38;
+            dataAddButton.Click += dataAddButton_Click;
             // 
             // searchButton
             // 
@@ -303,6 +337,7 @@
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(37, 39);
             searchButton.TabIndex = 34;
+            searchButton.Click += searchButton_Click_1;
             // 
             // deleteButton
             // 
@@ -316,6 +351,7 @@
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(37, 39);
             deleteButton.TabIndex = 37;
+            deleteButton.Click += deleteButton_Click;
             // 
             // onlyViewButton
             // 
@@ -343,24 +379,26 @@
             editButton.Name = "editButton";
             editButton.Size = new Size(37, 39);
             editButton.TabIndex = 36;
+            editButton.Click += editButton_Click;
             // 
             // dataGrid
             // 
             dataGrid.EmbeddedNavigator.Margin = new Padding(4);
             dataGrid.Location = new Point(-1, 297);
-            dataGrid.MainView = gridView1;
+            dataGrid.MainView = gridMalzemeBilgi;
             dataGrid.Margin = new Padding(4);
             dataGrid.Name = "dataGrid";
             dataGrid.Size = new Size(1412, 498);
             dataGrid.TabIndex = 31;
-            dataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            dataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridMalzemeBilgi });
             // 
-            // gridView1
+            // gridMalzemeBilgi
             // 
-            gridView1.DetailHeight = 431;
-            gridView1.GridControl = dataGrid;
-            gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 933;
+            gridMalzemeBilgi.DetailHeight = 431;
+            gridMalzemeBilgi.GridControl = dataGrid;
+            gridMalzemeBilgi.Name = "gridMalzemeBilgi";
+            gridMalzemeBilgi.OptionsEditForm.PopupEditFormWidth = 933;
+            gridMalzemeBilgi.FocusedRowChanged += gridMalzemeBilgi_FocusedRowChanged;
             // 
             // matInfoForm
             // 
@@ -376,39 +414,40 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textEdit5.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit4.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textUzunAck.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzTipi.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textDilKodu.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridMalzemeBilgi).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textSehirUlkeCode;
+        private DevExpress.XtraEditors.TextEdit textDilKodu;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
-        private DevExpress.XtraEditors.TextEdit textSehirName;
+        private DevExpress.XtraEditors.TextEdit textMalzKısaAck;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
-        private DevExpress.XtraEditors.TextEdit textSehirCode;
+        private DevExpress.XtraEditors.TextEdit textMalzKodu;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textSehirFirmaCode;
+        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataGrid;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridMalzemeBilgi;
+        private DevExpress.XtraEditors.TextEdit textMalzTipi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit textGecBit;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit textGecBas;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton dataAddButton;
@@ -417,6 +456,8 @@
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
         private DevExpress.XtraEditors.SimpleButton homePageButton;
-        private RichTextBox richTextBox1;
+        private DevExpress.XtraEditors.TextEdit textUzunAck;
+        private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
+        private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
     }
 }
