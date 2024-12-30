@@ -61,9 +61,10 @@ namespace ERP_APP
             textDilCode.ReadOnly = false;
             textDilFirmaCode.ReadOnly = false;
             textDilName.ReadOnly = false;
-            textDilCode.Text = string.Empty;
-            textDilFirmaCode.Text = string.Empty;
-            textDilName.Text = string.Empty;
+            textDilCode.Text = "";
+            textDilFirmaCode.Text = "";
+            textDilName.Text = "";
+           
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
@@ -74,9 +75,12 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textDilCode.Text = string.Empty;
-            textDilFirmaCode.Text = string.Empty;
-            textDilName.Text = string.Empty;
+            textDilCode.Text = "";
+            textDilFirmaCode.Text = "";
+            textDilName.Text = "";
+            textDilCode.ReadOnly = true;
+            textDilFirmaCode.ReadOnly = true;
+            textDilName.ReadOnly = true;
             ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
@@ -112,10 +116,13 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textDilFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textDilCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
-
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
+            textDilCode.ReadOnly = true;
+            textDilFirmaCode.ReadOnly = true;
+            textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ButtonGüncelle.Visible=false;
             listele();
         }
 
@@ -133,7 +140,9 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textDilCode.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-
+                textDilCode.ReadOnly = true;
+                textDilFirmaCode.ReadOnly = true;
+                textDilName.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
