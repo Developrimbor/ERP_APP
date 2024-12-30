@@ -47,6 +47,8 @@ namespace ERP_APP
         private void searchButton_Click(object sender, EventArgs e)
         {
             listele();
+            ButtonGüncelle.Visible = false;
+            ButtonKaydet.Visible = false;
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -148,5 +150,15 @@ namespace ERP_APP
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            ButtonKaydet.Visible = false;
+            ButtonGüncelle.Visible = true;
+            textSehirCode.ReadOnly = false;
+            textSehirFirmaCode.ReadOnly = false;
+            textSehirName.ReadOnly = false;
+            textSehirUlkeCode.ReadOnly =false;
+        }
     }
-    }
+}

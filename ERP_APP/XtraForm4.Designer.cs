@@ -248,6 +248,7 @@
             editButton.Name = "editButton";
             editButton.Size = new Size(37, 39);
             editButton.TabIndex = 7;
+            editButton.Click += editButton_Click;
             // 
             // onlyViewButton
             // 

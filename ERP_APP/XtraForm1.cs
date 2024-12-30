@@ -54,5 +54,10 @@ namespace ERP_APP
             xtraForm.Show();
             this.Hide();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

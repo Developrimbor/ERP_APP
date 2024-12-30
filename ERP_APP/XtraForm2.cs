@@ -52,6 +52,8 @@ namespace ERP_APP
         private void searchButton_Click(object sender, EventArgs e)
         {
             listele();
+            ButtonGüncelle.Visible = false;
+            ButtonKaydet.Visible = false;
         }
 
         private void dataAddButton_Click(object sender, EventArgs e)
