@@ -30,15 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaTypeForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            textSehirUlkeCode = new DevExpress.XtraEditors.TextEdit();
+            textIsPassive = new DevExpress.XtraEditors.TextEdit();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
-            textSehirName = new DevExpress.XtraEditors.TextEdit();
+            textRotaTipAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
-            textSehirCode = new DevExpress.XtraEditors.TextEdit();
+            textRotaTip = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
+            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
+            ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
+            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
@@ -46,13 +49,12 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textRotaTipAck.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textRotaTip.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).BeginInit();
@@ -61,13 +63,13 @@
             // 
             // sehirSearchControl
             // 
-            sehirSearchControl.Controls.Add(textSehirUlkeCode);
+            sehirSearchControl.Controls.Add(textIsPassive);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
-            sehirSearchControl.Controls.Add(textSehirName);
+            sehirSearchControl.Controls.Add(textRotaTipAck);
             sehirSearchControl.Controls.Add(labelSehirName);
-            sehirSearchControl.Controls.Add(textSehirCode);
+            sehirSearchControl.Controls.Add(textRotaTip);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textSehirFirmaCode);
+            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Name = "sehirSearchControl";
@@ -75,12 +77,13 @@
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
             // 
-            // textSehirUlkeCode
+            // textIsPassive
             // 
-            textSehirUlkeCode.Location = new Point(658, 90);
-            textSehirUlkeCode.Name = "textSehirUlkeCode";
-            textSehirUlkeCode.Size = new Size(154, 20);
-            textSehirUlkeCode.TabIndex = 16;
+            textIsPassive.Location = new Point(658, 90);
+            textIsPassive.Name = "textIsPassive";
+            textIsPassive.Properties.ReadOnly = true;
+            textIsPassive.Size = new Size(154, 20);
+            textIsPassive.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
@@ -92,12 +95,13 @@
             labelSehirUlkeCode.TabIndex = 15;
             labelSehirUlkeCode.Text = "PASİF Mİ?";
             // 
-            // textSehirName
+            // textRotaTipAck
             // 
-            textSehirName.Location = new Point(438, 90);
-            textSehirName.Name = "textSehirName";
-            textSehirName.Size = new Size(154, 20);
-            textSehirName.TabIndex = 14;
+            textRotaTipAck.Location = new Point(438, 90);
+            textRotaTipAck.Name = "textRotaTipAck";
+            textRotaTipAck.Properties.ReadOnly = true;
+            textRotaTipAck.Size = new Size(154, 20);
+            textRotaTipAck.TabIndex = 14;
             // 
             // labelSehirName
             // 
@@ -109,12 +113,13 @@
             labelSehirName.TabIndex = 13;
             labelSehirName.Text = "ROTA TİPİ AÇIKLAMASI";
             // 
-            // textSehirCode
+            // textRotaTip
             // 
-            textSehirCode.Location = new Point(221, 90);
-            textSehirCode.Name = "textSehirCode";
-            textSehirCode.Size = new Size(154, 20);
-            textSehirCode.TabIndex = 12;
+            textRotaTip.Location = new Point(221, 90);
+            textRotaTip.Name = "textRotaTip";
+            textRotaTip.Properties.ReadOnly = true;
+            textRotaTip.Size = new Size(154, 20);
+            textRotaTip.TabIndex = 12;
             // 
             // labelSehirCode
             // 
@@ -126,12 +131,13 @@
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "ROTA TİPİ";
             // 
-            // textSehirFirmaCode
+            // textFirmaCode
             // 
-            textSehirFirmaCode.Location = new Point(11, 90);
-            textSehirFirmaCode.Name = "textSehirFirmaCode";
-            textSehirFirmaCode.Size = new Size(154, 20);
-            textSehirFirmaCode.TabIndex = 10;
+            textFirmaCode.Location = new Point(11, 90);
+            textFirmaCode.Name = "textFirmaCode";
+            textFirmaCode.Properties.ReadOnly = true;
+            textFirmaCode.Size = new Size(154, 20);
+            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
@@ -145,6 +151,8 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(ButtonKaydet);
+            islemlerSehirText.Controls.Add(ButtonGüncelle);
             islemlerSehirText.Controls.Add(homePageButton);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
@@ -157,6 +165,40 @@
             islemlerSehirText.TabIndex = 23;
             islemlerSehirText.Text = "İşlemler";
             // 
+            // ButtonKaydet
+            // 
+            ButtonKaydet.Location = new Point(1043, 34);
+            ButtonKaydet.Margin = new Padding(3, 2, 3, 2);
+            ButtonKaydet.Name = "ButtonKaydet";
+            ButtonKaydet.Size = new Size(101, 29);
+            ButtonKaydet.TabIndex = 51;
+            ButtonKaydet.Text = "Kaydet";
+            ButtonKaydet.Visible = false;
+            ButtonKaydet.Click += ButtonKaydet_Click;
+            // 
+            // ButtonGüncelle
+            // 
+            ButtonGüncelle.Location = new Point(936, 34);
+            ButtonGüncelle.Margin = new Padding(3, 2, 3, 2);
+            ButtonGüncelle.Name = "ButtonGüncelle";
+            ButtonGüncelle.Size = new Size(101, 29);
+            ButtonGüncelle.TabIndex = 50;
+            ButtonGüncelle.Text = "Güncelle";
+            ButtonGüncelle.Visible = false;
+            ButtonGüncelle.Click += ButtonGüncelle_Click;
+            // 
+            // homePageButton
+            // 
+            homePageButton.Appearance.BackColor = SystemColors.Menu;
+            homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
+            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Name = "homePageButton";
+            homePageButton.Size = new Size(32, 32);
+            homePageButton.TabIndex = 43;
+            homePageButton.Click += homePageButton_Click;
+            // 
             // dataAddButton
             // 
             dataAddButton.Appearance.BackColor = SystemColors.Menu;
@@ -168,6 +210,7 @@
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(32, 32);
             dataAddButton.TabIndex = 29;
+            dataAddButton.Click += dataAddButton_Click;
             // 
             // searchButton
             // 
@@ -183,6 +226,7 @@
             searchButton.Name = "searchButton";
             searchButton.Size = new Size(32, 32);
             searchButton.TabIndex = 25;
+            searchButton.Click += searchButton_Click;
             // 
             // deleteButton
             // 
@@ -195,6 +239,7 @@
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(32, 32);
             deleteButton.TabIndex = 28;
+            deleteButton.Click += deleteButton_Click;
             // 
             // onlyViewButton
             // 
@@ -220,6 +265,7 @@
             editButton.Name = "editButton";
             editButton.Size = new Size(32, 32);
             editButton.TabIndex = 27;
+            editButton.Click += editButton_Click;
             // 
             // dataSehirGrid
             // 
@@ -234,18 +280,7 @@
             // 
             gridView1.GridControl = dataSehirGrid;
             gridView1.Name = "gridView1";
-            // 
-            // homePageButton
-            // 
-            homePageButton.Appearance.BackColor = SystemColors.Menu;
-            homePageButton.Appearance.Options.UseBackColor = true;
-            homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1164, 32);
-            homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(32, 32);
-            homePageButton.TabIndex = 43;
-            homePageButton.Click += homePageButton_Click;
+            gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // rotaTypeForm
             // 
@@ -260,10 +295,10 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textRotaTipAck.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textRotaTip.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).EndInit();
@@ -274,13 +309,13 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textSehirUlkeCode;
+        private DevExpress.XtraEditors.TextEdit textIsPassive;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
-        private DevExpress.XtraEditors.TextEdit textSehirName;
+        private DevExpress.XtraEditors.TextEdit textRotaTipAck;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
-        private DevExpress.XtraEditors.TextEdit textSehirCode;
+        private DevExpress.XtraEditors.TextEdit textRotaTip;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textSehirFirmaCode;
+        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataSehirGrid;
@@ -291,5 +326,7 @@
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
         private DevExpress.XtraEditors.SimpleButton homePageButton;
+        private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
+        private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
     }
 }

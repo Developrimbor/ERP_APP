@@ -49,6 +49,7 @@
             textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             searchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -247,6 +248,7 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(simpleButton1);
             islemlerSehirText.Controls.Add(homePageButton);
             islemlerSehirText.Controls.Add(dataAddButton);
             islemlerSehirText.Controls.Add(searchButton);
@@ -258,6 +260,17 @@
             islemlerSehirText.Size = new Size(1210, 73);
             islemlerSehirText.TabIndex = 35;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // simpleButton1
+            // 
+            simpleButton1.Appearance.BackColor = SystemColors.Menu;
+            simpleButton1.Appearance.Options.UseBackColor = true;
+            simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
+            simpleButton1.Location = new Point(1117, 32);
+            simpleButton1.Name = "simpleButton1";
+            simpleButton1.Size = new Size(32, 32);
+            simpleButton1.TabIndex = 43;
             // 
             // homePageButton
             // 
@@ -389,6 +402,7 @@
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton homePageButton;
     }
 }
