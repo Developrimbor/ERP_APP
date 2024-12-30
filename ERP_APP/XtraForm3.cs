@@ -85,10 +85,13 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textUlkeFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textUlkeCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
-
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
+            textUlkeFirmaCode.ReadOnly = true;
+            textUlkeCode.ReadOnly = true;
+            textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ButtonGüncelle.Visible=false;
             listele();
         }
 
@@ -106,7 +109,9 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textUlkeCode.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-
+                textUlkeFirmaCode.ReadOnly = true;
+                textUlkeCode.ReadOnly = true;
+                textDilName.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }

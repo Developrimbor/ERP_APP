@@ -61,9 +61,9 @@ namespace ERP_APP
             textDilCode.ReadOnly = false;
             textDilFirmaCode.ReadOnly = false;
             textDilName.ReadOnly = false;
-            textDilCode.Text = "";
-            textDilFirmaCode.Text = "";
-            textDilName.Text = "";
+            textDilCode.Text = string.Empty;
+            textDilFirmaCode.Text = string.Empty;
+            textDilName.Text = string.Empty;
            
         }
 
@@ -75,9 +75,9 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textDilCode.Text = "";
-            textDilFirmaCode.Text = "";
-            textDilName.Text = "";
+            textDilCode.Text = string.Empty;
+            textDilFirmaCode.Text = string.Empty ;
+            textDilName.Text = string.Empty;
             textDilCode.ReadOnly = true;
             textDilFirmaCode.ReadOnly = true;
             textDilName.ReadOnly = true;
