@@ -39,14 +39,7 @@ namespace ERP_APP
 
 
         }
-        //private void dataDilGrid_FocusedRowChanged (object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        //{
-
-        //    DataRow dr = dataDilGrid.GetDataRow(gridView1.FocusedRowHandle);
-        //    textDilFirmaCode.Text = dr["COMCODE"].ToString();
-        //    textDilCode.Text = dr["LANCODE"].ToString();
-        //    textDilName.Text = dr["LANTEXT"].ToString();
-        // }
+     
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
@@ -81,6 +74,10 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
+            textDilCode.Text = string.Empty;
+            textDilFirmaCode.Text = string.Empty;
+            textDilName.Text = string.Empty;
+            ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }

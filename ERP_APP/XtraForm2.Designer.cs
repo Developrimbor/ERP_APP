@@ -153,7 +153,7 @@
             // 
             // ButtonGüncelle
             // 
-            ButtonGüncelle.Location = new Point(1208, 41);
+            ButtonGüncelle.Location = new Point(1084, 42);
             ButtonGüncelle.Name = "ButtonGüncelle";
             ButtonGüncelle.Size = new Size(118, 36);
             ButtonGüncelle.TabIndex = 45;
