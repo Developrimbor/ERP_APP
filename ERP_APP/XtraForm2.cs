@@ -25,14 +25,14 @@ namespace ERP_APP
 
         }
 
-        
+
         private void dilForm_Load(object sender, EventArgs e)
         {
 
 
 
         }
-     
+
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
@@ -68,7 +68,7 @@ namespace ERP_APP
             textDilCode.Text = string.Empty;
             textDilFirmaCode.Text = string.Empty;
             textDilName.Text = string.Empty;
-           
+
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace ERP_APP
             bgl.baglanti().Close();
 
             textDilCode.Text = string.Empty;
-            textDilFirmaCode.Text = string.Empty ;
+            textDilFirmaCode.Text = string.Empty;
             textDilName.Text = string.Empty;
 
             textDilCode.ReadOnly = true;
@@ -129,14 +129,14 @@ namespace ERP_APP
             textDilFirmaCode.ReadOnly = true;
             textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            ButtonGüncelle.Visible=false;
+            ButtonGüncelle.Visible = false;
             listele();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            ButtonKaydet.Visible=false;
-            ButtonGüncelle.Visible=false;
+            ButtonKaydet.Visible = false;
+            ButtonGüncelle.Visible = false;
             // Soru sorma MessageBox
             DialogResult result = MessageBox.Show("Silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -159,6 +159,28 @@ namespace ERP_APP
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', LANCODE AS 'DİL KODU', LANTEXT AS 'DİL ADI' " +
+                "FROM BSMGRCDMGEN002 " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR LANCODE LIKE '%' + @p1 + '%' OR LANTEXT LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataDilGrid.DataSource = dt;
+                }
+            }
+        }
+
 
     }
 }
