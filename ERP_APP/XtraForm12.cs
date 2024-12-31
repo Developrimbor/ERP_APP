@@ -36,8 +36,8 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textMalzTipi.Text = dr["MALZEME TİPİ"].ToString();
                 textMalzKodu.Text = dr["MALZEME KODU"].ToString();
-                textGecBas.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
-                textGecBit.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
+                dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
+                dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
                 textDilKodu.Text = dr["DİL KODU"].ToString();
                 textMalzKısaAck.Text = dr["MALZEME KISA AÇIKLAMASI"].ToString();
                 textUzunAck.Text = dr["MALZEME UZUN AÇIKLAMASI"].ToString();
@@ -66,8 +66,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textMalzTipi.Text);
             komut.Parameters.AddWithValue("@P3", textMalzKodu.Text);
-            komut.Parameters.AddWithValue("@P4", textGecBas.Text);
-            komut.Parameters.AddWithValue("@P5", textGecBit.Text);
+            komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P6", textDilKodu.Text);
             komut.Parameters.AddWithValue("@P7", textMalzKısaAck.Text);
             komut.Parameters.AddWithValue("@P8", textUzunAck.Text);
@@ -77,8 +77,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = true;
             textMalzTipi.ReadOnly = true;
             textMalzKodu.ReadOnly = true;
-            textGecBas.ReadOnly = true;
-            textGecBit.ReadOnly = true;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             textDilKodu.ReadOnly = true;
             textMalzKısaAck.ReadOnly = true;
             textUzunAck.ReadOnly = true;
@@ -93,8 +93,11 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textMalzTipi.Text);
             komut.Parameters.AddWithValue("@p3", textMalzKodu.Text);
-            komut.Parameters.AddWithValue("@p4", textGecBas.Text);
-            komut.Parameters.AddWithValue("@p5", textGecBit.Text);
+         
+
+            komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+
             komut.Parameters.AddWithValue("@p6", textDilKodu.Text);
             komut.Parameters.AddWithValue("@p7", textMalzKısaAck.Text);
             komut.Parameters.AddWithValue("@p8", textUzunAck.Text);
@@ -105,8 +108,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textMalzTipi.Text = string.Empty;
             textMalzKodu.Text = string.Empty;
-            textGecBas.Text = string.Empty;
-            textGecBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             textDilKodu.Text = string.Empty;
             textMalzKısaAck.Text = string.Empty;
             textUzunAck.Text = string.Empty;
@@ -114,8 +117,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = true;
             textMalzTipi.ReadOnly = true;
             textMalzKodu.ReadOnly = true;
-            textGecBas.ReadOnly = true;
-            textGecBit.ReadOnly = true;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             textDilKodu.ReadOnly = true;
             textMalzKısaAck.ReadOnly = true;
             textUzunAck.ReadOnly = true;
@@ -132,8 +135,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalzTipi.ReadOnly = false;
             textMalzKodu.ReadOnly = false;
-            textGecBas.ReadOnly = false;
-            textGecBit.ReadOnly = false;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             textDilKodu.ReadOnly = false;
             textMalzKısaAck.ReadOnly = false;
             textUzunAck.ReadOnly = false;
@@ -147,8 +150,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalzTipi.ReadOnly = false;
             textMalzKodu.ReadOnly = false;
-            textGecBas.ReadOnly = false;
-            textGecBit.ReadOnly = false;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             textDilKodu.ReadOnly = false;
             textMalzKısaAck.ReadOnly = false;
             textUzunAck.ReadOnly = false;
@@ -156,8 +159,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textMalzTipi.Text = string.Empty;
             textMalzKodu.Text = string.Empty;
-            textGecBas.Text = string.Empty;
-            textGecBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             textDilKodu.Text = string.Empty;
             textMalzKısaAck.Text = string.Empty;
             textUzunAck.Text = string.Empty;
@@ -180,8 +183,8 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textMalzTipi.ReadOnly = true;
                 textMalzKodu.ReadOnly = true;
-                textGecBas.ReadOnly = true;
-                textGecBit.ReadOnly = true;
+                dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+                dateTimeBitis.Enabled = false;
                 textDilKodu.ReadOnly = true;
                 textMalzKısaAck.ReadOnly = true;
                 textUzunAck.ReadOnly = true;

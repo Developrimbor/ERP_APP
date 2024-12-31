@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(matInfoForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            dateTimeBitis = new DateTimePicker();
+            dateTimeBaslangic = new DateTimePicker();
             textUzunAck = new DevExpress.XtraEditors.TextEdit();
-            textGecBit = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textGecBas = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textMalzTipi = new DevExpress.XtraEditors.TextEdit();
@@ -46,6 +46,8 @@
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
             textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
+            textGecBit = new DevExpress.XtraEditors.TextEdit();
+            textGecBas = new DevExpress.XtraEditors.TextEdit();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
@@ -60,13 +62,13 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textUzunAck.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzTipi.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textDilKodu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
@@ -75,10 +77,10 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(dateTimeBitis);
+            sehirSearchControl.Controls.Add(dateTimeBaslangic);
             sehirSearchControl.Controls.Add(textUzunAck);
-            sehirSearchControl.Controls.Add(textGecBit);
             sehirSearchControl.Controls.Add(labelControl5);
-            sehirSearchControl.Controls.Add(textGecBas);
             sehirSearchControl.Controls.Add(labelControl4);
             sehirSearchControl.Controls.Add(labelControl3);
             sehirSearchControl.Controls.Add(textMalzTipi);
@@ -98,6 +100,22 @@
             sehirSearchControl.TabIndex = 33;
             sehirSearchControl.Text = "Arama";
             // 
+            // dateTimeBitis
+            // 
+            dateTimeBitis.Enabled = false;
+            dateTimeBitis.Location = new Point(733, 166);
+            dateTimeBitis.Name = "dateTimeBitis";
+            dateTimeBitis.Size = new Size(250, 23);
+            dateTimeBitis.TabIndex = 29;
+            // 
+            // dateTimeBaslangic
+            // 
+            dateTimeBaslangic.Enabled = false;
+            dateTimeBaslangic.Location = new Point(450, 165);
+            dateTimeBaslangic.Name = "dateTimeBaslangic";
+            dateTimeBaslangic.Size = new Size(250, 23);
+            dateTimeBaslangic.TabIndex = 28;
+            // 
             // textUzunAck
             // 
             textUzunAck.Location = new Point(765, 78);
@@ -106,15 +124,6 @@
             textUzunAck.Properties.ReadOnly = true;
             textUzunAck.Size = new Size(180, 22);
             textUzunAck.TabIndex = 27;
-            // 
-            // textGecBit
-            // 
-            textGecBit.Location = new Point(716, 162);
-            textGecBit.Margin = new Padding(4);
-            textGecBit.Name = "textGecBit";
-            textGecBit.Properties.ReadOnly = true;
-            textGecBit.Size = new Size(180, 22);
-            textGecBit.TabIndex = 26;
             // 
             // labelControl5
             // 
@@ -126,15 +135,6 @@
             labelControl5.Size = new Size(186, 25);
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
-            // 
-            // textGecBas
-            // 
-            textGecBas.Location = new Point(439, 162);
-            textGecBas.Margin = new Padding(4);
-            textGecBas.Name = "textGecBas";
-            textGecBas.Properties.ReadOnly = true;
-            textGecBas.Size = new Size(180, 22);
-            textGecBas.TabIndex = 24;
             // 
             // labelControl4
             // 
@@ -258,12 +258,32 @@
             labelBirimFirmaCode.TabIndex = 9;
             labelBirimFirmaCode.Text = "FİRMA KODU";
             // 
+            // textGecBit
+            // 
+            textGecBit.Location = new Point(705, 32);
+            textGecBit.Margin = new Padding(4);
+            textGecBit.Name = "textGecBit";
+            textGecBit.Properties.ReadOnly = true;
+            textGecBit.Size = new Size(180, 22);
+            textGecBit.TabIndex = 26;
+            // 
+            // textGecBas
+            // 
+            textGecBas.Location = new Point(450, 36);
+            textGecBas.Margin = new Padding(4);
+            textGecBas.Name = "textGecBas";
+            textGecBas.Properties.ReadOnly = true;
+            textGecBas.Size = new Size(180, 22);
+            textGecBas.TabIndex = 24;
+            // 
             // islemlerSehirText
             // 
             islemlerSehirText.Controls.Add(ButtonKaydet);
             islemlerSehirText.Controls.Add(homePageButton);
+            islemlerSehirText.Controls.Add(textGecBit);
             islemlerSehirText.Controls.Add(ButtonGüncelle);
             islemlerSehirText.Controls.Add(dataAddButton);
+            islemlerSehirText.Controls.Add(textGecBas);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
             islemlerSehirText.Controls.Add(onlyViewButton);
@@ -415,13 +435,13 @@
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textUzunAck.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzTipi.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textDilKodu.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
@@ -459,5 +479,7 @@
         private DevExpress.XtraEditors.TextEdit textUzunAck;
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
+        private DateTimePicker dateTimeBitis;
+        private DateTimePicker dateTimeBaslangic;
     }
 }
