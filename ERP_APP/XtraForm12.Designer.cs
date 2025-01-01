@@ -113,7 +113,7 @@
             dateTimeBaslangic.Name = "dateTimeBaslangic";
             dateTimeBaslangic.Size = new Size(250, 23);
             dateTimeBaslangic.TabIndex = 28;
-            dateTimeBaslangic.ValueChanged += this.dateTimeBaslangic_ValueChanged;
+            //dateTimeBaslangic.ValueChanged += this.dateTimeBaslangic_ValueChanged;
             // 
             // textUzunAck
             // 
