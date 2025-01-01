@@ -26,7 +26,6 @@ namespace ERP_APP
 
             xtraForm.Show();
             this.Hide();
-
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -34,16 +33,14 @@ namespace ERP_APP
             DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             if (dr != null)
             {
-
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textMaliyetMerkTip.Text = dr["MALİYET MERKEZİ TİPİ"].ToString();
                 textMaliyetMerkezCode.Text = dr["MALİYET MERKEZİ KODU"].ToString();
                 textGecerlilikBas.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
                 textGecerlilikBit.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
-                textUlkeCode.Text = dr["DİL KODU"].ToString();
+                comboBoxDil.SelectedItem = dr["DİL KODU"].ToString();
                 textMalMerAcik.Text = dr["MALİYET MERKEZİ KISA AÇIKLAMASI"].ToString();
                 textMaliyetMerUzunAcik.Text = dr["MALİYET MERKEZİ UZUN AÇIKLAMASI"].ToString();
-
             }
         }
 
@@ -54,6 +51,22 @@ namespace ERP_APP
             SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", CCMDOCTYPE AS \"MALİYET MERKEZİ TİPİ\", CCMDOCNUM AS \"MALİYET MERKEZİ KODU\" , CCMDOCFROM AS \"GEÇERLİLİK BAŞLANGIÇ\" , CCMDOCUNTIL AS \"GEÇERLİLİK BİTİŞ\" , LANCODE AS \"DİL KODU\" , CCMSTEXT AS \"MALİYET MERKEZİ KISA AÇIKLAMASI\" , CCMLTEXT AS \"MALİYET MERKEZİ UZUN AÇIKLAMASI\"  FROM BSMGRCDMCCMTEXT;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataGrid.DataSource = dt;
+        }
+
+        void DilComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT LANCODE FROM BSMGRCDMGEN002", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxDil.Items.Add(dr["LANCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void costCenterForm_Load(object sender, EventArgs e)
+        {
+            DilComboBoxDoldur();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -67,14 +80,14 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
-            textMaliyetMerkTip.ReadOnly = false;
-            textMaliyetMerkezCode.ReadOnly = false;
-            textGecerlilikBas.ReadOnly = false;
-            textGecerlilikBit.ReadOnly = false;
-            textUlkeCode.ReadOnly = false;
-            textMalMerAcik.ReadOnly = false;
-            textMaliyetMerUzunAcik.ReadOnly = false;
+            textFirmaCode.Enabled = true;
+            textMaliyetMerkTip.Enabled = true;
+            textMaliyetMerkezCode.Enabled = true;
+            textGecerlilikBas.Enabled = true;
+            textGecerlilikBit.Enabled = true;
+            comboBoxDil.Enabled = true; //enabled
+            textMalMerAcik.Enabled = true;
+            textMaliyetMerUzunAcik.Enabled = true;
         }
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
@@ -85,21 +98,20 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P3", textMaliyetMerkezCode.Text);
             komut.Parameters.AddWithValue("@P4", textGecerlilikBas.Text);
             komut.Parameters.AddWithValue("@P5", textGecerlilikBit.Text);
-            komut.Parameters.AddWithValue("@P6", textUlkeCode.Text);
+            komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty); //veriyi çektim
             komut.Parameters.AddWithValue("@P7", textMalMerAcik.Text);
             komut.Parameters.AddWithValue("@P8", textMaliyetMerUzunAcik.Text);
 
-
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
-            textMaliyetMerkTip.ReadOnly = true;
-            textMaliyetMerkezCode.ReadOnly = true;
-            textGecerlilikBas.ReadOnly = true;
-            textGecerlilikBit.ReadOnly = true;
-            textUlkeCode.ReadOnly = true;
-            textMalMerAcik.ReadOnly = true;
-            textMaliyetMerUzunAcik.ReadOnly = true;
+            textFirmaCode.Enabled = false;
+            textMaliyetMerkTip.Enabled = false;
+            textMaliyetMerkezCode.Enabled = false;
+            textGecerlilikBas.Enabled = false;
+            textGecerlilikBit.Enabled = false;
+            comboBoxDil.Enabled = false;
+            textMalMerAcik.Enabled = false;
+            textMaliyetMerUzunAcik.Enabled = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -113,10 +125,9 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p3", textMaliyetMerkezCode.Text);
             komut.Parameters.AddWithValue("@p4", textGecerlilikBas.Text);
             komut.Parameters.AddWithValue("@p5", textGecerlilikBit.Text);
-            komut.Parameters.AddWithValue("@p6", textUlkeCode.Text);
+            komut.Parameters.AddWithValue("@p6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty); //veriyi çektim
             komut.Parameters.AddWithValue("@p7", textMalMerAcik.Text);
             komut.Parameters.AddWithValue("@p8", textMaliyetMerUzunAcik.Text);
-
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -126,19 +137,18 @@ namespace ERP_APP
             textMaliyetMerkezCode.Text = string.Empty;
             textGecerlilikBas.Text = string.Empty;
             textGecerlilikBit.Text = string.Empty;
-            textUlkeCode.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1; //sıfırladık içini
             textMalMerAcik.Text = string.Empty;
             textMaliyetMerUzunAcik.Text = string.Empty;
 
-
-            textFirmaCode.ReadOnly = true;
-            textMaliyetMerkTip.ReadOnly = true;
-            textMaliyetMerkezCode.ReadOnly = true;
-            textGecerlilikBas.ReadOnly = true;
-            textGecerlilikBit.ReadOnly = true;
-            textUlkeCode.ReadOnly = true;
-            textMalMerAcik.ReadOnly = true;
-            textMaliyetMerUzunAcik.ReadOnly = true;
+            textFirmaCode.Enabled = false;
+            textMaliyetMerkTip.Enabled = false;
+            textMaliyetMerkezCode.Enabled = false;
+            textGecerlilikBas.Enabled = false;
+            textGecerlilikBit.Enabled = false;
+            comboBoxDil.Enabled = false;
+            textMalMerAcik.Enabled = false;
+            textMaliyetMerUzunAcik.Enabled = false;
             ButtonKaydet.Visible = false;
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -155,7 +165,7 @@ namespace ERP_APP
             textMaliyetMerkezCode.ReadOnly = false;
             textGecerlilikBas.ReadOnly = false;
             textGecerlilikBit.ReadOnly = false;
-            textUlkeCode.ReadOnly = false;
+            comboBoxDil.Enabled = true;  // ReadOnly yerine Enabled olarak değiştirildi
             textMalMerAcik.ReadOnly = false;
             textMaliyetMerUzunAcik.ReadOnly = false;
 
@@ -164,7 +174,7 @@ namespace ERP_APP
             textMaliyetMerkezCode.Text = string.Empty;
             textGecerlilikBas.Text = string.Empty;
             textGecerlilikBit.Text = string.Empty;
-            textUlkeCode.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1; // ComboBox'ı sıfırla
             textMalMerAcik.Text = string.Empty;
             textMaliyetMerUzunAcik.Text = string.Empty;
         }
@@ -173,30 +183,30 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = false;
-            // Soru sorma MessageBox
+
             DialogResult result = MessageBox.Show("Silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                // SQL komutunu çalıştırma
                 SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMCCMTEXT where CCMDOCTYPE=@p1", bgl.baglanti());
                 komutsil.Parameters.AddWithValue("@p1", textMaliyetMerkTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
+
                 textFirmaCode.ReadOnly = true;
                 textMaliyetMerkTip.ReadOnly = true;
                 textMaliyetMerkezCode.ReadOnly = true;
                 textGecerlilikBas.ReadOnly = true;
                 textGecerlilikBit.ReadOnly = true;
-                textUlkeCode.ReadOnly = true;
+                comboBoxDil.Enabled = false; // ReadOnly değil, artık kapalı.
                 textMalMerAcik.ReadOnly = true;
                 textMaliyetMerUzunAcik.ReadOnly = true;
+
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
             else
             {
-                // Kullanıcı "İptal" butonuna basarsa hiçbir işlem yapılmaz
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -221,5 +231,7 @@ namespace ERP_APP
                 }
             }
         }
+
+      
     }
 }

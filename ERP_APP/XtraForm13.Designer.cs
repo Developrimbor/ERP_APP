@@ -32,6 +32,7 @@
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxDil = new ComboBox();
             textGecerlilikBit = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             textGecerlilikBas = new DevExpress.XtraEditors.TextEdit();
@@ -49,6 +50,7 @@
             textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
@@ -57,7 +59,6 @@
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
-            textArat = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
@@ -95,6 +96,7 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxDil);
             sehirSearchControl.Controls.Add(textGecerlilikBit);
             sehirSearchControl.Controls.Add(labelControl5);
             sehirSearchControl.Controls.Add(textGecerlilikBas);
@@ -117,6 +119,15 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 36;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxDil
+            // 
+            comboBoxDil.Enabled = false;
+            comboBoxDil.FormattingEnabled = true;
+            comboBoxDil.Location = new Point(314, 160);
+            comboBoxDil.Name = "comboBoxDil";
+            comboBoxDil.Size = new Size(151, 24);
+            comboBoxDil.TabIndex = 27;
             // 
             // textGecerlilikBit
             // 
@@ -200,7 +211,7 @@
             // 
             // textUlkeCode
             // 
-            textUlkeCode.Location = new Point(301, 162);
+            textUlkeCode.Location = new Point(526, 123);
             textUlkeCode.Margin = new Padding(4);
             textUlkeCode.Name = "textUlkeCode";
             textUlkeCode.Properties.ReadOnly = true;
@@ -295,6 +306,13 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 35;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(279, 49);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 48;
             // 
             // ButtonKaydet
             // 
@@ -402,13 +420,6 @@
             editButton.TabIndex = 39;
             editButton.Click += editButton_Click;
             // 
-            // textArat
-            // 
-            textArat.Location = new Point(279, 49);
-            textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
-            textArat.TabIndex = 48;
-            // 
             // costCenterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -420,6 +431,7 @@
             Margin = new Padding(4);
             Name = "costCenterForm";
             Text = "MALİYET MERKEZİ";
+            Load += costCenterForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
@@ -470,5 +482,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private TextBox textArat;
+        private ComboBox comboBoxDil;
     }
 }
