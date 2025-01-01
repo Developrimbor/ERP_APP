@@ -36,7 +36,6 @@
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textUrnAgcTip = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -50,11 +49,11 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textUrnAgcTipAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUrnAgcTip.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).BeginInit();
@@ -63,13 +62,13 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textUrnAgcTipAck);
             sehirSearchControl.Controls.Add(labelSehirName);
             sehirSearchControl.Controls.Add(textUrnAgcTip);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -138,15 +137,6 @@
             labelSehirCode.Size = new Size(179, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "ÜRÜN AĞACI TİPİ";
-            // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(13, 111);
-            textFirmaCode.Margin = new Padding(4);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(180, 22);
-            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
@@ -310,6 +300,16 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 54;
+            // 
             // urunAgaciForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -321,12 +321,12 @@
             Margin = new Padding(4);
             Name = "urunAgaciForm";
             Text = "ÜRÜN AĞACI";
+            Load += urunAgaciForm_Load;
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textUrnAgcTipAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUrnAgcTip.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -343,7 +343,6 @@
         private DevExpress.XtraEditors.LabelControl labelSehirName;
         private DevExpress.XtraEditors.TextEdit textUrnAgcTip;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataSehirGrid;
@@ -358,5 +357,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
         private CheckBox checkBoxPasif;
+        private ComboBox comboBoxFirmaKod;
     }
 }

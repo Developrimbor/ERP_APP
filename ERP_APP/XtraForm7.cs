@@ -34,7 +34,7 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textMalMerkTip.Text = dr["MALZEME TİPİ"].ToString();
                 textMalMerTipAck.Text = dr["MALZEME TİPİ AÇIKLAMASI"].ToString();
                 if (dr["PASİF Mİ"].ToString() == "Evet")
@@ -68,14 +68,14 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMCCM001 SET COMCODE = @P1, DOCTYPE = @P2, DOCTYPETEXT = @P3, ISPASSIVE = @P4 WHERE DOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textMalMerkTip.Text);
             komut.Parameters.AddWithValue("@P3", textMalMerTipAck.Text);
             komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textMalMerkTip.ReadOnly = true;
             textMalMerTipAck.ReadOnly = true;
             checkBoxPasif.Checked = false;
@@ -89,7 +89,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textMalMerkTip.ReadOnly = false;
             textMalMerTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
@@ -100,10 +100,10 @@ namespace ERP_APP
         {
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textMalMerkTip.ReadOnly = false;
             textMalMerTipAck.ReadOnly = false;
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textMalMerkTip.Text = string.Empty;
             textMalMerTipAck.Text = string.Empty;
 
@@ -125,7 +125,7 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textMalMerkTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textMalMerkTip.ReadOnly = true;
                 textMalMerTipAck.ReadOnly = true;
                 checkBoxPasif.Enabled = false;
@@ -143,17 +143,17 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMCCM001 (COMCODE,DOCTYPE,DOCTYPETEXT,ISPASSIVE) values (@p1,@p2,@p3,@p4)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textMalMerkTip.Text);
             komut.Parameters.AddWithValue("@p3", textMalMerTipAck.Text);
             komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textMalMerkTip.Text = string.Empty;
             textMalMerTipAck.Text = string.Empty;
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textMalMerkTip.ReadOnly = true;
             textMalMerTipAck.ReadOnly = true;
             ButtonKaydet.Visible = false;
@@ -183,6 +183,22 @@ namespace ERP_APP
                     dataMaliyetMerkezi.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void malMerForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
         }
     }
 }

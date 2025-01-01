@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(malMerForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            checkBoxPasif = new CheckBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalMerTipAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textMalMerkTip = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -49,12 +49,11 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataMaliyetMerkezi = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            checkBoxPasif = new CheckBox();
+            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textMalMerTipAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerkTip.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataMaliyetMerkezi).BeginInit();
@@ -63,13 +62,13 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalMerTipAck);
             sehirSearchControl.Controls.Add(labelSehirName);
             sehirSearchControl.Controls.Add(textMalMerkTip);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -77,6 +76,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 21;
             sehirSearchControl.Text = "Arama";
+            // 
+            // checkBoxPasif
+            // 
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(1038, 74);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 52;
+            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // labelSehirUlkeCode
             // 
@@ -128,15 +137,6 @@
             labelSehirCode.Size = new Size(239, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "MALİYET MERKEZİ TİPİ";
-            // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(13, 111);
-            textFirmaCode.Margin = new Padding(4);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(180, 22);
-            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
@@ -300,15 +300,15 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // checkBoxPasif
+            // comboBoxFirmaKod
             // 
-            checkBoxPasif.AutoSize = true;
-            checkBoxPasif.Enabled = false;
-            checkBoxPasif.Location = new Point(1038, 74);
-            checkBoxPasif.Name = "checkBoxPasif";
-            checkBoxPasif.Size = new Size(18, 17);
-            checkBoxPasif.TabIndex = 52;
-            checkBoxPasif.UseVisualStyleBackColor = true;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(15, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 53;
             // 
             // malMerForm
             // 
@@ -321,12 +321,12 @@
             Margin = new Padding(4);
             Name = "malMerForm";
             Text = "MALİYET MERKEZİ";
+            Load += malMerForm_Load;
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textMalMerTipAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerkTip.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -343,7 +343,6 @@
         private DevExpress.XtraEditors.LabelControl labelSehirName;
         private DevExpress.XtraEditors.TextEdit textMalMerkTip;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataMaliyetMerkezi;
@@ -358,5 +357,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
         private CheckBox checkBoxPasif;
+        private ComboBox comboBoxFirmaKod;
     }
 }

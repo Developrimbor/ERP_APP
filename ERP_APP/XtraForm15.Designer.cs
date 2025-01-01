@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(anaEkranUrunAgaciForm));
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -50,8 +50,9 @@
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalzemeKodu = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
-            textMalzemeTipi = new DevExpress.XtraEditors.TextEdit();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            dateTimeBitis = new DateTimePicker();
+            dateTimeBaslangic = new DateTimePicker();
             checkBoxPasif = new CheckBox();
             checkBoxSilindi = new CheckBox();
             textCizimNo = new DevExpress.XtraEditors.TextEdit();
@@ -59,34 +60,30 @@
             textTemelMiktar = new DevExpress.XtraEditors.TextEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            textUrunAgcTip = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
-            dateTimeBaslangic = new DateTimePicker();
-            dateTimeBitis = new DateTimePicker();
+            comboBoxFirmaKod = new ComboBox();
+            comboBoxMalzemeTip = new ComboBox();
+            comboBoxUrnAgcTip = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textUrunAgacKod.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textCizimNo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             SuspendLayout();
             // 
             // dataGrid
             // 
             dataGrid.EmbeddedNavigator.Margin = new Padding(4);
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.RelationName = "Level2";
-            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode3, gridLevelNode4 });
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
+            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1, gridLevelNode2 });
             dataGrid.Location = new Point(-1, 297);
             dataGrid.MainView = gridView1;
             dataGrid.Margin = new Padding(4);
@@ -308,17 +305,11 @@
             labelSehirName.TabIndex = 13;
             labelSehirName.Text = "MALZEME KODU";
             // 
-            // textMalzemeTipi
-            // 
-            textMalzemeTipi.Location = new Point(195, 78);
-            textMalzemeTipi.Margin = new Padding(4);
-            textMalzemeTipi.Name = "textMalzemeTipi";
-            textMalzemeTipi.Properties.ReadOnly = true;
-            textMalzemeTipi.Size = new Size(227, 22);
-            textMalzemeTipi.TabIndex = 12;
-            // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxUrnAgcTip);
+            sehirSearchControl.Controls.Add(comboBoxMalzemeTip);
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(dateTimeBitis);
             sehirSearchControl.Controls.Add(dateTimeBaslangic);
             sehirSearchControl.Controls.Add(checkBoxPasif);
@@ -331,15 +322,12 @@
             sehirSearchControl.Controls.Add(labelControl5);
             sehirSearchControl.Controls.Add(labelControl4);
             sehirSearchControl.Controls.Add(labelControl3);
-            sehirSearchControl.Controls.Add(textUrunAgcTip);
             sehirSearchControl.Controls.Add(labelControl1);
             sehirSearchControl.Controls.Add(textUrunAgacKod);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalzemeKodu);
             sehirSearchControl.Controls.Add(labelSehirName);
-            sehirSearchControl.Controls.Add(textMalzemeTipi);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -347,6 +335,22 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 42;
             sehirSearchControl.Text = "Arama";
+            // 
+            // dateTimeBitis
+            // 
+            dateTimeBitis.Enabled = false;
+            dateTimeBitis.Location = new Point(1087, 165);
+            dateTimeBitis.Name = "dateTimeBitis";
+            dateTimeBitis.Size = new Size(250, 23);
+            dateTimeBitis.TabIndex = 46;
+            // 
+            // dateTimeBaslangic
+            // 
+            dateTimeBaslangic.Enabled = false;
+            dateTimeBaslangic.Location = new Point(764, 165);
+            dateTimeBaslangic.Name = "dateTimeBaslangic";
+            dateTimeBaslangic.Size = new Size(250, 23);
+            dateTimeBaslangic.TabIndex = 45;
             // 
             // checkBoxPasif
             // 
@@ -419,15 +423,6 @@
             labelControl2.TabIndex = 27;
             labelControl2.Text = "PASİF Mİ?";
             // 
-            // textUrunAgcTip
-            // 
-            textUrunAgcTip.Location = new Point(9, 162);
-            textUrunAgcTip.Margin = new Padding(4);
-            textUrunAgcTip.Name = "textUrunAgcTip";
-            textUrunAgcTip.Properties.ReadOnly = true;
-            textUrunAgcTip.Size = new Size(275, 22);
-            textUrunAgcTip.TabIndex = 18;
-            // 
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
@@ -450,15 +445,6 @@
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "MALZEME TİPİ";
             // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(9, 78);
-            textFirmaCode.Margin = new Padding(4);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(168, 22);
-            textFirmaCode.TabIndex = 10;
-            // 
             // labelBirimFirmaCode
             // 
             labelBirimFirmaCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
@@ -470,21 +456,35 @@
             labelBirimFirmaCode.TabIndex = 9;
             labelBirimFirmaCode.Text = "FİRMA KODU";
             // 
-            // dateTimeBaslangic
+            // comboBoxFirmaKod
             // 
-            dateTimeBaslangic.Enabled = false;
-            dateTimeBaslangic.Location = new Point(764, 165);
-            dateTimeBaslangic.Name = "dateTimeBaslangic";
-            dateTimeBaslangic.Size = new Size(250, 23);
-            dateTimeBaslangic.TabIndex = 45;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(9, 76);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(163, 24);
+            comboBoxFirmaKod.TabIndex = 56;
             // 
-            // dateTimeBitis
+            // comboBoxMalzemeTip
             // 
-            dateTimeBitis.Enabled = false;
-            dateTimeBitis.Location = new Point(1087, 165);
-            dateTimeBitis.Name = "dateTimeBitis";
-            dateTimeBitis.Size = new Size(250, 23);
-            dateTimeBitis.TabIndex = 46;
+            comboBoxMalzemeTip.Enabled = false;
+            comboBoxMalzemeTip.FormattingEnabled = true;
+            comboBoxMalzemeTip.Location = new Point(195, 76);
+            comboBoxMalzemeTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxMalzemeTip.Name = "comboBoxMalzemeTip";
+            comboBoxMalzemeTip.Size = new Size(197, 24);
+            comboBoxMalzemeTip.TabIndex = 57;
+            // 
+            // comboBoxUrnAgcTip
+            // 
+            comboBoxUrnAgcTip.Enabled = false;
+            comboBoxUrnAgcTip.FormattingEnabled = true;
+            comboBoxUrnAgcTip.Location = new Point(9, 160);
+            comboBoxUrnAgcTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxUrnAgcTip.Name = "comboBoxUrnAgcTip";
+            comboBoxUrnAgcTip.Size = new Size(200, 24);
+            comboBoxUrnAgcTip.TabIndex = 58;
             // 
             // anaEkranUrunAgaciForm
             // 
@@ -497,6 +497,7 @@
             Margin = new Padding(4);
             Name = "anaEkranUrunAgaciForm";
             Text = "Ana Ekran Ürün Ağacı";
+            Load += anaEkranUrunAgaciForm_Load;
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
@@ -504,14 +505,11 @@
             islemlerSehirText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textUrunAgacKod.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textCizimNo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -527,12 +525,9 @@
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textMalzemeKodu;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
-        private DevExpress.XtraEditors.TextEdit textMalzemeTipi;
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textUrunAgcTip;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton dataAddButton;
@@ -552,5 +547,8 @@
         private CheckBox checkBoxPasif;
         private DateTimePicker dateTimeBaslangic;
         private DateTimePicker dateTimeBitis;
+        private ComboBox comboBoxFirmaKod;
+        private ComboBox comboBoxUrnAgcTip;
+        private ComboBox comboBoxMalzemeTip;
     }
 }

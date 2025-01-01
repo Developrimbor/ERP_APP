@@ -33,8 +33,8 @@ namespace ERP_APP
             DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             if (dr != null)
             {
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
-                textMaliyetMerkTip.Text = dr["MALİYET MERKEZİ TİPİ"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
+                comboBoxMalMerTip.SelectedItem = dr["MALİYET MERKEZİ TİPİ"].ToString();
                 textMaliyetMerkezCode.Text = dr["MALİYET MERKEZİ KODU"].ToString();
                 dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
                 dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
@@ -64,9 +64,33 @@ namespace ERP_APP
             bgl.baglanti().Close();
         }
 
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        void MaliyetMerkeziTipiComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT CCMDOCTYPE FROM BSMGRCDMCCM001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxMalMerTip.Items.Add(dr["CCMDOCTYPE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
         private void costCenterForm_Load(object sender, EventArgs e)
         {
             DilComboBoxDoldur();
+            FirmaKodComboBoxDoldur();
+            MaliyetMerkeziTipiComboBoxDoldur();
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -80,8 +104,8 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.Enabled = true;
-            textMaliyetMerkTip.Enabled = true;
+            comboBoxFirmaKod.Enabled = true;
+            comboBoxMalMerTip.Enabled = true;
             textMaliyetMerkezCode.Enabled = true;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
@@ -93,8 +117,8 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMCCMTEXT SET COMCODE = @P1, CCMDOCTYPE = @P2, CCMDOCNUM = @P3, CCMDOCFROM = @P4, CCMDOCUNTIL = @P5, LANCODE = @P6, CCMSTEXT = @P7, CCMLTEXT = @P8  WHERE CCMDOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
-            komut.Parameters.AddWithValue("@P2", textMaliyetMerkTip.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P2", comboBoxMalMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textMaliyetMerkezCode.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -104,8 +128,8 @@ namespace ERP_APP
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
-            textMaliyetMerkTip.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxMalMerTip.Enabled = false;
             textMaliyetMerkezCode.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
@@ -120,8 +144,8 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMCCMTEXT (COMCODE,CCMDOCTYPE,CCMDOCNUM,CCMDOCFROM,CCMDOCUNTIL,LANCODE,CCMSTEXT,CCMLTEXT) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
-            komut.Parameters.AddWithValue("@p2", textMaliyetMerkTip.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@p2", comboBoxMalMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p3", textMaliyetMerkezCode.Text);
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -132,8 +156,8 @@ namespace ERP_APP
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
-            textMaliyetMerkTip.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
+            comboBoxMalMerTip.SelectedIndex = -1;
             textMaliyetMerkezCode.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
@@ -141,8 +165,8 @@ namespace ERP_APP
             textMalMerAcik.Text = string.Empty;
             textMaliyetMerUzunAcik.Text = string.Empty;
 
-            textFirmaCode.Enabled = false;
-            textMaliyetMerkTip.Enabled = false;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxMalMerTip.Enabled = false;
             textMaliyetMerkezCode.Enabled = false;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
@@ -160,8 +184,8 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            textFirmaCode.ReadOnly = false;
-            textMaliyetMerkTip.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
+            comboBoxMalMerTip.Enabled = true;
             textMaliyetMerkezCode.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
@@ -169,8 +193,8 @@ namespace ERP_APP
             textMalMerAcik.ReadOnly = false;
             textMaliyetMerUzunAcik.ReadOnly = false;
 
-            textFirmaCode.Text = string.Empty;
-            textMaliyetMerkTip.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
+            comboBoxMalMerTip.SelectedIndex = -1;
             textMaliyetMerkezCode.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
@@ -189,12 +213,12 @@ namespace ERP_APP
             if (result == DialogResult.Yes)
             {
                 SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMCCMTEXT where CCMDOCTYPE=@p1", bgl.baglanti());
-                komutsil.Parameters.AddWithValue("@p1", textMaliyetMerkTip.Text);
+                komutsil.Parameters.AddWithValue("@p1", comboBoxMalMerTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
 
-                textFirmaCode.ReadOnly = true;
-                textMaliyetMerkTip.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
+                comboBoxMalMerTip.Enabled = false;
                 textMaliyetMerkezCode.ReadOnly = true;
                 dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
                 dateTimeBitis.Enabled = false;

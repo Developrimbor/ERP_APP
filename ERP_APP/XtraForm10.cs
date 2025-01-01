@@ -34,10 +34,17 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textIsMerkeziTip.Text = dr["İŞ MERKEZİ TİPİ"].ToString();
                 textIsMerkTipAck.Text = dr["İŞ MERKEZİ TİPİ AÇIKLAMASI"].ToString();
-                textIsPassive.Text = dr["PASİF Mİ"].ToString();
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
             }
         }
 
@@ -45,17 +52,17 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textIsMerkeziTip.ReadOnly = false;
             textIsMerkTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
         }
 
         sqlBaglanti bgl = new sqlBaglanti();
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"İŞ MERKEZİ TİPİ\", DOCTYPETEXT AS \"İŞ MERKEZİ TİPİ AÇIKLAMASI\" , ISPASSIVE AS \"PASİF Mİ\"   FROM BSMGRCDMWCM001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"İŞ MERKEZİ TİPİ\", DOCTYPETEXT AS \"İŞ MERKEZİ TİPİ AÇIKLAMASI\" , CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\"   FROM BSMGRCDMWCM001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataSehirGrid.DataSource = dt;
         }
@@ -70,17 +77,17 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMWCM001 SET COMCODE = @P1, DOCTYPE = @P2, DOCTYPETEXT = @P3, ISPASSIVE = @P4 WHERE DOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textIsMerkeziTip.Text);
             komut.Parameters.AddWithValue("@P3", textIsMerkTipAck.Text);
-            komut.Parameters.AddWithValue("@P4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textIsMerkeziTip.ReadOnly = true;
             textIsMerkTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
+            checkBoxPasif.Checked = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -89,23 +96,22 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMWCM001 (COMCODE,DOCTYPE,DOCTYPETEXT,ISPASSIVE) values (@p1,@p2,@p3,@p4)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textIsMerkeziTip.Text);
             komut.Parameters.AddWithValue("@p3", textIsMerkTipAck.Text);
-            komut.Parameters.AddWithValue("@p4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textIsMerkeziTip.Text = string.Empty;
             textIsMerkTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
+            checkBoxPasif.Checked = false;
 
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textIsMerkeziTip.ReadOnly = true;
             textIsMerkTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
             ButtonKaydet.Visible = false;
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,15 +123,16 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textIsMerkeziTip.ReadOnly = false;
             textIsMerkTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
 
-            textFirmaCode.Text = string.Empty;
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
+
+            comboBoxFirmaKod.SelectedIndex = -1;
             textIsMerkeziTip.Text = string.Empty;
             textIsMerkTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -142,10 +149,10 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textIsMerkeziTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textIsMerkeziTip.ReadOnly = true;
                 textIsMerkTipAck.ReadOnly = true;
-                textIsPassive.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -175,6 +182,22 @@ namespace ERP_APP
                     dataSehirGrid.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void isMerkezTipiForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
         }
     }
 }

@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oprsTypeForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            textIsPassive = new DevExpress.XtraEditors.TextEdit();
+            comboBoxFirmaKod = new ComboBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textOprTipAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textOprTip = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
@@ -49,13 +49,11 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             dataOprView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textArat = new TextBox();
+            checkBoxPasif = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textOprTipAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textOprTip.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
@@ -64,13 +62,13 @@
             // 
             // sehirSearchControl
             // 
-            sehirSearchControl.Controls.Add(textIsPassive);
+            sehirSearchControl.Controls.Add(checkBoxPasif);
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textOprTipAck);
             sehirSearchControl.Controls.Add(labelSehirName);
             sehirSearchControl.Controls.Add(textOprTip);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -79,20 +77,21 @@
             sehirSearchControl.TabIndex = 30;
             sehirSearchControl.Text = "Arama";
             // 
-            // textIsPassive
+            // comboBoxFirmaKod
             // 
-            textIsPassive.Location = new Point(810, 111);
-            textIsPassive.Margin = new Padding(4);
-            textIsPassive.Name = "textIsPassive";
-            textIsPassive.Properties.ReadOnly = true;
-            textIsPassive.Size = new Size(180, 22);
-            textIsPassive.TabIndex = 16;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 54;
             // 
             // labelSehirUlkeCode
             // 
             labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(810, 68);
+            labelSehirUlkeCode.Location = new Point(862, 68);
             labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
             labelSehirUlkeCode.Size = new Size(105, 25);
@@ -139,15 +138,6 @@
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "OPERASYON TİPİ";
             // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(13, 111);
-            textFirmaCode.Margin = new Padding(4);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(180, 22);
-            textFirmaCode.TabIndex = 10;
-            // 
             // labelBirimFirmaCode
             // 
             labelBirimFirmaCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
@@ -176,6 +166,13 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 29;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(280, 48);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 48;
             // 
             // ButtonKaydet
             // 
@@ -303,12 +300,15 @@
             dataOprView.OptionsEditForm.PopupEditFormWidth = 933;
             dataOprView.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // textArat
+            // checkBoxPasif
             // 
-            textArat.Location = new Point(280, 48);
-            textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
-            textArat.TabIndex = 48;
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(974, 76);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 53;
+            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // oprsTypeForm
             // 
@@ -321,13 +321,12 @@
             Margin = new Padding(4);
             Name = "oprsTypeForm";
             Text = "OPERASYON TİPİ";
+            Load += oprsTypeForm_Load;
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textOprTipAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textOprTip.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -339,13 +338,11 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textIsPassive;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textOprTipAck;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
         private DevExpress.XtraEditors.TextEdit textOprTip;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataGrid;
@@ -359,5 +356,7 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private TextBox textArat;
+        private ComboBox comboBoxFirmaKod;
+        private CheckBox checkBoxPasif;
     }
 }

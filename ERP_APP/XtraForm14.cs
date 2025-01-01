@@ -39,12 +39,12 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
-                textIsMerTip.Text = dr["İŞ MERKEZİ TİPİ"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
+                comboBoxIsMerTip.SelectedItem = dr["İŞ MERKEZİ TİPİ"].ToString();
                 textIsMerKod.Text = dr["İŞ MERKEZİ KODU"].ToString();
                 dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
                 dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
-                textDilKod.Text = dr["DİL KODU"].ToString();
+                comboBoxDil.SelectedItem = dr["DİL KODU"].ToString();
                 textIsMerKısaAck.Text = dr["İŞ MERKEZİ KISA AÇIKLAMASI"].ToString();
                 textIsMerUznAck.Text = dr["İŞ MERKEZİ UZUN AÇIKLAMASI"].ToString();
             }
@@ -69,23 +69,23 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMWCMTEXT SET COMCODE = @P1, WCMDOCTYPE = @P2, WCMDOCNUM = @P3, WCMDOCFROM = @P4, WCMDOCUNTIL = @P5, LANCODE = @P6, WCMSTEXT = @P7, WCMLTEXT = @P8 WHERE WCMDOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
-            komut.Parameters.AddWithValue("@P2", textIsMerTip.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P1", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textIsMerKod.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            komut.Parameters.AddWithValue("@P6", textDilKod.Text);
+            komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P7", textIsMerKısaAck.Text);
             komut.Parameters.AddWithValue("@P8", textIsMerUznAck.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
-            textIsMerTip.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxIsMerTip.Enabled = false;
             textIsMerKod.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
-            textDilKod.ReadOnly = true;
+            comboBoxDil.Enabled = false;
             textIsMerKısaAck.ReadOnly = true;
             textIsMerUznAck.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -96,33 +96,33 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMWCMTEXT (COMCODE,WCMDOCTYPE,WCMDOCNUM,WCMDOCFROM,WCMDOCUNTIL,LANCODE,WCMSTEXT,WCMLTEXT) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
-            komut.Parameters.AddWithValue("@p2", textIsMerTip.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P1", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p3", textIsMerKod.Text);
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            komut.Parameters.AddWithValue("@p6", textDilKod.Text);
+            komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p7", textIsMerKısaAck.Text);
             komut.Parameters.AddWithValue("@p8", textIsMerUznAck.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
-            textIsMerTip.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
+            comboBoxIsMerTip.SelectedIndex = -1;
             textIsMerKod.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
-            textDilKod.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1;
             textIsMerKısaAck.Text = string.Empty;
             textIsMerUznAck.Text = string.Empty;
 
-            textFirmaCode.ReadOnly = true;
-            textIsMerTip.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxIsMerTip.Enabled = false;
             textIsMerKod.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
-            textDilKod.ReadOnly = true;
+            comboBoxDil.Enabled = false;
             textIsMerKısaAck.ReadOnly = true;
             textIsMerUznAck.ReadOnly = true;
             ButtonKaydet.Visible = false;
@@ -135,12 +135,12 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
-            textIsMerTip.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
+            comboBoxIsMerTip.Enabled = true;
             textIsMerKod.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
-            textDilKod.ReadOnly = false;
+            comboBoxDil.Enabled = true;
             textIsMerKısaAck.ReadOnly = false;
             textIsMerUznAck.ReadOnly = false;
         }
@@ -150,21 +150,21 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            textFirmaCode.ReadOnly = false;
-            textIsMerTip.ReadOnly = false;
+            comboBoxDil.Enabled = true;
+            comboBoxIsMerTip.Enabled = true;
             textIsMerKod.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
-            textDilKod.ReadOnly = false;
+            comboBoxDil.Enabled = true;
             textIsMerKısaAck.ReadOnly = false;
             textIsMerUznAck.ReadOnly = false;
 
-            textFirmaCode.Text = string.Empty;
-            textIsMerTip.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1;
+            comboBoxIsMerTip.SelectedIndex = -1;
             textIsMerKod.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
-            textDilKod.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1;
             textIsMerKısaAck.Text = string.Empty;
             textIsMerUznAck.Text = string.Empty;
         }
@@ -180,15 +180,15 @@ namespace ERP_APP
             {
                 // SQL komutunu çalıştırma
                 SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMWCMTEXT where WCMDOCTYPE=@p1", bgl.baglanti());
-                komutsil.Parameters.AddWithValue("@p1", textIsMerTip.Text);
+                komutsil.Parameters.AddWithValue("@p1", comboBoxIsMerTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
-                textIsMerTip.ReadOnly = true;
+                comboBoxDil.Enabled = false;
+                comboBoxIsMerTip.Enabled = false;
                 textIsMerKod.ReadOnly = true;
                 dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
                 dateTimeBitis.Enabled = false;
-                textDilKod.ReadOnly = true;
+                comboBoxDil.Enabled = false;
                 textIsMerKısaAck.ReadOnly = true;
                 textIsMerUznAck.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -220,6 +220,46 @@ namespace ERP_APP
                     dataGrid.DataSource = dt;
                 }
             }
+        }
+
+        void DilComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT LANCODE FROM BSMGRCDMGEN002", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxDil.Items.Add(dr["LANCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        void IsMerkeziTipComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT DOCTYPE FROM BSMGRCDMWCM001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxIsMerTip.Items.Add(dr["DOCTYPE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void workCenterForm_Load_1(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
+            DilComboBoxDoldur();
+            IsMerkeziTipComboBoxDoldur();
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textUrnAgcTip.Text = dr["ÜRÜN AĞACI TİPİ"].ToString();
                 textUrnAgcTipAck.Text = dr["ÜRÜN AĞACI TİPİ AÇIKLAMASI"].ToString();
                 if (dr["PASİF Mİ"].ToString() == "Evet")
@@ -67,7 +67,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textUrnAgcTip.ReadOnly = false;
             textUrnAgcTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
@@ -77,7 +77,7 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMBOM001 SET COMCODE = @P1, DOCTYPE = @P2, DOCTYPETEXT = @P3, ISPASSIVE = @P4 WHERE DOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textUrnAgcTip.Text);
             komut.Parameters.AddWithValue("@P3", textUrnAgcTipAck.Text);
             komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
@@ -85,7 +85,7 @@ namespace ERP_APP
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textUrnAgcTip.ReadOnly = true;
             textUrnAgcTipAck.ReadOnly = true;
             checkBoxPasif.Checked = false;
@@ -98,7 +98,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMBOM001 (COMCODE,DOCTYPE,DOCTYPETEXT,ISPASSIVE) values (@p1,@p2,@p3,@p4)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textUrnAgcTip.Text);
             komut.Parameters.AddWithValue("@p3", textUrnAgcTipAck.Text);
             komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
@@ -107,12 +107,12 @@ namespace ERP_APP
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1; ;
             textUrnAgcTip.Text = string.Empty;
             textUrnAgcTipAck.Text = string.Empty;
             checkBoxPasif.Checked = false;
 
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textUrnAgcTip.ReadOnly = true;
             textUrnAgcTipAck.ReadOnly = true;
             ButtonKaydet.Visible = false;
@@ -126,14 +126,14 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textUrnAgcTip.ReadOnly = false;
             textUrnAgcTipAck.ReadOnly = false;
 
             checkBoxPasif.Enabled = true;
             checkBoxPasif.Checked = false;
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textUrnAgcTip.Text = string.Empty;
             textUrnAgcTipAck.Text = string.Empty;
         }
@@ -152,7 +152,7 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textUrnAgcTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textUrnAgcTip.ReadOnly = true;
                 textUrnAgcTipAck.ReadOnly = true;
                 checkBoxPasif.Enabled = false;
@@ -185,6 +185,22 @@ namespace ERP_APP
                     dataSehirGrid.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void urunAgaciForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
         }
     }
 }

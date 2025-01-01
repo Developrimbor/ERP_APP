@@ -35,7 +35,7 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textRotaTip.Text = dr["ROTA TİPİ"].ToString();
                 textRotaTipAck.Text = dr["ROTA TİPİ AÇIKLAMASI"].ToString();
                 textIsPassive.Text = dr["PASİF Mİ"].ToString();
@@ -60,14 +60,14 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMROT001 SET COMCODE = @P1, DOCTYPE = @P2, DOCTYPETEXT = @P3, ISPASSIVE = @P4 WHERE DOCTYPE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textRotaTip.Text);
             komut.Parameters.AddWithValue("@P3", textRotaTipAck.Text);
             komut.Parameters.AddWithValue("@P4", textIsPassive.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textRotaTip.ReadOnly = true;
             textRotaTipAck.ReadOnly = true;
             textIsPassive.ReadOnly = true;
@@ -79,7 +79,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMROT001 (COMCODE,DOCTYPE,DOCTYPETEXT,ISPASSIVE) values (@p1,@p2,@p3,@p4)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textRotaTip.Text);
             komut.Parameters.AddWithValue("@p3", textRotaTipAck.Text);
             komut.Parameters.AddWithValue("@p4", textIsPassive.Text);
@@ -87,12 +87,12 @@ namespace ERP_APP
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textRotaTip.Text = string.Empty;
             textRotaTipAck.Text = string.Empty;
             textIsPassive.Text = string.Empty;
 
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textRotaTip.ReadOnly = true;
             textRotaTipAck.ReadOnly = true;
             textIsPassive.ReadOnly = true;
@@ -106,7 +106,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textRotaTip.ReadOnly = false;
             textRotaTipAck.ReadOnly = false;
             textIsPassive.ReadOnly = false;
@@ -117,12 +117,12 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textRotaTip.ReadOnly = false;
             textRotaTipAck.ReadOnly = false;
             textIsPassive.ReadOnly = false;
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textRotaTip.Text = string.Empty;
             textRotaTipAck.Text = string.Empty;
             textIsPassive.Text = string.Empty;
@@ -142,7 +142,7 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textRotaTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textRotaTip.ReadOnly = true;
                 textRotaTipAck.ReadOnly = true;
                 textIsPassive.ReadOnly = true;
@@ -175,6 +175,22 @@ namespace ERP_APP
                     dataSehirGrid.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void rotaTypeForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
         }
     }
 }

@@ -32,6 +32,7 @@
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxFirmaKod = new ComboBox();
             dateTimeBitis = new DateTimePicker();
             dateTimeBaslangic = new DateTimePicker();
             comboBoxDil = new ComboBox();
@@ -45,9 +46,7 @@
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalMerAcik = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
-            textMaliyetMerkTip = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -59,6 +58,7 @@
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
+            comboBoxMalMerTip = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
@@ -67,29 +67,33 @@
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerAcik.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textMaliyetMerkTip.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             SuspendLayout();
             // 
             // dataGrid
             // 
-            dataGrid.Location = new Point(-1, 241);
+            dataGrid.EmbeddedNavigator.Margin = new Padding(4);
+            dataGrid.Location = new Point(-1, 297);
             dataGrid.MainView = gridView1;
+            dataGrid.Margin = new Padding(4);
             dataGrid.Name = "dataGrid";
-            dataGrid.Size = new Size(1210, 405);
+            dataGrid.Size = new Size(1412, 498);
             dataGrid.TabIndex = 34;
             dataGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
+            gridView1.DetailHeight = 431;
             gridView1.GridControl = dataGrid;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxMalMerTip);
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(dateTimeBitis);
             sehirSearchControl.Controls.Add(dateTimeBaslangic);
             sehirSearchControl.Controls.Add(comboBoxDil);
@@ -103,51 +107,61 @@
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalMerAcik);
             sehirSearchControl.Controls.Add(labelSehirName);
-            sehirSearchControl.Controls.Add(textMaliyetMerkTip);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
+            sehirSearchControl.Margin = new Padding(4);
             sehirSearchControl.Name = "sehirSearchControl";
-            sehirSearchControl.Size = new Size(1210, 169);
+            sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 36;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(9, 76);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 55;
             // 
             // dateTimeBitis
             // 
             dateTimeBitis.Enabled = false;
-            dateTimeBitis.Location = new Point(907, 128);
-            dateTimeBitis.Margin = new Padding(3, 2, 3, 2);
+            dateTimeBitis.Location = new Point(1058, 158);
+            dateTimeBitis.Margin = new Padding(4, 2, 4, 2);
             dateTimeBitis.Name = "dateTimeBitis";
-            dateTimeBitis.Size = new Size(215, 21);
+            dateTimeBitis.Size = new Size(250, 23);
             dateTimeBitis.TabIndex = 30;
             // 
             // dateTimeBaslangic
             // 
             dateTimeBaslangic.Enabled = false;
-            dateTimeBaslangic.Location = new Point(655, 128);
-            dateTimeBaslangic.Margin = new Padding(3, 2, 3, 2);
+            dateTimeBaslangic.Location = new Point(764, 158);
+            dateTimeBaslangic.Margin = new Padding(4, 2, 4, 2);
             dateTimeBaslangic.Name = "dateTimeBaslangic";
-            dateTimeBaslangic.Size = new Size(215, 21);
+            dateTimeBaslangic.Size = new Size(250, 23);
             dateTimeBaslangic.TabIndex = 29;
             // 
             // comboBoxDil
             // 
             comboBoxDil.Enabled = false;
             comboBoxDil.FormattingEnabled = true;
-            comboBoxDil.Location = new Point(269, 130);
-            comboBoxDil.Margin = new Padding(3, 2, 3, 2);
+            comboBoxDil.Location = new Point(314, 160);
+            comboBoxDil.Margin = new Padding(4, 2, 4, 2);
             comboBoxDil.Name = "comboBoxDil";
-            comboBoxDil.Size = new Size(130, 21);
+            comboBoxDil.Size = new Size(151, 24);
             comboBoxDil.TabIndex = 27;
             // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(907, 97);
+            labelControl5.Location = new Point(1058, 119);
+            labelControl5.Margin = new Padding(4);
             labelControl5.Name = "labelControl5";
-            labelControl5.Size = new Size(157, 20);
+            labelControl5.Size = new Size(186, 25);
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
             // 
@@ -155,117 +169,112 @@
             // 
             labelControl4.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(655, 97);
+            labelControl4.Location = new Point(764, 119);
+            labelControl4.Margin = new Padding(4);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(219, 20);
+            labelControl4.Size = new Size(261, 25);
             labelControl4.TabIndex = 23;
             labelControl4.Text = "GEÇERLİLİK BAŞLANGICI";
             // 
             // textMaliyetMerUzunAcik
             // 
-            textMaliyetMerUzunAcik.Location = new Point(655, 63);
+            textMaliyetMerUzunAcik.Location = new Point(764, 78);
+            textMaliyetMerUzunAcik.Margin = new Padding(4);
             textMaliyetMerUzunAcik.Name = "textMaliyetMerUzunAcik";
             textMaliyetMerUzunAcik.Properties.ReadOnly = true;
-            textMaliyetMerUzunAcik.Size = new Size(541, 20);
+            textMaliyetMerUzunAcik.Size = new Size(631, 22);
             textMaliyetMerUzunAcik.TabIndex = 22;
             // 
             // labelControl3
             // 
             labelControl3.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(655, 28);
+            labelControl3.Location = new Point(764, 34);
+            labelControl3.Margin = new Padding(4);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(234, 20);
+            labelControl3.Size = new Size(287, 25);
             labelControl3.TabIndex = 21;
             labelControl3.Text = "MALZEME UZUN AÇIKLAMA";
             // 
             // textMaliyetMerkezCode
             // 
-            textMaliyetMerkezCode.Location = new Point(8, 132);
+            textMaliyetMerkezCode.Location = new Point(9, 162);
+            textMaliyetMerkezCode.Margin = new Padding(4);
             textMaliyetMerkezCode.Name = "textMaliyetMerkezCode";
             textMaliyetMerkezCode.Properties.ReadOnly = true;
-            textMaliyetMerkezCode.Size = new Size(236, 20);
+            textMaliyetMerkezCode.Size = new Size(275, 22);
             textMaliyetMerkezCode.TabIndex = 18;
             // 
             // labelControl1
             // 
             labelControl1.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(8, 97);
+            labelControl1.Location = new Point(9, 119);
+            labelControl1.Margin = new Padding(4);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(215, 20);
+            labelControl1.Size = new Size(261, 25);
             labelControl1.TabIndex = 17;
             labelControl1.Text = "MALİYET MERKEZİ KODU";
             // 
             // textUlkeCode
             // 
-            textUlkeCode.Location = new Point(451, 130);
+            textUlkeCode.Location = new Point(526, 160);
+            textUlkeCode.Margin = new Padding(4);
             textUlkeCode.Name = "textUlkeCode";
             textUlkeCode.Properties.ReadOnly = true;
-            textUlkeCode.Size = new Size(154, 20);
+            textUlkeCode.Size = new Size(180, 22);
             textUlkeCode.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
             labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(258, 97);
+            labelSehirUlkeCode.Location = new Point(301, 119);
+            labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(179, 20);
+            labelSehirUlkeCode.Size = new Size(217, 25);
             labelSehirUlkeCode.TabIndex = 15;
             labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
             // 
             // textMalMerAcik
             // 
-            textMalMerAcik.Location = new Point(376, 63);
+            textMalMerAcik.Location = new Point(439, 78);
+            textMalMerAcik.Margin = new Padding(4);
             textMalMerAcik.Name = "textMalMerAcik";
             textMalMerAcik.Properties.ReadOnly = true;
-            textMalMerAcik.Size = new Size(264, 20);
+            textMalMerAcik.Size = new Size(308, 22);
             textMalMerAcik.TabIndex = 14;
             // 
             // labelSehirName
             // 
             labelSehirName.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirName.Appearance.Options.UseFont = true;
-            labelSehirName.Location = new Point(376, 28);
+            labelSehirName.Location = new Point(439, 34);
+            labelSehirName.Margin = new Padding(4);
             labelSehirName.Name = "labelSehirName";
-            labelSehirName.Size = new Size(243, 20);
+            labelSehirName.Size = new Size(300, 25);
             labelSehirName.TabIndex = 13;
             labelSehirName.Text = "MALZEME KISA AÇIKLAMASI";
-            // 
-            // textMaliyetMerkTip
-            // 
-            textMaliyetMerkTip.Location = new Point(167, 63);
-            textMaliyetMerkTip.Name = "textMaliyetMerkTip";
-            textMaliyetMerkTip.Properties.ReadOnly = true;
-            textMaliyetMerkTip.Size = new Size(195, 20);
-            textMaliyetMerkTip.TabIndex = 12;
             // 
             // labelSehirCode
             // 
             labelSehirCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirCode.Appearance.Options.UseFont = true;
-            labelSehirCode.Location = new Point(167, 28);
+            labelSehirCode.Location = new Point(195, 34);
+            labelSehirCode.Margin = new Padding(4);
             labelSehirCode.Name = "labelSehirCode";
-            labelSehirCode.Size = new Size(198, 20);
+            labelSehirCode.Size = new Size(239, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "MALİYET MERKEZİ TİPİ";
-            // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(8, 63);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(144, 20);
-            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
             labelBirimFirmaCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelBirimFirmaCode.Appearance.Options.UseFont = true;
-            labelBirimFirmaCode.Location = new Point(8, 28);
+            labelBirimFirmaCode.Location = new Point(9, 34);
+            labelBirimFirmaCode.Margin = new Padding(4);
             labelBirimFirmaCode.Name = "labelBirimFirmaCode";
-            labelBirimFirmaCode.Size = new Size(111, 20);
+            labelBirimFirmaCode.Size = new Size(134, 25);
             labelBirimFirmaCode.TabIndex = 9;
             labelBirimFirmaCode.Text = "FİRMA KODU";
             // 
@@ -280,26 +289,27 @@
             islemlerSehirText.Controls.Add(deleteButton);
             islemlerSehirText.Controls.Add(onlyViewButton);
             islemlerSehirText.Controls.Add(editButton);
-            islemlerSehirText.Location = new Point(-1, 169);
+            islemlerSehirText.Location = new Point(-1, 208);
+            islemlerSehirText.Margin = new Padding(4);
             islemlerSehirText.Name = "islemlerSehirText";
-            islemlerSehirText.Size = new Size(1210, 73);
+            islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 35;
             islemlerSehirText.Text = "İşlemler";
             // 
             // textArat
             // 
-            textArat.Location = new Point(239, 40);
-            textArat.Margin = new Padding(3, 2, 3, 2);
+            textArat.Location = new Point(279, 49);
+            textArat.Margin = new Padding(4, 2, 4, 2);
             textArat.Name = "textArat";
-            textArat.Size = new Size(160, 21);
+            textArat.Size = new Size(186, 23);
             textArat.TabIndex = 48;
             // 
             // ButtonKaydet
             // 
-            ButtonKaydet.Location = new Point(1047, 32);
-            ButtonKaydet.Margin = new Padding(3, 2, 3, 2);
+            ButtonKaydet.Location = new Point(1222, 39);
+            ButtonKaydet.Margin = new Padding(4, 2, 4, 2);
             ButtonKaydet.Name = "ButtonKaydet";
-            ButtonKaydet.Size = new Size(101, 29);
+            ButtonKaydet.Size = new Size(118, 36);
             ButtonKaydet.TabIndex = 52;
             ButtonKaydet.Text = "Kaydet";
             ButtonKaydet.Visible = false;
@@ -307,10 +317,10 @@
             // 
             // ButtonGüncelle
             // 
-            ButtonGüncelle.Location = new Point(941, 32);
-            ButtonGüncelle.Margin = new Padding(3, 2, 3, 2);
+            ButtonGüncelle.Location = new Point(1098, 39);
+            ButtonGüncelle.Margin = new Padding(4, 2, 4, 2);
             ButtonGüncelle.Name = "ButtonGüncelle";
-            ButtonGüncelle.Size = new Size(101, 29);
+            ButtonGüncelle.Size = new Size(118, 36);
             ButtonGüncelle.TabIndex = 51;
             ButtonGüncelle.Text = "Güncelle";
             ButtonGüncelle.Visible = false;
@@ -322,9 +332,10 @@
             homePageButton.Appearance.Options.UseBackColor = true;
             homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Location = new Point(1358, 39);
+            homePageButton.Margin = new Padding(4);
             homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(32, 32);
+            homePageButton.Size = new Size(37, 39);
             homePageButton.TabIndex = 42;
             homePageButton.Click += homePageButton_Click;
             // 
@@ -335,9 +346,10 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(131, 32);
+            dataAddButton.Location = new Point(153, 39);
+            dataAddButton.Margin = new Padding(4);
             dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(32, 32);
+            dataAddButton.Size = new Size(37, 39);
             dataAddButton.TabIndex = 41;
             dataAddButton.Click += dataAddButton_Click;
             // 
@@ -351,9 +363,10 @@
             searchButton.BackgroundImageLayout = ImageLayout.None;
             searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
-            searchButton.Location = new Point(13, 32);
+            searchButton.Location = new Point(15, 39);
+            searchButton.Margin = new Padding(4);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(32, 32);
+            searchButton.Size = new Size(37, 39);
             searchButton.TabIndex = 37;
             searchButton.Click += searchButton_Click;
             // 
@@ -363,9 +376,10 @@
             deleteButton.Appearance.Options.UseBackColor = true;
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
-            deleteButton.Location = new Point(191, 32);
+            deleteButton.Location = new Point(223, 39);
+            deleteButton.Margin = new Padding(4);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(32, 32);
+            deleteButton.Size = new Size(37, 39);
             deleteButton.TabIndex = 40;
             deleteButton.Click += deleteButton_Click;
             // 
@@ -377,9 +391,10 @@
             onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
             onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(412, 32);
+            onlyViewButton.Location = new Point(481, 39);
+            onlyViewButton.Margin = new Padding(4);
             onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.Size = new Size(37, 39);
             onlyViewButton.TabIndex = 38;
             onlyViewButton.Click += onlyViewButton_Click;
             // 
@@ -390,20 +405,32 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(71, 32);
+            editButton.Location = new Point(83, 39);
+            editButton.Margin = new Padding(4);
             editButton.Name = "editButton";
-            editButton.Size = new Size(32, 32);
+            editButton.Size = new Size(37, 39);
             editButton.TabIndex = 39;
             editButton.Click += editButton_Click;
             // 
+            // comboBoxMalMerTip
+            // 
+            comboBoxMalMerTip.Enabled = false;
+            comboBoxMalMerTip.FormattingEnabled = true;
+            comboBoxMalMerTip.Location = new Point(195, 76);
+            comboBoxMalMerTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxMalMerTip.Name = "comboBoxMalMerTip";
+            comboBoxMalMerTip.Size = new Size(236, 24);
+            comboBoxMalMerTip.TabIndex = 56;
+            // 
             // costCenterForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 647);
+            ClientSize = new Size(1410, 796);
             Controls.Add(dataGrid);
             Controls.Add(sehirSearchControl);
             Controls.Add(islemlerSehirText);
+            Margin = new Padding(4);
             Name = "costCenterForm";
             Text = "MALİYET MERKEZİ";
             Load += costCenterForm_Load;
@@ -416,8 +443,6 @@
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerAcik.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textMaliyetMerkTip.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -439,9 +464,7 @@
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textMalMerAcik;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
-        private DevExpress.XtraEditors.TextEdit textMaliyetMerkTip;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraEditors.SimpleButton dataAddButton;
@@ -456,5 +479,7 @@
         private ComboBox comboBoxDil;
         private DateTimePicker dateTimeBaslangic;
         private DateTimePicker dateTimeBitis;
+        private ComboBox comboBoxFirmaKod;
+        private ComboBox comboBoxMalMerTip;
     }
 }
