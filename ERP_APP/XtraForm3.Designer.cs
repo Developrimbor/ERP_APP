@@ -37,6 +37,7 @@
             textUlkeFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelUlkeFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerUlkeText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
@@ -47,7 +48,6 @@
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             dataUlkeGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textArat = new TextBox();
             ((System.ComponentModel.ISupportInitialize)ulkeSearchControl).BeginInit();
             ulkeSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textDilName.Properties).BeginInit();
@@ -151,6 +151,13 @@
             islemlerUlkeText.Size = new Size(1412, 90);
             islemlerUlkeText.TabIndex = 8;
             islemlerUlkeText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(295, 48);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 47;
             // 
             // ButtonKaydet
             // 
@@ -277,13 +284,6 @@
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowObjectChanged += gridView1_FocusedRowObjectChanged;
-            // 
-            // textArat
-            // 
-            textArat.Location = new Point(295, 48);
-            textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
-            textArat.TabIndex = 47;
             // 
             // ulkeForm
             // 

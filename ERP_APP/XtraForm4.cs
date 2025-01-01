@@ -60,7 +60,7 @@ namespace ERP_APP
                 textSehirCode.Text = dr["ŞEHİR KODU"].ToString();
                 textSehirFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textSehirName.Text = dr["ŞEHİR ADI"].ToString();
-                textSehirUlkeCode.Text = dr["ÜLKE KODU"].ToString();
+                comboBoxUlkeKod.SelectedItem = dr["ÜLKE KODU"].ToString();
 
 
             }
@@ -73,12 +73,12 @@ namespace ERP_APP
             textSehirCode.ReadOnly = false;
             textSehirFirmaCode.ReadOnly = false;
             textSehirName.ReadOnly = false;
-            textSehirUlkeCode.ReadOnly = false;
+            comboBoxUlkeKod.Enabled = true;
 
             textSehirCode.Text = string.Empty;
             textSehirFirmaCode.Text = string.Empty;
             textSehirName.Text = string.Empty;
-            textSehirUlkeCode.Text = string.Empty;
+            comboBoxUlkeKod.SelectedIndex = -1;
 
         }
 
@@ -88,18 +88,18 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textSehirFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
-            komut.Parameters.AddWithValue("@p4", textSehirUlkeCode.Text);
+            komut.Parameters.AddWithValue("@p4", comboBoxUlkeKod.SelectedItem?.ToString() ?? string.Empty);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textSehirCode.Text = string.Empty;
             textSehirFirmaCode.Text = string.Empty;
             textSehirName.Text = string.Empty;
-            textSehirUlkeCode.Text = string.Empty;
+            comboBoxUlkeKod.SelectedIndex = -1;
             textSehirCode.ReadOnly = true;
             textSehirFirmaCode.ReadOnly = true;
             textSehirName.ReadOnly = true;
-            textSehirUlkeCode.ReadOnly = true;
+            comboBoxUlkeKod.Enabled = false;
             ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
@@ -111,13 +111,13 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textSehirFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
-            komut.Parameters.AddWithValue("@p4", textSehirUlkeCode.Text);
+            komut.Parameters.AddWithValue("@p4", comboBoxUlkeKod.SelectedItem?.ToString() ?? string.Empty);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textSehirCode.ReadOnly = true;
             textSehirFirmaCode.ReadOnly = true;
             textSehirName.ReadOnly = true;
-            textSehirUlkeCode.ReadOnly = true;
+            comboBoxUlkeKod.Enabled = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -140,7 +140,7 @@ namespace ERP_APP
                 textSehirCode.ReadOnly = true;
                 textSehirFirmaCode.ReadOnly = true;
                 textSehirName.ReadOnly = true;
-                textSehirUlkeCode.ReadOnly = true;
+                comboBoxUlkeKod.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -158,7 +158,7 @@ namespace ERP_APP
             textSehirCode.ReadOnly = false;
             textSehirFirmaCode.ReadOnly = false;
             textSehirName.ReadOnly = false;
-            textSehirUlkeCode.ReadOnly = false;
+            comboBoxUlkeKod.Enabled = true;
         }
 
         private void onlyViewButton_Click(object sender, EventArgs e)
@@ -180,6 +180,22 @@ namespace ERP_APP
                     dataSehirGrid.DataSource = dt;
                 }
             }
+        }
+
+        void UlkeKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COUNTRYCODE FROM BSMGRCDMGEN003", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxUlkeKod.Items.Add(dr["COUNTRYCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void sehirForm_Load(object sender, EventArgs e)
+        {
+            UlkeKodComboBoxDoldur();
         }
     }
 }

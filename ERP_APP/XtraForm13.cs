@@ -104,14 +104,14 @@ namespace ERP_APP
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.Enabled = false;
-            textMaliyetMerkTip.Enabled = false;
-            textMaliyetMerkezCode.Enabled = false;
+            textFirmaCode.ReadOnly = true;
+            textMaliyetMerkTip.ReadOnly = true;
+            textMaliyetMerkezCode.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
             comboBoxDil.Enabled = false;
-            textMalMerAcik.Enabled = false;
-            textMaliyetMerUzunAcik.Enabled = false;
+            textMalMerAcik.ReadOnly = true;
+            textMaliyetMerUzunAcik.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
