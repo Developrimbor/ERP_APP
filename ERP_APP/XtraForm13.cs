@@ -36,8 +36,8 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textMaliyetMerkTip.Text = dr["MALİYET MERKEZİ TİPİ"].ToString();
                 textMaliyetMerkezCode.Text = dr["MALİYET MERKEZİ KODU"].ToString();
-                textGecerlilikBas.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
-                textGecerlilikBit.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
+                dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
+                dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
                 comboBoxDil.SelectedItem = dr["DİL KODU"].ToString();
                 textMalMerAcik.Text = dr["MALİYET MERKEZİ KISA AÇIKLAMASI"].ToString();
                 textMaliyetMerUzunAcik.Text = dr["MALİYET MERKEZİ UZUN AÇIKLAMASI"].ToString();
@@ -83,8 +83,8 @@ namespace ERP_APP
             textFirmaCode.Enabled = true;
             textMaliyetMerkTip.Enabled = true;
             textMaliyetMerkezCode.Enabled = true;
-            textGecerlilikBas.Enabled = true;
-            textGecerlilikBit.Enabled = true;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             comboBoxDil.Enabled = true; //enabled
             textMalMerAcik.Enabled = true;
             textMaliyetMerUzunAcik.Enabled = true;
@@ -96,8 +96,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textMaliyetMerkTip.Text);
             komut.Parameters.AddWithValue("@P3", textMaliyetMerkezCode.Text);
-            komut.Parameters.AddWithValue("@P4", textGecerlilikBas.Text);
-            komut.Parameters.AddWithValue("@P5", textGecerlilikBit.Text);
+            komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty); //veriyi çektim
             komut.Parameters.AddWithValue("@P7", textMalMerAcik.Text);
             komut.Parameters.AddWithValue("@P8", textMaliyetMerUzunAcik.Text);
@@ -107,8 +107,8 @@ namespace ERP_APP
             textFirmaCode.Enabled = false;
             textMaliyetMerkTip.Enabled = false;
             textMaliyetMerkezCode.Enabled = false;
-            textGecerlilikBas.Enabled = false;
-            textGecerlilikBit.Enabled = false;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             comboBoxDil.Enabled = false;
             textMalMerAcik.Enabled = false;
             textMaliyetMerUzunAcik.Enabled = false;
@@ -123,8 +123,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textMaliyetMerkTip.Text);
             komut.Parameters.AddWithValue("@p3", textMaliyetMerkezCode.Text);
-            komut.Parameters.AddWithValue("@p4", textGecerlilikBas.Text);
-            komut.Parameters.AddWithValue("@p5", textGecerlilikBit.Text);
+            komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty); //veriyi çektim
             komut.Parameters.AddWithValue("@p7", textMalMerAcik.Text);
             komut.Parameters.AddWithValue("@p8", textMaliyetMerUzunAcik.Text);
@@ -135,8 +135,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textMaliyetMerkTip.Text = string.Empty;
             textMaliyetMerkezCode.Text = string.Empty;
-            textGecerlilikBas.Text = string.Empty;
-            textGecerlilikBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             comboBoxDil.SelectedIndex = -1; //sıfırladık içini
             textMalMerAcik.Text = string.Empty;
             textMaliyetMerUzunAcik.Text = string.Empty;
@@ -144,8 +144,8 @@ namespace ERP_APP
             textFirmaCode.Enabled = false;
             textMaliyetMerkTip.Enabled = false;
             textMaliyetMerkezCode.Enabled = false;
-            textGecerlilikBas.Enabled = false;
-            textGecerlilikBit.Enabled = false;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             comboBoxDil.Enabled = false;
             textMalMerAcik.Enabled = false;
             textMaliyetMerUzunAcik.Enabled = false;
@@ -163,8 +163,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMaliyetMerkTip.ReadOnly = false;
             textMaliyetMerkezCode.ReadOnly = false;
-            textGecerlilikBas.ReadOnly = false;
-            textGecerlilikBit.ReadOnly = false;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             comboBoxDil.Enabled = true;  // ReadOnly yerine Enabled olarak değiştirildi
             textMalMerAcik.ReadOnly = false;
             textMaliyetMerUzunAcik.ReadOnly = false;
@@ -172,8 +172,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textMaliyetMerkTip.Text = string.Empty;
             textMaliyetMerkezCode.Text = string.Empty;
-            textGecerlilikBas.Text = string.Empty;
-            textGecerlilikBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             comboBoxDil.SelectedIndex = -1; // ComboBox'ı sıfırla
             textMalMerAcik.Text = string.Empty;
             textMaliyetMerUzunAcik.Text = string.Empty;
@@ -196,8 +196,8 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textMaliyetMerkTip.ReadOnly = true;
                 textMaliyetMerkezCode.ReadOnly = true;
-                textGecerlilikBas.ReadOnly = true;
-                textGecerlilikBit.ReadOnly = true;
+                dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+                dateTimeBitis.Enabled = false;
                 comboBoxDil.Enabled = false; // ReadOnly değil, artık kapalı.
                 textMalMerAcik.ReadOnly = true;
                 textMaliyetMerUzunAcik.ReadOnly = true;

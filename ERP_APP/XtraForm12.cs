@@ -219,5 +219,10 @@ namespace ERP_APP
                 }
             }
         }
+
+        private void dateTimeBitis_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

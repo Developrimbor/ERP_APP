@@ -33,9 +33,7 @@
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
             comboBoxDil = new ComboBox();
-            textGecerlilikBit = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textGecerlilikBas = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             textMaliyetMerUzunAcik = new DevExpress.XtraEditors.TextEdit();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -59,12 +57,12 @@
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
+            dateTimeBaslangic = new DateTimePicker();
+            dateTimeBitis = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textGecerlilikBit.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecerlilikBas.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerUzunAcik.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).BeginInit();
@@ -96,10 +94,10 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(dateTimeBitis);
+            sehirSearchControl.Controls.Add(dateTimeBaslangic);
             sehirSearchControl.Controls.Add(comboBoxDil);
-            sehirSearchControl.Controls.Add(textGecerlilikBit);
             sehirSearchControl.Controls.Add(labelControl5);
-            sehirSearchControl.Controls.Add(textGecerlilikBas);
             sehirSearchControl.Controls.Add(labelControl4);
             sehirSearchControl.Controls.Add(textMaliyetMerUzunAcik);
             sehirSearchControl.Controls.Add(labelControl3);
@@ -129,34 +127,16 @@
             comboBoxDil.Size = new Size(151, 24);
             comboBoxDil.TabIndex = 27;
             // 
-            // textGecerlilikBit
-            // 
-            textGecerlilikBit.Location = new Point(1016, 162);
-            textGecerlilikBit.Margin = new Padding(4);
-            textGecerlilikBit.Name = "textGecerlilikBit";
-            textGecerlilikBit.Properties.ReadOnly = true;
-            textGecerlilikBit.Size = new Size(180, 22);
-            textGecerlilikBit.TabIndex = 26;
-            // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl5.Appearance.Options.UseFont = true;
-            labelControl5.Location = new Point(1016, 119);
+            labelControl5.Location = new Point(1058, 119);
             labelControl5.Margin = new Padding(4);
             labelControl5.Name = "labelControl5";
             labelControl5.Size = new Size(186, 25);
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
-            // 
-            // textGecerlilikBas
-            // 
-            textGecerlilikBas.Location = new Point(764, 162);
-            textGecerlilikBas.Margin = new Padding(4);
-            textGecerlilikBas.Name = "textGecerlilikBas";
-            textGecerlilikBas.Properties.ReadOnly = true;
-            textGecerlilikBas.Size = new Size(180, 22);
-            textGecerlilikBas.TabIndex = 24;
             // 
             // labelControl4
             // 
@@ -211,7 +191,7 @@
             // 
             // textUlkeCode
             // 
-            textUlkeCode.Location = new Point(526, 123);
+            textUlkeCode.Location = new Point(526, 160);
             textUlkeCode.Margin = new Padding(4);
             textUlkeCode.Name = "textUlkeCode";
             textUlkeCode.Properties.ReadOnly = true;
@@ -420,6 +400,22 @@
             editButton.TabIndex = 39;
             editButton.Click += editButton_Click;
             // 
+            // dateTimeBaslangic
+            // 
+            dateTimeBaslangic.Enabled = false;
+            dateTimeBaslangic.Location = new Point(764, 158);
+            dateTimeBaslangic.Name = "dateTimeBaslangic";
+            dateTimeBaslangic.Size = new Size(250, 23);
+            dateTimeBaslangic.TabIndex = 29;
+            // 
+            // dateTimeBitis
+            // 
+            dateTimeBitis.Enabled = false;
+            dateTimeBitis.Location = new Point(1058, 158);
+            dateTimeBitis.Name = "dateTimeBitis";
+            dateTimeBitis.Size = new Size(250, 23);
+            dateTimeBitis.TabIndex = 30;
+            // 
             // costCenterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -437,8 +433,6 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textGecerlilikBit.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecerlilikBas.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerUzunAcik.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).EndInit();
@@ -456,9 +450,7 @@
         private DevExpress.XtraGrid.GridControl dataGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textGecerlilikBit;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textGecerlilikBas;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit textMaliyetMerUzunAcik;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -483,5 +475,7 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private TextBox textArat;
         private ComboBox comboBoxDil;
+        private DateTimePicker dateTimeBaslangic;
+        private DateTimePicker dateTimeBitis;
     }
 }
