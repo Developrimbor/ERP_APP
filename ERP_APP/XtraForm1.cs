@@ -30,15 +30,15 @@ namespace ERP_APP
             textFirmaInfoEdit.ReadOnly = false;
             textFirmaAdres1.ReadOnly = false;
             textFirmaAdres2.ReadOnly = false;
-            textFirmaSehirKod.ReadOnly = false;
-            textFirmaUlkeKod.ReadOnly = false;
+            comboBoxSehir.Enabled = true;
+            comboBoxDil.Enabled = true;
 
             textFirmaCode.Text = string.Empty;
             textFirmaInfoEdit.Text = string.Empty;
             textFirmaAdres1.Text = string.Empty;
             textFirmaAdres2.Text = string.Empty;
-            textFirmaSehirKod.Text = string.Empty;
-            textFirmaUlkeKod.Text = string.Empty;
+            comboBoxSehir.SelectedIndex = -1;
+            comboBoxDil.SelectedIndex = -1;
         }
 
         //private void labelControl1_Click(object sender, EventArgs e)
@@ -55,6 +55,34 @@ namespace ERP_APP
         //{
         //    listele();
         //}
+
+        void DilComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COUNTRYCODE FROM BSMGRCDMGEN003", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxDil.Items.Add(dr["COUNTRYCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        void SehirComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT CITYCODE FROM BSMGRCDMGEN004", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxSehir.Items.Add(dr["CITYCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void firmaForm_Load(object sender, EventArgs e)
+        {
+            DilComboBoxDoldur();
+            SehirComboBoxDoldur();
+        }
 
         private void homePageButton_Click(object sender, EventArgs e)
         {
@@ -90,8 +118,8 @@ namespace ERP_APP
                 textFirmaInfoEdit.Text = dr["FİRMA ADI"].ToString();
                 textFirmaAdres1.Text = dr["FİRMA ADRESİ-1"].ToString();
                 textFirmaAdres2.Text = dr["FİRMA ADRESİ-2"].ToString();
-                textFirmaSehirKod.Text = dr["ŞEHİR KODU"].ToString();
-                textFirmaUlkeKod.Text = dr["ÜLKE KODU"].ToString();
+                comboBoxSehir.SelectedItem = dr["ŞEHİR KODU"].ToString();
+                comboBoxDil.SelectedItem = dr["ÜLKE KODU"].ToString();
             }
         }
 
@@ -103,8 +131,8 @@ namespace ERP_APP
             textFirmaInfoEdit.ReadOnly = false;
             textFirmaAdres1.ReadOnly = false;
             textFirmaAdres2.ReadOnly = false;
-            textFirmaSehirKod.ReadOnly = false;
-            textFirmaUlkeKod.ReadOnly = false;
+            comboBoxSehir.Enabled = true;
+            comboBoxDil.Enabled = true;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -125,8 +153,8 @@ namespace ERP_APP
                 textFirmaInfoEdit.ReadOnly = true;
                 textFirmaAdres1.ReadOnly = true;
                 textFirmaAdres2.ReadOnly = true;
-                textFirmaSehirKod.ReadOnly = true;
-                textFirmaUlkeKod.ReadOnly = true;
+                comboBoxSehir.Enabled = false;
+                comboBoxDil.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -165,8 +193,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P2", textFirmaInfoEdit.Text);
             komut.Parameters.AddWithValue("@P3", textFirmaAdres1.Text);
             komut.Parameters.AddWithValue("@P4", textFirmaAdres2.Text);
-            komut.Parameters.AddWithValue("@P5", textFirmaSehirKod.Text);
-            komut.Parameters.AddWithValue("@P6", textFirmaUlkeKod.Text);
+            komut.Parameters.AddWithValue("@P5", comboBoxSehir.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -174,8 +202,8 @@ namespace ERP_APP
             textFirmaInfoEdit.ReadOnly = true;
             textFirmaAdres1.ReadOnly = true;
             textFirmaAdres2.ReadOnly = true;
-            textFirmaSehirKod.ReadOnly = true;
-            textFirmaUlkeKod.ReadOnly = true;
+            comboBoxSehir.Enabled = false;
+            comboBoxDil.Enabled = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -188,8 +216,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p2", textFirmaInfoEdit.Text);
             komut.Parameters.AddWithValue("@p3", textFirmaAdres1.Text);
             komut.Parameters.AddWithValue("@p4", textFirmaAdres2.Text);
-            komut.Parameters.AddWithValue("@p5", textFirmaSehirKod.Text);
-            komut.Parameters.AddWithValue("@p6", textFirmaUlkeKod.Text);
+            komut.Parameters.AddWithValue("@p5", comboBoxSehir?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@p6", comboBoxDil?.ToString() ?? string.Empty);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -198,19 +226,20 @@ namespace ERP_APP
             textFirmaInfoEdit.Text = string.Empty;
             textFirmaAdres1.Text = string.Empty;
             textFirmaAdres2.Text = string.Empty;
-            textFirmaSehirKod.Text = string.Empty;
-            textFirmaUlkeKod.Text = string.Empty;
+            comboBoxSehir.SelectedIndex = -1;
+            comboBoxDil.SelectedIndex = -1;
 
             textFirmaCode.ReadOnly = true;
             textFirmaInfoEdit.ReadOnly = true;
             textFirmaAdres1.ReadOnly = true;
             textFirmaAdres2.ReadOnly = true;
-            textFirmaSehirKod.ReadOnly = true;
-            textFirmaUlkeKod.ReadOnly = true;
+            comboBoxSehir.Enabled = false;
+            comboBoxDil.Enabled = false;
             ButtonKaydet.Visible = false;
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }
+
     }
 }
