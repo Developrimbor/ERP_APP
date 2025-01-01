@@ -37,7 +37,14 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textMalMerkTip.Text = dr["MALZEME TİPİ"].ToString();
                 textMalMerTipAck.Text = dr["MALZEME TİPİ AÇIKLAMASI"].ToString();
-                textIspassive.Text = dr["PASİF Mİ"].ToString();
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
 
             }
         }
@@ -46,7 +53,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\", ISPASSIVE AS \"PASİF Mİ\" FROM BSMGRCDMCCM001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\", CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\" FROM BSMGRCDMCCM001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataMaliyetMerkezi.DataSource = dt;
         }
@@ -64,13 +71,15 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textMalMerkTip.Text);
             komut.Parameters.AddWithValue("@P3", textMalMerTipAck.Text);
-            komut.Parameters.AddWithValue("@P4", textIspassive.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
+
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textFirmaCode.ReadOnly = true;
             textMalMerkTip.ReadOnly = true;
             textMalMerTipAck.ReadOnly = true;
-            textIspassive.ReadOnly = true;
+            checkBoxPasif.Checked = false;
+
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -83,7 +92,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalMerkTip.ReadOnly = false;
             textMalMerTipAck.ReadOnly = false;
-            textIspassive.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
+
         }
 
         private void dataAddButton_Click(object sender, EventArgs e)
@@ -93,11 +103,12 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalMerkTip.ReadOnly = false;
             textMalMerTipAck.ReadOnly = false;
-            textIspassive.ReadOnly = false;
             textFirmaCode.Text = string.Empty;
             textMalMerkTip.Text = string.Empty;
             textMalMerTipAck.Text = string.Empty;
-            textIspassive.Text = string.Empty;
+
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -117,7 +128,8 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textMalMerkTip.ReadOnly = true;
                 textMalMerTipAck.ReadOnly = true;
-                textIspassive.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
+
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -134,18 +146,21 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textMalMerkTip.Text);
             komut.Parameters.AddWithValue("@p3", textMalMerTipAck.Text);
-            komut.Parameters.AddWithValue("@p4", textIspassive.Text);
+            komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
+
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textFirmaCode.Text = string.Empty;
             textMalMerkTip.Text = string.Empty;
             textMalMerTipAck.Text = string.Empty;
-            textIspassive.Text = string.Empty;
             textFirmaCode.ReadOnly = true;
             textMalMerkTip.ReadOnly = true;
             textMalMerTipAck.ReadOnly = true;
-            textIspassive.ReadOnly = true;
             ButtonKaydet.Visible = false;
+
+            checkBoxPasif.Checked = false;
+
+
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }

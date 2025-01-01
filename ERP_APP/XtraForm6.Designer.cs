@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(malzForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            textIspassıve = new DevExpress.XtraEditors.TextEdit();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalzTipAcik = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
@@ -39,6 +38,7 @@
             textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
@@ -49,10 +49,9 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textArat = new TextBox();
+            checkBoxPasif = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textIspassıve.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzTipAcik.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
@@ -64,7 +63,7 @@
             // 
             // sehirSearchControl
             // 
-            sehirSearchControl.Controls.Add(textIspassıve);
+            sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalzTipAcik);
             sehirSearchControl.Controls.Add(labelSehirName);
@@ -78,15 +77,6 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
-            // 
-            // textIspassıve
-            // 
-            textIspassıve.Location = new Point(806, 111);
-            textIspassıve.Margin = new Padding(4);
-            textIspassıve.Name = "textIspassıve";
-            textIspassıve.Properties.ReadOnly = true;
-            textIspassıve.Size = new Size(180, 22);
-            textIspassıve.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
@@ -176,6 +166,13 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 23;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(252, 46);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 48;
             // 
             // ButtonKaydet
             // 
@@ -303,12 +300,15 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // textArat
+            // checkBoxPasif
             // 
-            textArat.Location = new Point(252, 46);
-            textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
-            textArat.TabIndex = 48;
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(938, 75);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 39;
+            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // malzForm
             // 
@@ -324,7 +324,6 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textIspassıve.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzTipAcik.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
@@ -339,7 +338,6 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textIspassıve;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textMalzTipAcik;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
@@ -359,5 +357,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
+        private CheckBox checkBoxPasif;
     }
 }

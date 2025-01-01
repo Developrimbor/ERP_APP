@@ -42,9 +42,25 @@ namespace ERP_APP
                 textMalzemeTipi.Text = dr["MALZEME TİPİ"].ToString();
                 textMalzemeKodu.Text = dr["MALZEME KODU"].ToString();
                 textTemelMiktar.Text = dr["TEMEL MİKTAR"].ToString();
-                textSilindiMi.Text = dr["SİLİNDİ Mİ"].ToString();
-                textIsPassive.Text = dr["PASİF Mİ"].ToString();
                 textCizimNo.Text = dr["ÇİZİM NUMARASI"].ToString();
+
+                if (dr["SİLİNDİ Mİ"].ToString() == "Evet")
+                {
+                    checkBoxSilindi.Checked = true;
+                }
+                else
+                {
+                    checkBoxSilindi.Checked = false;
+                }
+
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
 
             }
         }
@@ -53,7 +69,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", BOMDOCTYPE AS \"ÜRÜN AĞACI TİPİ\", BOMDOCNUM AS \"ÜRÜN AĞACI KODU\" , BOMDOCFROM AS \"GEÇERLİLİK BAŞLANGIÇ\" , BOMDOCUNTIL AS \"GEÇERLİLİK BİTİŞ\" , MATDOCTYPE AS \"MALZEME TİPİ\" , MATDOCNUM AS \"MALZEME KODU\" , QUANTITY AS \"TEMEL MİKTAR\", ISDELETED AS \"SİLİNDİ Mİ\", ISPASSIVE AS \"PASİF Mİ\", DRAWNUM AS \"ÇİZİM NUMARASI\"  FROM BSMGRCDMBOMHEAD;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", BOMDOCTYPE AS \"ÜRÜN AĞACI TİPİ\", BOMDOCNUM AS \"ÜRÜN AĞACI KODU\" , BOMDOCFROM AS \"GEÇERLİLİK BAŞLANGIÇ\" , BOMDOCUNTIL AS \"GEÇERLİLİK BİTİŞ\" , MATDOCTYPE AS \"MALZEME TİPİ\" , MATDOCNUM AS \"MALZEME KODU\" , QUANTITY AS \"TEMEL MİKTAR\", CASE\r\n WHEN ISDELETED = 1 THEN 'Evet' \r\n           WHEN ISDELETED = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"SİLİNDİ Mİ\", \r\n       CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\", DRAWNUM AS \"ÇİZİM NUMARASI\"  FROM BSMGRCDMBOMHEAD;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataGrid.DataSource = dt;
         }
@@ -75,9 +91,10 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P5", textGecBit.Text);
             komut.Parameters.AddWithValue("@P6", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@P7", textMalzemeKodu.Text);
-            komut.Parameters.AddWithValue("@P8", textTemelMiktar.Text);
-            komut.Parameters.AddWithValue("@P9", textSilindiMi.Text);
-            komut.Parameters.AddWithValue("@P10", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@P8", Convert.ToDecimal(textTemelMiktar.Text));
+            // Doğru değerler: 1 (Evet) ve 0 (Hayır) kullanılmalı
+            komut.Parameters.AddWithValue("@P9", checkBoxSilindi.Checked ? 1 : 0);
+            komut.Parameters.AddWithValue("@P10", checkBoxPasif.Checked ? 1 : 0);
             komut.Parameters.AddWithValue("@P11", textCizimNo.Text);
 
 
@@ -91,8 +108,8 @@ namespace ERP_APP
             textMalzemeTipi.ReadOnly = true;
             textMalzemeKodu.ReadOnly = true;
             textTemelMiktar.ReadOnly = true;
-            textSilindiMi.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
+            checkBoxSilindi.Checked = false;
+            checkBoxPasif.Checked = false;
             textCizimNo.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
@@ -111,8 +128,8 @@ namespace ERP_APP
             textMalzemeTipi.ReadOnly = false;
             textMalzemeKodu.ReadOnly = false;
             textTemelMiktar.ReadOnly = false;
-            textSilindiMi.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+            checkBoxSilindi.Enabled = true;
+            checkBoxPasif.Enabled = true;
             textCizimNo.ReadOnly = false;
         }
 
@@ -129,9 +146,15 @@ namespace ERP_APP
             textMalzemeTipi.ReadOnly = false;
             textMalzemeKodu.ReadOnly = false;
             textTemelMiktar.ReadOnly = false;
-            textSilindiMi.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
             textCizimNo.ReadOnly = false;
+
+            // CheckBoxlar aktif hale geliyor
+            checkBoxSilindi.Enabled = true;
+            checkBoxPasif.Enabled = true;
+
+            // CheckBoxların varsayılan değerlerini ayarlıyoruz
+            checkBoxSilindi.Checked = false;
+            checkBoxPasif.Checked = false;
 
             textFirmaCode.Text = string.Empty;
             textUrunAgcTip.Text = string.Empty;
@@ -141,8 +164,6 @@ namespace ERP_APP
             textMalzemeTipi.Text = string.Empty;
             textMalzemeKodu.Text = string.Empty;
             textTemelMiktar.Text = string.Empty;
-            textSilindiMi.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
             textCizimNo.Text = string.Empty;
         }
 
@@ -168,9 +189,12 @@ namespace ERP_APP
                 textMalzemeTipi.ReadOnly = true;
                 textMalzemeKodu.ReadOnly = true;
                 textTemelMiktar.ReadOnly = true;
-                textSilindiMi.ReadOnly = true;
-                textIsPassive.ReadOnly = true;
                 textCizimNo.ReadOnly = true;
+
+                // CheckBox'ları devre dışı bırakıyoruz
+                checkBoxSilindi.Enabled = false;
+                checkBoxPasif.Enabled = false;
+
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -192,8 +216,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p6", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@p7", textMalzemeKodu.Text);
             komut.Parameters.AddWithValue("@p8", textTemelMiktar.Text);
-            komut.Parameters.AddWithValue("@p9", textSilindiMi.Text);
-            komut.Parameters.AddWithValue("@p10", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@p9", checkBoxSilindi.Checked ? 1 : 0); // ISDELETED (True -> 1, False -> 0)
+            komut.Parameters.AddWithValue("@p10", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
             komut.Parameters.AddWithValue("@p11", textCizimNo.Text);
 
 
@@ -208,10 +232,11 @@ namespace ERP_APP
             textMalzemeTipi.Text = string.Empty;
             textMalzemeKodu.Text = string.Empty;
             textTemelMiktar.Text = string.Empty;
-            textSilindiMi.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
             textCizimNo.Text = string.Empty;
 
+            // CheckBox'ları sıfırlama
+            checkBoxSilindi.Checked = false;
+            checkBoxPasif.Checked = false;
 
             textFirmaCode.ReadOnly = true;
             textUrunAgcTip.ReadOnly = true;
@@ -221,8 +246,6 @@ namespace ERP_APP
             textMalzemeTipi.ReadOnly = true;
             textMalzemeKodu.ReadOnly = true;
             textTemelMiktar.ReadOnly = true;
-            textSilindiMi.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
             textCizimNo.ReadOnly = true;
             ButtonKaydet.Visible = false;
 

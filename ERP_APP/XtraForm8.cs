@@ -36,7 +36,14 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textUrnAgcTip.Text = dr["ÜRÜN AĞACI TİPİ"].ToString();
                 textUrnAgcTipAck.Text = dr["ÜRÜN AĞACI TİPİ AÇIKLAMASI"].ToString();
-                textIsPassive.Text = dr["PASİF Mİ"].ToString();
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
             }
         }
 
@@ -44,7 +51,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"ÜRÜN AĞACI TİPİ\", DOCTYPETEXT AS \"ÜRÜN AĞACI TİPİ AÇIKLAMASI\" , ISPASSIVE AS \"PASİF Mİ\"   FROM BSMGRCDMBOM001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"ÜRÜN AĞACI TİPİ\", DOCTYPETEXT AS \"ÜRÜN AĞACI TİPİ AÇIKLAMASI\" , CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\"   FROM BSMGRCDMBOM001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataSehirGrid.DataSource = dt;
         }
@@ -63,7 +70,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textUrnAgcTip.ReadOnly = false;
             textUrnAgcTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
+
         }
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
@@ -72,14 +80,16 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textUrnAgcTip.Text);
             komut.Parameters.AddWithValue("@P3", textUrnAgcTipAck.Text);
-            komut.Parameters.AddWithValue("@P4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
+
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textFirmaCode.ReadOnly = true;
             textUrnAgcTip.ReadOnly = true;
             textUrnAgcTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
+            checkBoxPasif.Checked = false;
+
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -91,7 +101,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textUrnAgcTip.Text);
             komut.Parameters.AddWithValue("@p3", textUrnAgcTipAck.Text);
-            komut.Parameters.AddWithValue("@p4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
+
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -99,12 +110,11 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textUrnAgcTip.Text = string.Empty;
             textUrnAgcTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
+            checkBoxPasif.Checked = false;
 
             textFirmaCode.ReadOnly = true;
             textUrnAgcTip.ReadOnly = true;
             textUrnAgcTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
             ButtonKaydet.Visible = false;
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,12 +129,13 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textUrnAgcTip.ReadOnly = false;
             textUrnAgcTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
 
             textFirmaCode.Text = string.Empty;
             textUrnAgcTip.Text = string.Empty;
             textUrnAgcTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -144,7 +155,8 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textUrnAgcTip.ReadOnly = true;
                 textUrnAgcTipAck.ReadOnly = true;
-                textIsPassive.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
+
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }

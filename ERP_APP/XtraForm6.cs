@@ -36,7 +36,14 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textMalzemeTipi.Text = dr["MALZEME TİPİ"].ToString();
                 textMalzTipAcik.Text = dr["MALZEME TİPİ AÇIKLAMASI"].ToString();
-                textIspassıve.Text = dr["PASİF Mİ"].ToString();
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
 
 
             }
@@ -45,7 +52,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\" , ISPASSIVE AS \"PASİF Mİ\"   FROM BSMGRCDMMAT001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\" , CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\"   FROM BSMGRCDMMAT001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataSehirGrid.DataSource = dt;
         }
@@ -64,14 +71,13 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalzemeTipi.ReadOnly = false;
             textMalzTipAcik.ReadOnly = false;
-            textIspassıve.ReadOnly = false;
 
             textFirmaCode.Text = string.Empty;
             textMalzemeTipi.Text = string.Empty;
             textMalzTipAcik.Text = string.Empty;
-            textIspassıve.Text = string.Empty;
 
-
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
@@ -80,7 +86,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@p3", textMalzTipAcik.Text);
-            komut.Parameters.AddWithValue("@p4", textIspassıve.Text);
+            komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
+
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -88,13 +95,14 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textMalzemeTipi.Text = string.Empty;
             textMalzTipAcik.Text = string.Empty;
-            textIspassıve.Text = string.Empty;
 
             textFirmaCode.ReadOnly = true;
             textMalzemeTipi.ReadOnly = true;
             textMalzTipAcik.ReadOnly = true;
-            textIspassıve.ReadOnly = true;
             ButtonKaydet.Visible = false;
+
+            checkBoxPasif.Checked = false;
+
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
@@ -107,7 +115,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textMalzemeTipi.ReadOnly = false;
             textMalzTipAcik.ReadOnly = false;
-            textIspassıve.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
+
         }
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
@@ -116,14 +125,16 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@P3", textMalzTipAcik.Text);
-            komut.Parameters.AddWithValue("@P4", textIspassıve.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
+
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textFirmaCode.ReadOnly = true;
             textMalzemeTipi.ReadOnly = true;
             textMalzTipAcik.ReadOnly = true;
-            textIspassıve.ReadOnly = true;
+            checkBoxPasif.Checked = false;
+
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -146,7 +157,7 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textMalzemeTipi.ReadOnly = true;
                 textMalzTipAcik.ReadOnly = true;
-                textIspassıve.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }
@@ -177,6 +188,5 @@ namespace ERP_APP
                 }
             }
         }
-
     }
 }

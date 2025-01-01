@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaYonForm));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            textIsPassive = new DevExpress.XtraEditors.TextEdit();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
@@ -42,6 +42,8 @@
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            checkBoxPasif = new CheckBox();
+            checkBoxSilindi = new CheckBox();
             textCizimNo = new DevExpress.XtraEditors.TextEdit();
             labelControl7 = new DevExpress.XtraEditors.LabelControl();
             textTemelMiktar = new DevExpress.XtraEditors.TextEdit();
@@ -51,7 +53,6 @@
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
             textGecBas = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            textSilindiMi = new DevExpress.XtraEditors.TextEdit();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textUrunAgcTip = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -65,8 +66,6 @@
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            textArat = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
@@ -75,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSilindiMi.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcKod.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).BeginInit();
@@ -84,15 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
-            // 
-            // textIsPassive
-            // 
-            textIsPassive.Location = new Point(1314, 38);
-            textIsPassive.Margin = new Padding(4);
-            textIsPassive.Name = "textIsPassive";
-            textIsPassive.Properties.ReadOnly = true;
-            textIsPassive.Size = new Size(23, 22);
-            textIsPassive.TabIndex = 28;
             // 
             // islemlerSehirText
             // 
@@ -111,6 +100,13 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 44;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(276, 47);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 49;
             // 
             // ButtonKaydet
             // 
@@ -221,17 +217,17 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(checkBoxPasif);
+            sehirSearchControl.Controls.Add(checkBoxSilindi);
             sehirSearchControl.Controls.Add(textCizimNo);
             sehirSearchControl.Controls.Add(labelControl7);
             sehirSearchControl.Controls.Add(textTemelMiktar);
             sehirSearchControl.Controls.Add(labelControl6);
-            sehirSearchControl.Controls.Add(textIsPassive);
             sehirSearchControl.Controls.Add(labelControl2);
             sehirSearchControl.Controls.Add(textGecBit);
             sehirSearchControl.Controls.Add(labelControl5);
             sehirSearchControl.Controls.Add(textGecBas);
             sehirSearchControl.Controls.Add(labelControl4);
-            sehirSearchControl.Controls.Add(textSilindiMi);
             sehirSearchControl.Controls.Add(labelControl3);
             sehirSearchControl.Controls.Add(textUrunAgcTip);
             sehirSearchControl.Controls.Add(labelControl1);
@@ -249,6 +245,26 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 45;
             sehirSearchControl.Text = "Arama";
+            // 
+            // checkBoxPasif
+            // 
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(1315, 39);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 38;
+            checkBoxPasif.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSilindi
+            // 
+            checkBoxSilindi.AutoSize = true;
+            checkBoxSilindi.Enabled = false;
+            checkBoxSilindi.Location = new Point(1144, 39);
+            checkBoxSilindi.Name = "checkBoxSilindi";
+            checkBoxSilindi.Size = new Size(18, 17);
+            checkBoxSilindi.TabIndex = 37;
+            checkBoxSilindi.UseVisualStyleBackColor = true;
             // 
             // textCizimNo
             // 
@@ -340,15 +356,6 @@
             labelControl4.Size = new Size(261, 25);
             labelControl4.TabIndex = 23;
             labelControl4.Text = "GEÇERLİLİK BAŞLANGICI";
-            // 
-            // textSilindiMi
-            // 
-            textSilindiMi.Location = new Point(1137, 38);
-            textSilindiMi.Margin = new Padding(4);
-            textSilindiMi.Name = "textSilindiMi";
-            textSilindiMi.Properties.ReadOnly = true;
-            textSilindiMi.Size = new Size(23, 22);
-            textSilindiMi.TabIndex = 22;
             // 
             // labelControl3
             // 
@@ -483,13 +490,6 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // textArat
-            // 
-            textArat.Location = new Point(276, 47);
-            textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
-            textArat.TabIndex = 49;
-            // 
             // rotaYonForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -501,7 +501,6 @@
             Margin = new Padding(4);
             Name = "rotaYonForm";
             Text = "ROTA YÖNETİMİ";
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -512,7 +511,6 @@
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSilindiMi.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcKod.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).EndInit();
@@ -524,8 +522,6 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.TextEdit textIsPassive;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
         private DevExpress.XtraEditors.LabelControl labelControl2;
@@ -533,7 +529,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit textGecBas;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textSilindiMi;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit textUrunAgcTip;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -560,5 +555,7 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private TextBox textArat;
+        private CheckBox checkBoxPasif;
+        private CheckBox checkBoxSilindi;
     }
 }
