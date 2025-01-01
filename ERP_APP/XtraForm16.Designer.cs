@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaYonForm));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -49,9 +49,7 @@
             textTemelMiktar = new DevExpress.XtraEditors.TextEdit();
             labelControl6 = new DevExpress.XtraEditors.LabelControl();
             labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            textGecBit = new DevExpress.XtraEditors.TextEdit();
             labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            textGecBas = new DevExpress.XtraEditors.TextEdit();
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textUrunAgcTip = new DevExpress.XtraEditors.TextEdit();
@@ -66,14 +64,14 @@
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            dateTimeBitis = new DateTimePicker();
+            dateTimeBaslangic = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textCizimNo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcKod.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).BeginInit();
@@ -217,6 +215,8 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(dateTimeBaslangic);
+            sehirSearchControl.Controls.Add(dateTimeBitis);
             sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(checkBoxSilindi);
             sehirSearchControl.Controls.Add(textCizimNo);
@@ -224,9 +224,7 @@
             sehirSearchControl.Controls.Add(textTemelMiktar);
             sehirSearchControl.Controls.Add(labelControl6);
             sehirSearchControl.Controls.Add(labelControl2);
-            sehirSearchControl.Controls.Add(textGecBit);
             sehirSearchControl.Controls.Add(labelControl5);
-            sehirSearchControl.Controls.Add(textGecBas);
             sehirSearchControl.Controls.Add(labelControl4);
             sehirSearchControl.Controls.Add(labelControl3);
             sehirSearchControl.Controls.Add(textUrunAgcTip);
@@ -317,15 +315,6 @@
             labelControl2.TabIndex = 27;
             labelControl2.Text = "PASİF Mİ?";
             // 
-            // textGecBit
-            // 
-            textGecBit.Location = new Point(1079, 162);
-            textGecBit.Margin = new Padding(4);
-            textGecBit.Name = "textGecBit";
-            textGecBit.Properties.ReadOnly = true;
-            textGecBit.Size = new Size(180, 22);
-            textGecBit.TabIndex = 26;
-            // 
             // labelControl5
             // 
             labelControl5.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
@@ -336,15 +325,6 @@
             labelControl5.Size = new Size(186, 25);
             labelControl5.TabIndex = 25;
             labelControl5.Text = "GEÇERLİLİK BİTİŞ";
-            // 
-            // textGecBas
-            // 
-            textGecBas.Location = new Point(771, 162);
-            textGecBas.Margin = new Padding(4);
-            textGecBas.Name = "textGecBas";
-            textGecBas.Properties.ReadOnly = true;
-            textGecBas.Size = new Size(180, 22);
-            textGecBas.TabIndex = 24;
             // 
             // labelControl4
             // 
@@ -471,9 +451,9 @@
             // dataGrid
             // 
             dataGrid.EmbeddedNavigator.Margin = new Padding(4);
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
-            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode1, gridLevelNode2 });
+            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.RelationName = "Level2";
+            dataGrid.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] { gridLevelNode3, gridLevelNode4 });
             dataGrid.Location = new Point(-1, 297);
             dataGrid.MainView = gridView1;
             dataGrid.Margin = new Padding(4);
@@ -489,6 +469,22 @@
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
+            // 
+            // dateTimeBitis
+            // 
+            dateTimeBitis.Enabled = false;
+            dateTimeBitis.Location = new Point(1079, 165);
+            dateTimeBitis.Name = "dateTimeBitis";
+            dateTimeBitis.Size = new Size(250, 23);
+            dateTimeBitis.TabIndex = 39;
+            // 
+            // dateTimeBaslangic
+            // 
+            dateTimeBaslangic.Enabled = false;
+            dateTimeBaslangic.Location = new Point(770, 160);
+            dateTimeBaslangic.Name = "dateTimeBaslangic";
+            dateTimeBaslangic.Size = new Size(250, 23);
+            dateTimeBaslangic.TabIndex = 40;
             // 
             // rotaYonForm
             // 
@@ -509,8 +505,6 @@
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textCizimNo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textTemelMiktar.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcTip.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUrunAgcKod.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeKodu.Properties).EndInit();
@@ -525,9 +519,7 @@
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit textGecBit;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textGecBas;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit textUrunAgcTip;
@@ -557,5 +549,7 @@
         private TextBox textArat;
         private CheckBox checkBoxPasif;
         private CheckBox checkBoxSilindi;
+        private DateTimePicker dateTimeBitis;
+        private DateTimePicker dateTimeBaslangic;
     }
 }

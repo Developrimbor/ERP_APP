@@ -37,8 +37,8 @@ namespace ERP_APP
                 textFirmaCode.Text = dr["FİRMA KODU"].ToString();
                 textUrunAgcTip.Text = dr["ÜRÜN AĞACI TİPİ"].ToString();
                 textUrunAgacKod.Text = dr["ÜRÜN AĞACI KODU"].ToString();
-                textGecBas.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
-                textGecBit.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
+                dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
+                dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
                 textMalzemeTipi.Text = dr["MALZEME TİPİ"].ToString();
                 textMalzemeKodu.Text = dr["MALZEME KODU"].ToString();
                 textTemelMiktar.Text = dr["TEMEL MİKTAR"].ToString();
@@ -87,8 +87,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textUrunAgcTip.Text);
             komut.Parameters.AddWithValue("@P3", textUrunAgacKod.Text);
-            komut.Parameters.AddWithValue("@P4", textGecBas.Text);
-            komut.Parameters.AddWithValue("@P5", textGecBit.Text);
+            komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P6", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@P7", textMalzemeKodu.Text);
             komut.Parameters.AddWithValue("@P8", Convert.ToDecimal(textTemelMiktar.Text));
@@ -103,8 +103,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = true;
             textUrunAgcTip.ReadOnly = true;
             textUrunAgacKod.ReadOnly = true;
-            textGecBas.ReadOnly = true;
-            textGecBit.ReadOnly = true;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             textMalzemeTipi.ReadOnly = true;
             textMalzemeKodu.ReadOnly = true;
             textTemelMiktar.ReadOnly = true;
@@ -123,8 +123,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textUrunAgcTip.ReadOnly = false;
             textUrunAgacKod.ReadOnly = false;
-            textGecBas.ReadOnly = false;
-            textGecBit.ReadOnly = false;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             textMalzemeTipi.ReadOnly = false;
             textMalzemeKodu.ReadOnly = false;
             textTemelMiktar.ReadOnly = false;
@@ -141,8 +141,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = false;
             textUrunAgcTip.ReadOnly = false;
             textUrunAgacKod.ReadOnly = false;
-            textGecBas.ReadOnly = false;
-            textGecBit.ReadOnly = false;
+            dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = true;
             textMalzemeTipi.ReadOnly = false;
             textMalzemeKodu.ReadOnly = false;
             textTemelMiktar.ReadOnly = false;
@@ -159,8 +159,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textUrunAgcTip.Text = string.Empty;
             textUrunAgacKod.Text = string.Empty;
-            textGecBas.Text = string.Empty;
-            textGecBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             textMalzemeTipi.Text = string.Empty;
             textMalzemeKodu.Text = string.Empty;
             textTemelMiktar.Text = string.Empty;
@@ -184,8 +184,8 @@ namespace ERP_APP
                 textFirmaCode.ReadOnly = true;
                 textUrunAgcTip.ReadOnly = true;
                 textUrunAgacKod.ReadOnly = true;
-                textGecBas.ReadOnly = true;
-                textGecBit.ReadOnly = true;
+                dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+                dateTimeBitis.Enabled = false;
                 textMalzemeTipi.ReadOnly = true;
                 textMalzemeKodu.ReadOnly = true;
                 textTemelMiktar.ReadOnly = true;
@@ -211,8 +211,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textUrunAgcTip.Text);
             komut.Parameters.AddWithValue("@p3", textUrunAgacKod.Text);
-            komut.Parameters.AddWithValue("@p4", textGecBas.Text);
-            komut.Parameters.AddWithValue("@p5", textGecBit.Text);
+            komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
+            komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p6", textMalzemeTipi.Text);
             komut.Parameters.AddWithValue("@p7", textMalzemeKodu.Text);
             komut.Parameters.AddWithValue("@p8", textTemelMiktar.Text);
@@ -227,8 +227,8 @@ namespace ERP_APP
             textFirmaCode.Text = string.Empty;
             textUrunAgcTip.Text = string.Empty;
             textUrunAgacKod.Text = string.Empty;
-            textGecBas.Text = string.Empty;
-            textGecBit.Text = string.Empty;
+            dateTimeBaslangic.Value = DateTime.Now;
+            dateTimeBitis.Value = DateTime.Now;
             textMalzemeTipi.Text = string.Empty;
             textMalzemeKodu.Text = string.Empty;
             textTemelMiktar.Text = string.Empty;
@@ -241,8 +241,8 @@ namespace ERP_APP
             textFirmaCode.ReadOnly = true;
             textUrunAgcTip.ReadOnly = true;
             textUrunAgacKod.ReadOnly = true;
-            textGecBas.ReadOnly = true;
-            textGecBit.ReadOnly = true;
+            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+            dateTimeBitis.Enabled = false;
             textMalzemeTipi.ReadOnly = true;
             textMalzemeKodu.ReadOnly = true;
             textTemelMiktar.ReadOnly = true;

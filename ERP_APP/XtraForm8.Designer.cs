@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(urunAgaciForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            checkBoxPasif = new CheckBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textUrnAgcTipAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
@@ -49,7 +50,6 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            checkBoxPasif = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textUrnAgcTipAck.Properties).BeginInit();
@@ -78,6 +78,16 @@
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
             // 
+            // checkBoxPasif
+            // 
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(968, 74);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 51;
+            checkBoxPasif.UseVisualStyleBackColor = true;
+            // 
             // labelSehirUlkeCode
             // 
             labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
@@ -94,6 +104,7 @@
             textUrnAgcTipAck.Location = new Point(511, 111);
             textUrnAgcTipAck.Margin = new Padding(4);
             textUrnAgcTipAck.Name = "textUrnAgcTipAck";
+            textUrnAgcTipAck.Properties.ReadOnly = true;
             textUrnAgcTipAck.Size = new Size(180, 22);
             textUrnAgcTipAck.TabIndex = 14;
             // 
@@ -113,6 +124,7 @@
             textUrnAgcTip.Location = new Point(258, 111);
             textUrnAgcTip.Margin = new Padding(4);
             textUrnAgcTip.Name = "textUrnAgcTip";
+            textUrnAgcTip.Properties.ReadOnly = true;
             textUrnAgcTip.Size = new Size(180, 22);
             textUrnAgcTip.TabIndex = 12;
             // 
@@ -132,6 +144,7 @@
             textFirmaCode.Location = new Point(13, 111);
             textFirmaCode.Margin = new Padding(4);
             textFirmaCode.Name = "textFirmaCode";
+            textFirmaCode.Properties.ReadOnly = true;
             textFirmaCode.Size = new Size(180, 22);
             textFirmaCode.TabIndex = 10;
             // 
@@ -296,16 +309,6 @@
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
-            // 
-            // checkBoxPasif
-            // 
-            checkBoxPasif.AutoSize = true;
-            checkBoxPasif.Enabled = false;
-            checkBoxPasif.Location = new Point(968, 74);
-            checkBoxPasif.Name = "checkBoxPasif";
-            checkBoxPasif.Size = new Size(18, 17);
-            checkBoxPasif.TabIndex = 51;
-            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // urunAgaciForm
             // 
