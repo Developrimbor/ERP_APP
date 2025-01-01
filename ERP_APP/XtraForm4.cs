@@ -107,7 +107,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN004 SET COMCODE = @P1, CITYCODE = @P2, CITYTEXT = @P3, COUNTRYCODE =@P3  WHERE CITYCODE = @P2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN004 SET COMCODE = @P1, CITYCODE = @P2, CITYTEXT = @P3, COUNTRYCODE =@P4  WHERE CITYCODE = @P2", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", textSehirFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
@@ -158,7 +158,28 @@ namespace ERP_APP
             textSehirCode.ReadOnly = false;
             textSehirFirmaCode.ReadOnly = false;
             textSehirName.ReadOnly = false;
-            textSehirUlkeCode.ReadOnly =false;
+            textSehirUlkeCode.ReadOnly = false;
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', CITYCODE AS 'ŞEHİR KODU', CITYTEXT AS 'ŞEHİR ADI', COUNTRYCODE AS 'ÜLKE KODU' " +
+                "FROM BSMGRCDMGEN004 " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR CITYCODE LIKE '%' + @p1 + '%' OR CITYTEXT LIKE '%' + @p1 + '%' OR COUNTRYCODE LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataSehirGrid.DataSource = dt;
+                }
+            }
         }
     }
 }

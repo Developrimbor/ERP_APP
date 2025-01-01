@@ -93,7 +93,7 @@ namespace ERP_APP
             textUlkeCode.ReadOnly = true;
             textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            ButtonGüncelle.Visible=false;
+            ButtonGüncelle.Visible = false;
             listele();
         }
 
@@ -134,6 +134,27 @@ namespace ERP_APP
                 textUlkeCode.Text = dr["ÜLKE KODU"].ToString();
                 textDilName.Text = dr["ÜLKE ADI"].ToString();
 
+            }
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', COUNTRYCODE AS 'ÜLKE KODU', COUNTRYTEXT AS 'ÜLKE ADI' " +
+                "FROM BSMGRCDMGEN003 " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR COUNTRYCODE LIKE '%' + @p1 + '%' OR COUNTRYTEXT LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataUlkeGrid.DataSource = dt;
+                }
             }
         }
     }

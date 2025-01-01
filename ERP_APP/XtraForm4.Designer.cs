@@ -49,6 +49,7 @@
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            textArat = new TextBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textSehirUlkeCode.Properties).BeginInit();
@@ -160,6 +161,7 @@
             // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(textArat);
             islemlerSehirText.Controls.Add(ButtonKaydet);
             islemlerSehirText.Controls.Add(ButtonGüncelle);
             islemlerSehirText.Controls.Add(homePageButton);
@@ -215,7 +217,7 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(225, 39);
+            dataAddButton.Location = new Point(156, 38);
             dataAddButton.Margin = new Padding(4);
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(37, 39);
@@ -229,7 +231,7 @@
             deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
-            deleteButton.Location = new Point(295, 39);
+            deleteButton.Location = new Point(226, 38);
             deleteButton.Margin = new Padding(4);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(37, 39);
@@ -243,7 +245,7 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(155, 39);
+            editButton.Location = new Point(86, 38);
             editButton.Margin = new Padding(4);
             editButton.Name = "editButton";
             editButton.Size = new Size(37, 39);
@@ -258,11 +260,12 @@
             onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
             onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(85, 39);
+            onlyViewButton.Location = new Point(491, 40);
             onlyViewButton.Margin = new Padding(4);
             onlyViewButton.Name = "onlyViewButton";
             onlyViewButton.Size = new Size(37, 39);
             onlyViewButton.TabIndex = 6;
+            onlyViewButton.Click += onlyViewButton_Click;
             // 
             // searchButton
             // 
@@ -300,6 +303,13 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
+            // textArat
+            // 
+            textArat.Location = new Point(282, 48);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 47;
+            // 
             // sehirForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -320,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
+            islemlerSehirText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
             ResumeLayout(false);
@@ -347,5 +358,6 @@
         private DevExpress.XtraEditors.SimpleButton homePageButton;
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
+        private TextBox textArat;
     }
 }

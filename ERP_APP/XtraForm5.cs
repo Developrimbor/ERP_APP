@@ -186,5 +186,26 @@ namespace ERP_APP
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', UNITCODE AS 'BİRİM KODU', UNITTEXT AS 'BİRİM ADI', ISMAINUNIT AS 'ANA BİRİM Mİ', MAINUNITCODE AS 'ANA BİRİM KODU' " +
+                "FROM BSMGRCDMGEN005 " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR UNITCODE LIKE '%' + @p1 + '%' OR UNITTEXT LIKE '%' + @p1 + '%' OR ISMAINUNIT LIKE '%' + @p1 + '%' OR MAINUNITCODE LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataSehirGrid.DataSource = dt;
+                }
+            }
+        }
     }
 }
