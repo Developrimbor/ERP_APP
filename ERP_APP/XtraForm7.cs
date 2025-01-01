@@ -149,5 +149,25 @@ namespace ERP_APP
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
         }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\", ISPASSIVE AS \"PASİF Mİ\" FROM BSMGRCDMCCM001\r\n" +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR DOCTYPE LIKE '%' + @p1 + '%' OR DOCTYPETEXT LIKE '%' + @p1 + '%' ;",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataMaliyetMerkezi.DataSource = dt;
+                }
+            }
+        }
     }
 }
