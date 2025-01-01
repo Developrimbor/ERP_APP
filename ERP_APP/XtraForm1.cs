@@ -188,7 +188,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN001 SET COMCODE = @P1, COMTEXT = @P2, ADDRESS1 = @P3, ADDRESS2 = @P4, CITYCODE = @P5, COUNTRYCODE = @P6", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN001 SET COMCODE = @P1, COMTEXT = @P2, ADDRESS1 = @P3, ADDRESS2 = @P4, CITYCODE = @P5, COUNTRYCODE = @P6 WHERE COMCODE = @P1", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@P2", textFirmaInfoEdit.Text);
             komut.Parameters.AddWithValue("@P3", textFirmaAdres1.Text);
