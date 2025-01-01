@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,7 +94,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
             komut.Parameters.AddWithValue("@p2", textMalzTipi.Text);
             komut.Parameters.AddWithValue("@p3", textMalzKodu.Text);
-         
+
 
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -195,6 +196,27 @@ namespace ERP_APP
             {
                 // Kullanıcı "İptal" butonuna basarsa hiçbir işlem yapılmaz
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', MATDOCTYPE AS 'MALZEME TİPİ', MATDOCNUM AS 'MALZEME KODU', MATDOCFROM AS 'GEÇERLİLİK BAŞLANGIÇ', MATDOCUNTIL AS 'GEÇERLİLİK BİTİŞ', LANCODE AS 'DİL KODU', MATSTEXT AS 'MALZEME KISA AÇIKLAMASI', MATLTEXT AS 'MALZEME UZUN AÇIKLAMASI' " +
+                "FROM BSMGRCDMMATTEXT " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR MATDOCTYPE LIKE '%' + @p1 + '%' OR MATDOCNUM LIKE '%' + @p1 + '%' OR MATDOCFROM LIKE '%' + @p1 + '%' OR MATDOCUNTIL LIKE '%' + @p1 + '%' OR LANCODE LIKE '%' + @p1 + '%' OR MATSTEXT LIKE '%' + @p1 + '%' OR MATLTEXT LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataGrid.DataSource = dt;
+                }
             }
         }
     }

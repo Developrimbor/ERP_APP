@@ -46,9 +46,8 @@
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
             textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
-            textGecBit = new DevExpress.XtraEditors.TextEdit();
-            textGecBas = new DevExpress.XtraEditors.TextEdit();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
+            textArat = new TextBox();
             ButtonKaydet = new DevExpress.XtraEditors.SimpleButton();
             homePageButton = new DevExpress.XtraEditors.SimpleButton();
             ButtonGüncelle = new DevExpress.XtraEditors.SimpleButton();
@@ -67,8 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
@@ -258,32 +255,13 @@
             labelBirimFirmaCode.TabIndex = 9;
             labelBirimFirmaCode.Text = "FİRMA KODU";
             // 
-            // textGecBit
-            // 
-            textGecBit.Location = new Point(705, 32);
-            textGecBit.Margin = new Padding(4);
-            textGecBit.Name = "textGecBit";
-            textGecBit.Properties.ReadOnly = true;
-            textGecBit.Size = new Size(180, 22);
-            textGecBit.TabIndex = 26;
-            // 
-            // textGecBas
-            // 
-            textGecBas.Location = new Point(450, 36);
-            textGecBas.Margin = new Padding(4);
-            textGecBas.Name = "textGecBas";
-            textGecBas.Properties.ReadOnly = true;
-            textGecBas.Size = new Size(180, 22);
-            textGecBas.TabIndex = 24;
-            // 
             // islemlerSehirText
             // 
+            islemlerSehirText.Controls.Add(textArat);
             islemlerSehirText.Controls.Add(ButtonKaydet);
             islemlerSehirText.Controls.Add(homePageButton);
-            islemlerSehirText.Controls.Add(textGecBit);
             islemlerSehirText.Controls.Add(ButtonGüncelle);
             islemlerSehirText.Controls.Add(dataAddButton);
-            islemlerSehirText.Controls.Add(textGecBas);
             islemlerSehirText.Controls.Add(searchButton);
             islemlerSehirText.Controls.Add(deleteButton);
             islemlerSehirText.Controls.Add(onlyViewButton);
@@ -294,6 +272,13 @@
             islemlerSehirText.Size = new Size(1412, 90);
             islemlerSehirText.TabIndex = 32;
             islemlerSehirText.Text = "İşlemler";
+            // 
+            // textArat
+            // 
+            textArat.Location = new Point(292, 48);
+            textArat.Name = "textArat";
+            textArat.Size = new Size(186, 23);
+            textArat.TabIndex = 47;
             // 
             // ButtonKaydet
             // 
@@ -335,7 +320,7 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(225, 39);
+            dataAddButton.Location = new Point(156, 39);
             dataAddButton.Margin = new Padding(4);
             dataAddButton.Name = "dataAddButton";
             dataAddButton.Size = new Size(37, 39);
@@ -366,7 +351,7 @@
             deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = Properties.Resources.Delete;
-            deleteButton.Location = new Point(295, 39);
+            deleteButton.Location = new Point(226, 39);
             deleteButton.Margin = new Padding(4);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(37, 39);
@@ -381,11 +366,12 @@
             onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
             onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(85, 39);
+            onlyViewButton.Location = new Point(509, 39);
             onlyViewButton.Margin = new Padding(4);
             onlyViewButton.Name = "onlyViewButton";
             onlyViewButton.Size = new Size(37, 39);
             onlyViewButton.TabIndex = 35;
+            onlyViewButton.Click += onlyViewButton_Click;
             // 
             // editButton
             // 
@@ -394,7 +380,7 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(155, 39);
+            editButton.Location = new Point(86, 39);
             editButton.Margin = new Padding(4);
             editButton.Name = "editButton";
             editButton.Size = new Size(37, 39);
@@ -440,10 +426,9 @@
             ((System.ComponentModel.ISupportInitialize)textMalzKısaAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzKodu.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBit.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textGecBas.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
+            islemlerSehirText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridMalzemeBilgi).EndInit();
             ResumeLayout(false);
@@ -465,9 +450,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridMalzemeBilgi;
         private DevExpress.XtraEditors.TextEdit textMalzTipi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textGecBit;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.TextEdit textGecBas;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.SimpleButton dataAddButton;
@@ -481,5 +464,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private DateTimePicker dateTimeBitis;
         private DateTimePicker dateTimeBaslangic;
+        private TextBox textArat;
     }
 }

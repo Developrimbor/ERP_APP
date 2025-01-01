@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -227,6 +228,27 @@ namespace ERP_APP
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listele();
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', BOMDOCTYPE AS 'ÜRÜN AĞACI TİPİ', BOMDOCNUM AS 'ÜRÜN AĞACI KODU', BOMDOCFROM AS 'GEÇERLİLİK BAŞLANGIÇ', BOMDOCUNTIL AS 'GEÇERLİLİK BİTİŞ', MATDOCTYPE AS 'MALZEME TİPİ', MATDOCNUM AS 'MALZEME KODU', QUANTITY AS 'TEMEL MİKTAR', ISDELETED AS 'SİLİNDİ Mİ', ISPASSIVE AS 'PASİF Mİ', DRAWNUM AS 'ÇİZİM NUMARASI'" +
+                "FROM BSMGRCDMBOMHEAD " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR BOMDOCTYPE LIKE '%' + @p1 + '%' OR BOMDOCNUM LIKE '%' + @p1 + '%' OR BOMDOCFROM LIKE '%' + @p1 + '%' OR BOMDOCUNTIL LIKE '%' + @p1 + '%' OR MATDOCTYPE LIKE '%' + @p1 + '%' OR MATDOCNUM LIKE '%' + @p1 + '%' OR QUANTITY LIKE '%' + @p1 + '%' OR ISDELETED LIKE '%' + @p1 + '%' OR ISPASSIVE LIKE '%' + @p1 + '%' OR DRAWNUM LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataGrid.DataSource = dt;
+                }
+            }
         }
     }
 }

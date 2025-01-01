@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -152,6 +153,27 @@ namespace ERP_APP
             {
                 // Kullanıcı "İptal" butonuna basarsa hiçbir işlem yapılmaz
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', DOCTYPE AS 'OPERASYON TİPİ', DOCTYPETEXT AS 'OPERASYON TİPİ AÇIKLAMASI', ISPASSIVE AS 'PASİF Mİ' " +
+                "FROM BSMGRCDMOPR001 " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR DOCTYPE LIKE '%' + @p1 + '%' OR DOCTYPETEXT LIKE '%' + @p1 + '%' OR ISPASSIVE LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataGrid.DataSource = dt;
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -197,6 +198,27 @@ namespace ERP_APP
             {
                 // Kullanıcı "İptal" butonuna basarsa hiçbir işlem yapılmaz
                 MessageBox.Show("Silme işlemi iptal edildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void onlyViewButton_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlCommand komut = new SqlCommand(
+                "SELECT COMCODE AS 'FİRMA KODU', WCMDOCTYPE AS 'İŞ MERKEZİ TİPİ', WCMDOCNUM AS 'İŞ MERKEZİ KODU', WCMDOCFROM AS 'GEÇERLİLİK BAŞLANGIÇ', WCMDOCUNTIL AS 'GEÇERLİLİK BİTİŞ', LANCODE AS 'DİL KODU', WCMSTEXT AS 'MALİYET MERKEZİ KISA AÇIKLAMASI', WCMLTEXT AS 'MALİYET MERKEZİ UZUN AÇIKLAMASI' " +
+                "FROM BSMGRCDMWCMTEXT " +
+                "WHERE COMCODE LIKE '%' + @p1 + '%' OR WCMDOCTYPE LIKE '%' + @p1 + '%' OR WCMDOCNUM LIKE '%' + @p1 + '%' OR WCMDOCFROM LIKE '%' + @p1 + '%' OR WCMDOCUNTIL LIKE '%' + @p1 + '%' OR LANCODE LIKE '%' + @p1 + '%' OR WCMSTEXT LIKE '%' + @p1 + '%' OR WCMLTEXT LIKE '%' + @p1 + '%';",
+                bgl.baglanti()
+            ))
+            {
+                komut.Parameters.AddWithValue("@p1", textArat.Text);
+
+                using (SqlDataAdapter da = new SqlDataAdapter(komut))
+                {
+                    da.Fill(dt);
+                    dataGrid.DataSource = dt;
+                }
             }
         }
     }
