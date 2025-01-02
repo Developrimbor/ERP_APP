@@ -170,7 +170,7 @@ namespace ERP_APP
             DataTable dt = new DataTable();
 
             using (SqlCommand komut = new SqlCommand(
-                "SELECT COMCODE AS 'FİRMA KODU', COMTEXT AS 'FİRMA ADI', ADDRESS1 AS 'FİRMA ADRESİ-1', ADDRESS2 AS 'FİRMA ADRESİ-2', CITYCODE AS 'ŞEHİR KODU', COUNTRYCODE AS 'ÜLKE KODU'ASI'" +
+                "SELECT COMCODE AS 'FİRMA KODU', COMTEXT AS 'FİRMA ADI', ADDRESS1 AS 'FİRMA ADRESİ-1', ADDRESS2 AS 'FİRMA ADRESİ-2', CITYCODE AS 'ŞEHİR KODU', COUNTRYCODE AS 'ÜLKE KODU'" +
                 "FROM BSMGRCDMGEN001 " +
                 "WHERE COMCODE LIKE '%' + @p1 + '%' OR COMTEXT LIKE '%' + @p1 + '%' OR ADDRESS1 LIKE '%' + @p1 + '%' OR ADDRESS2 LIKE '%' + @p1 + '%' OR CITYCODE LIKE '%' + @p1 + '%' OR COUNTRYCODE LIKE '%' + @p1 + '%';",
                 bgl.baglanti()

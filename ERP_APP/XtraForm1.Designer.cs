@@ -39,7 +39,6 @@
             dataAddButton = new DevExpress.XtraEditors.SimpleButton();
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
-            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             firmaSearchControl = new DevExpress.XtraEditors.GroupControl();
             comboBoxDil = new ComboBox();
@@ -54,6 +53,7 @@
             labelFirmaInfo = new DevExpress.XtraEditors.LabelControl();
             textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelFirmaName = new DevExpress.XtraEditors.LabelControl();
+            onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)dataFirmaGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerFirmaText).BeginInit();
@@ -69,22 +69,27 @@
             // dataFirmaGrid
             // 
             dataFirmaGrid.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dataFirmaGrid.Location = new Point(0, 242);
+            dataFirmaGrid.EmbeddedNavigator.Margin = new Padding(4);
+            dataFirmaGrid.Location = new Point(0, 298);
             dataFirmaGrid.MainView = gridView1;
+            dataFirmaGrid.Margin = new Padding(4);
             dataFirmaGrid.Name = "dataFirmaGrid";
-            dataFirmaGrid.Size = new Size(1209, 1080);
+            dataFirmaGrid.Size = new Size(1410, 1329);
             dataFirmaGrid.TabIndex = 0;
             dataFirmaGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
+            gridView1.DetailHeight = 431;
             gridView1.GridControl = dataFirmaGrid;
             gridView1.Name = "gridView1";
+            gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // islemlerFirmaText
             // 
             islemlerFirmaText.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            islemlerFirmaText.Controls.Add(onlyViewButton);
             islemlerFirmaText.Controls.Add(ButtonKaydet);
             islemlerFirmaText.Controls.Add(ButtonGüncelle);
             islemlerFirmaText.Controls.Add(textArat);
@@ -92,21 +97,21 @@
             islemlerFirmaText.Controls.Add(dataAddButton);
             islemlerFirmaText.Controls.Add(deleteButton);
             islemlerFirmaText.Controls.Add(editButton);
-            islemlerFirmaText.Controls.Add(onlyViewButton);
             islemlerFirmaText.Controls.Add(searchButton);
-            islemlerFirmaText.Location = new Point(0, 169);
+            islemlerFirmaText.Location = new Point(0, 208);
+            islemlerFirmaText.Margin = new Padding(4);
             islemlerFirmaText.Name = "islemlerFirmaText";
-            islemlerFirmaText.Size = new Size(1210, 73);
+            islemlerFirmaText.Size = new Size(1412, 90);
             islemlerFirmaText.TabIndex = 1;
             islemlerFirmaText.Text = "İşlemler";
             // 
             // ButtonKaydet
             // 
             ButtonKaydet.Dock = DockStyle.Right;
-            ButtonKaydet.Location = new Point(948, 23);
-            ButtonKaydet.Margin = new Padding(3, 2, 3, 2);
+            ButtonKaydet.Location = new Point(1106, 28);
+            ButtonKaydet.Margin = new Padding(4, 2, 4, 2);
             ButtonKaydet.Name = "ButtonKaydet";
-            ButtonKaydet.Size = new Size(101, 48);
+            ButtonKaydet.Size = new Size(118, 60);
             ButtonKaydet.TabIndex = 52;
             ButtonKaydet.Text = "Kaydet";
             ButtonKaydet.Visible = false;
@@ -115,10 +120,10 @@
             // ButtonGüncelle
             // 
             ButtonGüncelle.Dock = DockStyle.Right;
-            ButtonGüncelle.Location = new Point(1049, 23);
-            ButtonGüncelle.Margin = new Padding(3, 2, 3, 2);
+            ButtonGüncelle.Location = new Point(1224, 28);
+            ButtonGüncelle.Margin = new Padding(4, 2, 4, 2);
             ButtonGüncelle.Name = "ButtonGüncelle";
-            ButtonGüncelle.Size = new Size(101, 48);
+            ButtonGüncelle.Size = new Size(118, 60);
             ButtonGüncelle.TabIndex = 51;
             ButtonGüncelle.Text = "Güncelle";
             ButtonGüncelle.Visible = false;
@@ -126,10 +131,10 @@
             // 
             // textArat
             // 
-            textArat.Location = new Point(248, 39);
-            textArat.Margin = new Padding(3, 2, 3, 2);
+            textArat.Location = new Point(289, 48);
+            textArat.Margin = new Padding(4, 2, 4, 2);
             textArat.Name = "textArat";
-            textArat.Size = new Size(160, 21);
+            textArat.Size = new Size(186, 23);
             textArat.TabIndex = 48;
             // 
             // homePageButton
@@ -139,9 +144,10 @@
             homePageButton.Dock = DockStyle.Right;
             homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1150, 23);
+            homePageButton.Location = new Point(1342, 28);
+            homePageButton.Margin = new Padding(4);
             homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(58, 48);
+            homePageButton.Size = new Size(68, 60);
             homePageButton.TabIndex = 43;
             homePageButton.Click += homePageButton_Click;
             // 
@@ -152,9 +158,10 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(135, 32);
+            dataAddButton.Location = new Point(158, 39);
+            dataAddButton.Margin = new Padding(4);
             dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(32, 32);
+            dataAddButton.Size = new Size(37, 39);
             dataAddButton.TabIndex = 4;
             dataAddButton.Click += dataAddButton_Click;
             // 
@@ -165,9 +172,10 @@
             deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("deleteButton.ImageOptions.SvgImage");
-            deleteButton.Location = new Point(195, 32);
+            deleteButton.Location = new Point(227, 39);
+            deleteButton.Margin = new Padding(4);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(32, 32);
+            deleteButton.Size = new Size(37, 39);
             deleteButton.TabIndex = 3;
             deleteButton.Click += deleteButton_Click;
             // 
@@ -178,25 +186,12 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(75, 32);
+            editButton.Location = new Point(88, 39);
+            editButton.Margin = new Padding(4);
             editButton.Name = "editButton";
-            editButton.Size = new Size(32, 32);
+            editButton.Size = new Size(37, 39);
             editButton.TabIndex = 2;
             editButton.Click += editButton_Click;
-            // 
-            // onlyViewButton
-            // 
-            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
-            onlyViewButton.Appearance.Options.UseBackColor = true;
-            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
-            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(427, 32);
-            onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(0, 0);
-            onlyViewButton.TabIndex = 1;
-            onlyViewButton.Click += onlyViewButton_Click;
             // 
             // searchButton
             // 
@@ -208,9 +203,10 @@
             searchButton.BackgroundImageLayout = ImageLayout.None;
             searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
-            searchButton.Location = new Point(13, 32);
+            searchButton.Location = new Point(15, 39);
+            searchButton.Margin = new Padding(4);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(32, 32);
+            searchButton.Size = new Size(37, 39);
             searchButton.TabIndex = 0;
             searchButton.Click += searchButton_Click;
             // 
@@ -232,8 +228,9 @@
             firmaSearchControl.Controls.Add(textFirmaCode);
             firmaSearchControl.Controls.Add(labelFirmaName);
             firmaSearchControl.Location = new Point(0, 0);
+            firmaSearchControl.Margin = new Padding(4);
             firmaSearchControl.Name = "firmaSearchControl";
-            firmaSearchControl.Size = new Size(1209, 169);
+            firmaSearchControl.Size = new Size(1410, 208);
             firmaSearchControl.TabIndex = 3;
             firmaSearchControl.Text = "Arama";
             // 
@@ -241,27 +238,30 @@
             // 
             comboBoxDil.Enabled = false;
             comboBoxDil.FormattingEnabled = true;
-            comboBoxDil.Location = new Point(219, 125);
+            comboBoxDil.Location = new Point(255, 154);
+            comboBoxDil.Margin = new Padding(4);
             comboBoxDil.Name = "comboBoxDil";
-            comboBoxDil.Size = new Size(154, 21);
+            comboBoxDil.Size = new Size(179, 24);
             comboBoxDil.TabIndex = 22;
             // 
             // comboBoxSehir
             // 
             comboBoxSehir.Enabled = false;
             comboBoxSehir.FormattingEnabled = true;
-            comboBoxSehir.Location = new Point(13, 125);
+            comboBoxSehir.Location = new Point(15, 154);
+            comboBoxSehir.Margin = new Padding(4);
             comboBoxSehir.Name = "comboBoxSehir";
-            comboBoxSehir.Size = new Size(154, 21);
+            comboBoxSehir.Size = new Size(179, 24);
             comboBoxSehir.TabIndex = 21;
             // 
             // labelControl4
             // 
             labelControl4.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl4.Appearance.Options.UseFont = true;
-            labelControl4.Location = new Point(219, 98);
+            labelControl4.Location = new Point(255, 121);
+            labelControl4.Margin = new Padding(4);
             labelControl4.Name = "labelControl4";
-            labelControl4.Size = new Size(101, 20);
+            labelControl4.Size = new Size(124, 25);
             labelControl4.TabIndex = 18;
             labelControl4.Text = "ÜLKE KODU";
             // 
@@ -269,9 +269,10 @@
             // 
             labelControl3.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(13, 98);
+            labelControl3.Location = new Point(15, 121);
+            labelControl3.Margin = new Padding(4);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(111, 20);
+            labelControl3.Size = new Size(132, 25);
             labelControl3.TabIndex = 17;
             labelControl3.Text = "ŞEHİR KODU";
             // 
@@ -279,9 +280,10 @@
             // 
             labelControl2.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl2.Appearance.Options.UseFont = true;
-            labelControl2.Location = new Point(765, 29);
+            labelControl2.Location = new Point(892, 36);
+            labelControl2.Margin = new Padding(4);
             labelControl2.Name = "labelControl2";
-            labelControl2.Size = new Size(145, 20);
+            labelControl2.Size = new Size(171, 25);
             labelControl2.TabIndex = 16;
             labelControl2.Text = "FİRMA ADRESİ-2";
             // 
@@ -289,74 +291,97 @@
             // 
             labelControl1.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl1.Appearance.Options.UseFont = true;
-            labelControl1.Location = new Point(486, 29);
+            labelControl1.Location = new Point(567, 36);
+            labelControl1.Margin = new Padding(4);
             labelControl1.Name = "labelControl1";
-            labelControl1.Size = new Size(145, 20);
+            labelControl1.Size = new Size(171, 25);
             labelControl1.TabIndex = 15;
             labelControl1.Text = "FİRMA ADRESİ-1";
             // 
             // textFirmaAdres2
             // 
-            textFirmaAdres2.Location = new Point(765, 64);
+            textFirmaAdres2.Location = new Point(892, 79);
+            textFirmaAdres2.Margin = new Padding(4);
             textFirmaAdres2.Name = "textFirmaAdres2";
             textFirmaAdres2.Properties.ReadOnly = true;
-            textFirmaAdres2.Size = new Size(230, 20);
+            textFirmaAdres2.Size = new Size(268, 22);
             textFirmaAdres2.TabIndex = 14;
             // 
             // textFirmaAdres1
             // 
-            textFirmaAdres1.Location = new Point(486, 64);
+            textFirmaAdres1.Location = new Point(567, 79);
+            textFirmaAdres1.Margin = new Padding(4);
             textFirmaAdres1.Name = "textFirmaAdres1";
             textFirmaAdres1.Properties.ReadOnly = true;
-            textFirmaAdres1.Size = new Size(232, 20);
+            textFirmaAdres1.Size = new Size(271, 22);
             textFirmaAdres1.TabIndex = 13;
             // 
             // textFirmaInfoEdit
             // 
-            textFirmaInfoEdit.Location = new Point(219, 64);
+            textFirmaInfoEdit.Location = new Point(255, 79);
+            textFirmaInfoEdit.Margin = new Padding(4);
             textFirmaInfoEdit.Name = "textFirmaInfoEdit";
             textFirmaInfoEdit.Properties.ReadOnly = true;
-            textFirmaInfoEdit.Size = new Size(216, 20);
+            textFirmaInfoEdit.Size = new Size(252, 22);
             textFirmaInfoEdit.TabIndex = 12;
             // 
             // labelFirmaInfo
             // 
             labelFirmaInfo.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelFirmaInfo.Appearance.Options.UseFont = true;
-            labelFirmaInfo.Location = new Point(219, 29);
+            labelFirmaInfo.Location = new Point(255, 36);
+            labelFirmaInfo.Margin = new Padding(4);
             labelFirmaInfo.Name = "labelFirmaInfo";
-            labelFirmaInfo.Size = new Size(92, 20);
+            labelFirmaInfo.Size = new Size(108, 25);
             labelFirmaInfo.TabIndex = 11;
             labelFirmaInfo.Text = "FİRMA ADI";
             // 
             // textFirmaCode
             // 
-            textFirmaCode.Location = new Point(13, 64);
+            textFirmaCode.Location = new Point(15, 79);
+            textFirmaCode.Margin = new Padding(4);
             textFirmaCode.Name = "textFirmaCode";
             textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(154, 20);
+            textFirmaCode.Size = new Size(180, 22);
             textFirmaCode.TabIndex = 10;
             // 
             // labelFirmaName
             // 
             labelFirmaName.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelFirmaName.Appearance.Options.UseFont = true;
-            labelFirmaName.Location = new Point(13, 29);
+            labelFirmaName.Location = new Point(15, 36);
+            labelFirmaName.Margin = new Padding(4);
             labelFirmaName.Name = "labelFirmaName";
-            labelFirmaName.Size = new Size(111, 20);
+            labelFirmaName.Size = new Size(134, 25);
             labelFirmaName.TabIndex = 9;
             labelFirmaName.Text = "FİRMA KODU";
             // 
+            // onlyViewButton
+            // 
+            onlyViewButton.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            onlyViewButton.Appearance.BackColor = SystemColors.Menu;
+            onlyViewButton.Appearance.Options.UseBackColor = true;
+            onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
+            onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
+            onlyViewButton.Location = new Point(512, 39);
+            onlyViewButton.Margin = new Padding(4);
+            onlyViewButton.Name = "onlyViewButton";
+            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.TabIndex = 9;
+            onlyViewButton.Click += onlyViewButton_Click;
+            // 
             // firmaForm
             // 
-            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 647);
+            ClientSize = new Size(1410, 796);
             Controls.Add(firmaSearchControl);
             Controls.Add(islemlerFirmaText);
             Controls.Add(dataFirmaGrid);
             IconOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("firmaForm.IconOptions.SvgImage");
             IsMdiContainer = true;
+            Margin = new Padding(4);
             Name = "firmaForm";
             Text = "FİRMA";
             Load += firmaForm_Load;
@@ -380,7 +405,6 @@
         private DevExpress.XtraGrid.GridControl dataFirmaGrid;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GroupControl islemlerFirmaText;
-        private DevExpress.XtraEditors.SimpleButton onlyViewButton;
         private DevExpress.XtraEditors.SimpleButton searchButton;
         private DevExpress.XtraEditors.SimpleButton deleteButton;
         private DevExpress.XtraEditors.SimpleButton editButton;
@@ -402,5 +426,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private ComboBox comboBoxDil;
         private ComboBox comboBoxSehir;
+        private DevExpress.XtraEditors.SimpleButton onlyViewButton;
     }
 }
