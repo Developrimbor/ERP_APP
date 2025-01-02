@@ -75,7 +75,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             textFirmaCode.ReadOnly = false;
-            textBirimCode.ReadOnly = false;
+            textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = false;
             textIsAnaBirimCode.ReadOnly = false;
             textAnabirimCode.ReadOnly = false;

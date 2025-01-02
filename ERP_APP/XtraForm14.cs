@@ -137,7 +137,7 @@ namespace ERP_APP
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
             comboBoxIsMerTip.Enabled = true;
-            textIsMerKod.ReadOnly = false;
+            textIsMerKod.ReadOnly = true;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
             comboBoxDil.Enabled = true;

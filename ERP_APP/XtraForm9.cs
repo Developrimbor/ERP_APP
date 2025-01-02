@@ -113,7 +113,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
-            textRotaTip.ReadOnly = false;
+            textRotaTip.ReadOnly = true;
             textRotaTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
 

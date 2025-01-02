@@ -113,7 +113,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             textFirmaCode.ReadOnly = false;
-            textMalzemeTipi.ReadOnly = false;
+            textMalzemeTipi.ReadOnly = true;
             textMalzTipAcik.ReadOnly = false;
             checkBoxPasif.Enabled = true;
 

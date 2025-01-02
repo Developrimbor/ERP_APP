@@ -90,7 +90,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
-            textMalMerkTip.ReadOnly = false;
+            textMalMerkTip.ReadOnly = true;
             textMalMerTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
 

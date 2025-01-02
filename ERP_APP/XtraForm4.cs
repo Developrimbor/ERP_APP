@@ -155,7 +155,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textSehirCode.ReadOnly = false;
+            textSehirCode.ReadOnly = true;
             textSehirFirmaCode.ReadOnly = false;
             textSehirName.ReadOnly = false;
             comboBoxUlkeKod.Enabled = true;

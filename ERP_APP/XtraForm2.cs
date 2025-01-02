@@ -119,7 +119,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textDilCode.ReadOnly = false;
+            textDilCode.ReadOnly = true;
             comboBoxFirmaCode.Enabled = true;
             textDilName.ReadOnly = false;
 

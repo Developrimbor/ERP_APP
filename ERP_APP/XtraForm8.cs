@@ -68,7 +68,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
-            textUrnAgcTip.ReadOnly = false;
+            textUrnAgcTip.ReadOnly = true;
             textUrnAgcTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
 

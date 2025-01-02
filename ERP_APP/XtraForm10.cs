@@ -53,7 +53,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
-            textIsMerkeziTip.ReadOnly = false;
+            textIsMerkeziTip.ReadOnly = true;
             textIsMerkTipAck.ReadOnly = false;
             checkBoxPasif.Enabled = true;
         }

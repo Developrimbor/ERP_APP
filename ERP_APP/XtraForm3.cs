@@ -81,7 +81,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             comboBoxFirmaCode.Enabled = true;
-            textUlkeCode.ReadOnly = false;
+            textUlkeCode.ReadOnly = true;
             textDilName.ReadOnly = false;
 
         }

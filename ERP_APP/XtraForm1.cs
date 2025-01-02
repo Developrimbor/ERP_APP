@@ -127,7 +127,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            textFirmaCode.ReadOnly = true;
             textFirmaInfoEdit.ReadOnly = false;
             textFirmaAdres1.ReadOnly = false;
             textFirmaAdres2.ReadOnly = false;

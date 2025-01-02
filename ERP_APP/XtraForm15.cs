@@ -122,7 +122,7 @@ namespace ERP_APP
             ButtonGüncelle.Visible = true;
             comboBoxFirmaKod.Enabled = true;
             comboBoxUrnAgcTip.Enabled = true;
-            textUrunAgacKod.ReadOnly = false;
+            textUrunAgacKod.ReadOnly = true;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
             comboBoxMalzemeTip.Enabled = true;
