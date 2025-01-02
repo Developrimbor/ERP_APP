@@ -55,11 +55,11 @@
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxIsMerTip = new ComboBox();
+            comboBoxDil = new ComboBox();
+            comboBoxFirmaKod = new ComboBox();
             dateTimeBitis = new DateTimePicker();
             dateTimeBaslangic = new DateTimePicker();
-            comboBoxFirmaKod = new ComboBox();
-            comboBoxDil = new ComboBox();
-            comboBoxIsMerTip = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
@@ -294,9 +294,9 @@
             labelSehirUlkeCode.Location = new Point(312, 119);
             labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(217, 25);
+            labelSehirUlkeCode.Size = new Size(101, 25);
             labelSehirUlkeCode.TabIndex = 15;
-            labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
+            labelSehirUlkeCode.Text = "DİL KODU";
             // 
             // textIsMerKısaAck
             // 
@@ -365,6 +365,36 @@
             sehirSearchControl.TabIndex = 39;
             sehirSearchControl.Text = "Arama";
             // 
+            // comboBoxIsMerTip
+            // 
+            comboBoxIsMerTip.Enabled = false;
+            comboBoxIsMerTip.FormattingEnabled = true;
+            comboBoxIsMerTip.Location = new Point(195, 76);
+            comboBoxIsMerTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxIsMerTip.Name = "comboBoxIsMerTip";
+            comboBoxIsMerTip.Size = new Size(195, 24);
+            comboBoxIsMerTip.TabIndex = 56;
+            // 
+            // comboBoxDil
+            // 
+            comboBoxDil.Enabled = false;
+            comboBoxDil.FormattingEnabled = true;
+            comboBoxDil.Location = new Point(312, 160);
+            comboBoxDil.Margin = new Padding(4, 2, 4, 2);
+            comboBoxDil.Name = "comboBoxDil";
+            comboBoxDil.Size = new Size(151, 24);
+            comboBoxDil.TabIndex = 55;
+            // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(9, 76);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 54;
+            // 
             // dateTimeBitis
             // 
             dateTimeBitis.Enabled = false;
@@ -380,36 +410,6 @@
             dateTimeBaslangic.Name = "dateTimeBaslangic";
             dateTimeBaslangic.Size = new Size(250, 23);
             dateTimeBaslangic.TabIndex = 40;
-            // 
-            // comboBoxFirmaKod
-            // 
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxFirmaKod.FormattingEnabled = true;
-            comboBoxFirmaKod.Location = new Point(9, 76);
-            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
-            comboBoxFirmaKod.Size = new Size(151, 24);
-            comboBoxFirmaKod.TabIndex = 54;
-            // 
-            // comboBoxDil
-            // 
-            comboBoxDil.Enabled = false;
-            comboBoxDil.FormattingEnabled = true;
-            comboBoxDil.Location = new Point(312, 160);
-            comboBoxDil.Margin = new Padding(4, 2, 4, 2);
-            comboBoxDil.Name = "comboBoxDil";
-            comboBoxDil.Size = new Size(151, 24);
-            comboBoxDil.TabIndex = 55;
-            // 
-            // comboBoxIsMerTip
-            // 
-            comboBoxIsMerTip.Enabled = false;
-            comboBoxIsMerTip.FormattingEnabled = true;
-            comboBoxIsMerTip.Location = new Point(195, 76);
-            comboBoxIsMerTip.Margin = new Padding(4, 2, 4, 2);
-            comboBoxIsMerTip.Name = "comboBoxIsMerTip";
-            comboBoxIsMerTip.Size = new Size(195, 24);
-            comboBoxIsMerTip.TabIndex = 56;
             // 
             // workCenterForm
             // 

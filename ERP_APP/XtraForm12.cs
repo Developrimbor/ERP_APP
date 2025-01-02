@@ -39,7 +39,7 @@ namespace ERP_APP
                 textMalzKodu.Text = dr["MALZEME KODU"].ToString();
                 dateTimeBaslangic.Text = dr["GEÇERLİLİK BAŞLANGIÇ"].ToString();
                 dateTimeBitis.Text = dr["GEÇERLİLİK BİTİŞ"].ToString();
-                textDilKodu.Text = dr["DİL KODU"].ToString();
+                comboBoxDil.SelectedItem = dr["DİL KODU"].ToString();
                 textMalzKısaAck.Text = dr["MALZEME KISA AÇIKLAMASI"].ToString();
                 textUzunAck.Text = dr["MALZEME UZUN AÇIKLAMASI"].ToString();
             }
@@ -69,7 +69,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P3", textMalzKodu.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
-            komut.Parameters.AddWithValue("@P6", textDilKodu.Text);
+            komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P7", textMalzKısaAck.Text);
             komut.Parameters.AddWithValue("@P8", textUzunAck.Text);
 
@@ -80,7 +80,7 @@ namespace ERP_APP
             textMalzKodu.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
-            textDilKodu.ReadOnly = true;
+            comboBoxDil.Enabled = false;
             textMalzKısaAck.ReadOnly = true;
             textUzunAck.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -99,7 +99,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
 
-            komut.Parameters.AddWithValue("@p6", textDilKodu.Text);
+            komut.Parameters.AddWithValue("@p6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p7", textMalzKısaAck.Text);
             komut.Parameters.AddWithValue("@p8", textUzunAck.Text);
 
@@ -111,7 +111,7 @@ namespace ERP_APP
             textMalzKodu.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
-            textDilKodu.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1;
             textMalzKısaAck.Text = string.Empty;
             textUzunAck.Text = string.Empty;
 
@@ -120,7 +120,7 @@ namespace ERP_APP
             textMalzKodu.ReadOnly = true;
             dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = false;
-            textDilKodu.ReadOnly = true;
+            comboBoxDil.Enabled = false;
             textMalzKısaAck.ReadOnly = true;
             textUzunAck.ReadOnly = true;
             ButtonKaydet.Visible = false;
@@ -138,7 +138,7 @@ namespace ERP_APP
             textMalzKodu.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
-            textDilKodu.ReadOnly = false;
+            comboBoxDil.Enabled = true;
             textMalzKısaAck.ReadOnly = false;
             textUzunAck.ReadOnly = false;
         }
@@ -153,7 +153,7 @@ namespace ERP_APP
             textMalzKodu.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
-            textDilKodu.ReadOnly = false;
+            comboBoxDil.Enabled = true;
             textMalzKısaAck.ReadOnly = false;
             textUzunAck.ReadOnly = false;
 
@@ -162,7 +162,7 @@ namespace ERP_APP
             textMalzKodu.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
-            textDilKodu.Text = string.Empty;
+            comboBoxDil.SelectedIndex = -1;
             textMalzKısaAck.Text = string.Empty;
             textUzunAck.Text = string.Empty;
         }
@@ -186,7 +186,7 @@ namespace ERP_APP
                 textMalzKodu.ReadOnly = true;
                 dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
                 dateTimeBitis.Enabled = false;
-                textDilKodu.ReadOnly = true;
+                comboBoxDil.Enabled = false;
                 textMalzKısaAck.ReadOnly = true;
                 textUzunAck.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

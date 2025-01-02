@@ -83,7 +83,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN002 (COMCODE,LANCODE,LANTEXT) values (@p1,@p2,@p3)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", comboBoxFirmaCode?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaCode?.Text ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textDilCode.Text);
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
 

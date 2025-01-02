@@ -32,6 +32,7 @@
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxMalMerTip = new ComboBox();
             comboBoxFirmaKod = new ComboBox();
             dateTimeBitis = new DateTimePicker();
             dateTimeBaslangic = new DateTimePicker();
@@ -58,7 +59,6 @@
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
-            comboBoxMalMerTip = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
@@ -115,6 +115,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 36;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxMalMerTip
+            // 
+            comboBoxMalMerTip.Enabled = false;
+            comboBoxMalMerTip.FormattingEnabled = true;
+            comboBoxMalMerTip.Location = new Point(195, 76);
+            comboBoxMalMerTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxMalMerTip.Name = "comboBoxMalMerTip";
+            comboBoxMalMerTip.Size = new Size(236, 24);
+            comboBoxMalMerTip.TabIndex = 56;
             // 
             // comboBoxFirmaKod
             // 
@@ -232,9 +242,9 @@
             labelSehirUlkeCode.Location = new Point(301, 119);
             labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(217, 25);
+            labelSehirUlkeCode.Size = new Size(101, 25);
             labelSehirUlkeCode.TabIndex = 15;
-            labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
+            labelSehirUlkeCode.Text = "DİL KODU";
             // 
             // textMalMerAcik
             // 
@@ -411,16 +421,6 @@
             editButton.Size = new Size(37, 39);
             editButton.TabIndex = 39;
             editButton.Click += editButton_Click;
-            // 
-            // comboBoxMalMerTip
-            // 
-            comboBoxMalMerTip.Enabled = false;
-            comboBoxMalMerTip.FormattingEnabled = true;
-            comboBoxMalMerTip.Location = new Point(195, 76);
-            comboBoxMalMerTip.Margin = new Padding(4, 2, 4, 2);
-            comboBoxMalMerTip.Name = "comboBoxMalMerTip";
-            comboBoxMalMerTip.Size = new Size(236, 24);
-            comboBoxMalMerTip.TabIndex = 56;
             // 
             // costCenterForm
             // 
