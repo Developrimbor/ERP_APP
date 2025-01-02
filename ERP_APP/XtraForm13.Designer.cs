@@ -32,6 +32,7 @@
             dataGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxMalMerTip = new ComboBox();
             comboBoxFirmaKod = new ComboBox();
             dateTimeBitis = new DateTimePicker();
             dateTimeBaslangic = new DateTimePicker();
@@ -42,7 +43,6 @@
             labelControl3 = new DevExpress.XtraEditors.LabelControl();
             textMaliyetMerkezCode = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            textUlkeCode = new DevExpress.XtraEditors.TextEdit();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalMerAcik = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
@@ -58,14 +58,12 @@
             deleteButton = new DevExpress.XtraEditors.SimpleButton();
             onlyViewButton = new DevExpress.XtraEditors.SimpleButton();
             editButton = new DevExpress.XtraEditors.SimpleButton();
-            comboBoxMalMerTip = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerUzunAcik.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerAcik.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
@@ -103,7 +101,6 @@
             sehirSearchControl.Controls.Add(labelControl3);
             sehirSearchControl.Controls.Add(textMaliyetMerkezCode);
             sehirSearchControl.Controls.Add(labelControl1);
-            sehirSearchControl.Controls.Add(textUlkeCode);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalMerAcik);
             sehirSearchControl.Controls.Add(labelSehirName);
@@ -115,6 +112,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 36;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxMalMerTip
+            // 
+            comboBoxMalMerTip.Enabled = false;
+            comboBoxMalMerTip.FormattingEnabled = true;
+            comboBoxMalMerTip.Location = new Point(195, 76);
+            comboBoxMalMerTip.Margin = new Padding(4, 2, 4, 2);
+            comboBoxMalMerTip.Name = "comboBoxMalMerTip";
+            comboBoxMalMerTip.Size = new Size(236, 24);
+            comboBoxMalMerTip.TabIndex = 56;
             // 
             // comboBoxFirmaKod
             // 
@@ -216,25 +223,16 @@
             labelControl1.TabIndex = 17;
             labelControl1.Text = "MALİYET MERKEZİ KODU";
             // 
-            // textUlkeCode
-            // 
-            textUlkeCode.Location = new Point(526, 160);
-            textUlkeCode.Margin = new Padding(4);
-            textUlkeCode.Name = "textUlkeCode";
-            textUlkeCode.Properties.ReadOnly = true;
-            textUlkeCode.Size = new Size(180, 22);
-            textUlkeCode.TabIndex = 16;
-            // 
             // labelSehirUlkeCode
             // 
             labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(301, 119);
+            labelSehirUlkeCode.Location = new Point(314, 119);
             labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
-            labelSehirUlkeCode.Size = new Size(217, 25);
+            labelSehirUlkeCode.Size = new Size(101, 25);
             labelSehirUlkeCode.TabIndex = 15;
-            labelSehirUlkeCode.Text = "DİL KODU (dropdown)";
+            labelSehirUlkeCode.Text = "DİL KODU";
             // 
             // textMalMerAcik
             // 
@@ -412,16 +410,6 @@
             editButton.TabIndex = 39;
             editButton.Click += editButton_Click;
             // 
-            // comboBoxMalMerTip
-            // 
-            comboBoxMalMerTip.Enabled = false;
-            comboBoxMalMerTip.FormattingEnabled = true;
-            comboBoxMalMerTip.Location = new Point(195, 76);
-            comboBoxMalMerTip.Margin = new Padding(4, 2, 4, 2);
-            comboBoxMalMerTip.Name = "comboBoxMalMerTip";
-            comboBoxMalMerTip.Size = new Size(236, 24);
-            comboBoxMalMerTip.TabIndex = 56;
-            // 
             // costCenterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -441,7 +429,6 @@
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerUzunAcik.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMaliyetMerkezCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalMerAcik.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
@@ -460,7 +447,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit textMaliyetMerkezCode;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit textUlkeCode;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textMalMerAcik;
         private DevExpress.XtraEditors.LabelControl labelSehirName;

@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(birimForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            checkBoxPasif = new CheckBox();
+            comboBoxFirmaKod = new ComboBox();
             textAnabirimCode = new DevExpress.XtraEditors.TextEdit();
             labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            textIsAnaBirimCode = new DevExpress.XtraEditors.TextEdit();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textBirimName = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
@@ -51,11 +52,9 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textAnabirimCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textIsAnaBirimCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textBirimName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textBirimCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
@@ -66,10 +65,10 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(textAnabirimCode);
             sehirSearchControl.Controls.Add(labelControl1);
-            sehirSearchControl.Controls.Add(textIsAnaBirimCode);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textBirimName);
             sehirSearchControl.Controls.Add(labelSehirName);
@@ -82,6 +81,26 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 15;
             sehirSearchControl.Text = "Arama";
+            // 
+            // checkBoxPasif
+            // 
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(914, 76);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 56;
+            checkBoxPasif.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 55;
             // 
             // textAnabirimCode
             // 
@@ -102,15 +121,6 @@
             labelControl1.Size = new Size(177, 25);
             labelControl1.TabIndex = 17;
             labelControl1.Text = "ANA BİRİM KODU";
-            // 
-            // textIsAnaBirimCode
-            // 
-            textIsAnaBirimCode.Location = new Point(750, 111);
-            textIsAnaBirimCode.Margin = new Padding(4);
-            textIsAnaBirimCode.Name = "textIsAnaBirimCode";
-            textIsAnaBirimCode.Properties.ReadOnly = true;
-            textIsAnaBirimCode.Size = new Size(180, 22);
-            textIsAnaBirimCode.TabIndex = 16;
             // 
             // labelSehirUlkeCode
             // 
@@ -325,16 +335,6 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // comboBoxFirmaKod
-            // 
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxFirmaKod.FormattingEnabled = true;
-            comboBoxFirmaKod.Location = new Point(13, 109);
-            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
-            comboBoxFirmaKod.Size = new Size(151, 24);
-            comboBoxFirmaKod.TabIndex = 55;
-            // 
             // birimForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -346,11 +346,11 @@
             Margin = new Padding(4);
             Name = "birimForm";
             Text = "BİRİM";
+            Load += birimForm_Load;
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textAnabirimCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textIsAnaBirimCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textBirimName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textBirimCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
@@ -364,7 +364,6 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textIsAnaBirimCode;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textBirimName;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
@@ -386,5 +385,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
         private ComboBox comboBoxFirmaKod;
+        private CheckBox checkBoxPasif;
     }
 }

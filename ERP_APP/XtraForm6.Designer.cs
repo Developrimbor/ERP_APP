@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(malzForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxFirmaKod = new ComboBox();
             checkBoxPasif = new CheckBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalzTipAcik = new DevExpress.XtraEditors.TextEdit();
@@ -49,7 +50,6 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textMalzTipAcik.Properties).BeginInit();
@@ -76,6 +76,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 55;
             // 
             // checkBoxPasif
             // 
@@ -300,16 +310,6 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // comboBoxFirmaKod
-            // 
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxFirmaKod.FormattingEnabled = true;
-            comboBoxFirmaKod.Location = new Point(13, 109);
-            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
-            comboBoxFirmaKod.Size = new Size(151, 24);
-            comboBoxFirmaKod.TabIndex = 55;
-            // 
             // malzForm
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -321,6 +321,7 @@
             Margin = new Padding(4);
             Name = "malzForm";
             Text = "MALZEME TİPİ";
+            Load += malzForm_Load;
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();

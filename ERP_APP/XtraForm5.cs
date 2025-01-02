@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.DataProcessing.InMemoryDataProcessor;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,7 +39,14 @@ namespace ERP_APP
                 textBirimCode.Text = dr["BİRİM KODU"].ToString();
                 comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textBirimName.Text = dr["BİRİM ADI"].ToString();
-                textIsAnaBirimCode.Text = dr["ANA BİRİM Mİ"].ToString();
+                if (dr["ANA BİRİM Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
                 textAnabirimCode.Text = dr["ANA BİRİM KODU"].ToString();
 
 
@@ -47,16 +56,8 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT " +
-                "COMCODE AS 'FİRMA KODU', " +
-                "UNITCODE AS 'BİRİM KODU', " +
-                "UNITTEXT AS 'BİRİM ADI', " +
-                "ISMAINUNIT AS 'ANA BİRİM Mİ', " +
-                "MAINUNITCODE AS 'ANA BİRİM KODU' " +
-                "FROM BSMGRCDMGEN005;",
-                bgl.baglanti()
-            );
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", UNITCODE AS \"BİRİM KODU\", UNITTEXT AS \"BİRİM ADI\" , CASE \r\n           WHEN ISMAINUNIT = 1 THEN 'Evet' \r\n           WHEN ISMAINUNIT = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"ANA BİRİM Mİ\", MAINUNITCODE AS \"ANA BİRİM KODU\"    FROM BSMGRCDMGEN005;\r\n", bgl.baglanti());
+
 
             da.Fill(dt);
             dataSehirGrid.DataSource = dt;
@@ -77,7 +78,7 @@ namespace ERP_APP
             comboBoxFirmaKod.Enabled = true;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = false;
-            textIsAnaBirimCode.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
             textAnabirimCode.ReadOnly = false;
         }
 
@@ -95,18 +96,17 @@ namespace ERP_APP
 );
 
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
-            komut.Parameters.AddWithValue("@p3", textBirimName.Text);
-            komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
-            komut.Parameters.AddWithValue("@p5", textAnabirimCode.Text);
+            komut.Parameters.AddWithValue("@P2", textBirimCode.Text);
+            komut.Parameters.AddWithValue("@P3", textBirimName.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
+            komut.Parameters.AddWithValue("@P5", textAnabirimCode.Text);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = true;
-            textIsAnaBirimCode.ReadOnly = true;
-            textIsAnaBirimCode.ReadOnly = true;
+            checkBoxPasif.Checked = false;
 
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
@@ -120,13 +120,14 @@ namespace ERP_APP
             comboBoxFirmaKod.Enabled = true;
             textBirimCode.ReadOnly = false;
             textBirimName.ReadOnly = false;
-            textIsAnaBirimCode.ReadOnly = false;
             textAnabirimCode.ReadOnly = false;
+
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
 
             comboBoxFirmaKod.SelectedIndex = -1;
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
-            textIsAnaBirimCode.Text = string.Empty;
             textAnabirimCode.Text = string.Empty;
         }
 
@@ -147,7 +148,7 @@ namespace ERP_APP
                 comboBoxFirmaKod.Enabled = false;
                 textBirimCode.ReadOnly = true;
                 textBirimName.ReadOnly = true;
-                textIsAnaBirimCode.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
                 textAnabirimCode.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
@@ -165,7 +166,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
             komut.Parameters.AddWithValue("@p3", textBirimName.Text);
-            komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
+            komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0);
             komut.Parameters.AddWithValue("@p5", textAnabirimCode.Text);
 
             komut.ExecuteNonQuery();
@@ -174,13 +175,13 @@ namespace ERP_APP
             comboBoxFirmaKod.SelectedIndex = -1;
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
-            textIsAnaBirimCode.Text = string.Empty;
             textAnabirimCode.Text = string.Empty;
+
+            checkBoxPasif.Checked = false;
 
             comboBoxFirmaKod.Enabled = false;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = true;
-            textIsAnaBirimCode.ReadOnly = true;
             textAnabirimCode.ReadOnly = true;
             ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -206,6 +207,22 @@ namespace ERP_APP
                     dataSehirGrid.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void birimForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
         }
     }
 }

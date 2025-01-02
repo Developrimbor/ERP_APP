@@ -188,5 +188,21 @@ namespace ERP_APP
                 }
             }
         }
+
+        void FirmaKodComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaKod.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void malzForm_Load(object sender, EventArgs e)
+        {
+            FirmaKodComboBoxDoldur();
+        }
     }
 }
