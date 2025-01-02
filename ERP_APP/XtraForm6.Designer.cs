@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(malzForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            checkBoxPasif = new CheckBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalzTipAcik = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textMalzemeTipi = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelBirimFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -49,12 +49,11 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            checkBoxPasif = new CheckBox();
+            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textMalzTipAcik.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).BeginInit();
@@ -63,13 +62,13 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textMalzTipAcik);
             sehirSearchControl.Controls.Add(labelSehirName);
             sehirSearchControl.Controls.Add(textMalzemeTipi);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textFirmaCode);
             sehirSearchControl.Controls.Add(labelBirimFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -77,6 +76,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
+            // 
+            // checkBoxPasif
+            // 
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(938, 75);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 39;
+            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // labelSehirUlkeCode
             // 
@@ -128,15 +137,6 @@
             labelSehirCode.Size = new Size(150, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "MALZEME TİPİ";
-            // 
-            // textFirmaCode
-            // 
-            textFirmaCode.Location = new Point(13, 111);
-            textFirmaCode.Margin = new Padding(4);
-            textFirmaCode.Name = "textFirmaCode";
-            textFirmaCode.Properties.ReadOnly = true;
-            textFirmaCode.Size = new Size(180, 22);
-            textFirmaCode.TabIndex = 10;
             // 
             // labelBirimFirmaCode
             // 
@@ -300,15 +300,15 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // checkBoxPasif
+            // comboBoxFirmaKod
             // 
-            checkBoxPasif.AutoSize = true;
-            checkBoxPasif.Enabled = false;
-            checkBoxPasif.Location = new Point(938, 75);
-            checkBoxPasif.Name = "checkBoxPasif";
-            checkBoxPasif.Size = new Size(18, 17);
-            checkBoxPasif.TabIndex = 39;
-            checkBoxPasif.UseVisualStyleBackColor = true;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 55;
             // 
             // malzForm
             // 
@@ -326,7 +326,6 @@
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textMalzTipAcik.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textMalzemeTipi.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -343,7 +342,6 @@
         private DevExpress.XtraEditors.LabelControl labelSehirName;
         private DevExpress.XtraEditors.TextEdit textMalzemeTipi;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelBirimFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataSehirGrid;
@@ -358,5 +356,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
         private CheckBox checkBoxPasif;
+        private ComboBox comboBoxFirmaKod;
     }
 }

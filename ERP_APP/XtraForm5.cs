@@ -35,7 +35,7 @@ namespace ERP_APP
             {
 
                 textBirimCode.Text = dr["BİRİM KODU"].ToString();
-                textFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textBirimName.Text = dr["BİRİM ADI"].ToString();
                 textIsAnaBirimCode.Text = dr["ANA BİRİM Mİ"].ToString();
                 textAnabirimCode.Text = dr["ANA BİRİM KODU"].ToString();
@@ -74,7 +74,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = false;
             textIsAnaBirimCode.ReadOnly = false;
@@ -94,7 +94,7 @@ namespace ERP_APP
    bgl.baglanti()
 );
 
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
             komut.Parameters.AddWithValue("@p3", textBirimName.Text);
             komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
@@ -102,7 +102,7 @@ namespace ERP_APP
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = true;
             textIsAnaBirimCode.ReadOnly = true;
@@ -117,13 +117,13 @@ namespace ERP_APP
         {
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
-            textFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textBirimCode.ReadOnly = false;
             textBirimName.ReadOnly = false;
             textIsAnaBirimCode.ReadOnly = false;
             textAnabirimCode.ReadOnly = false;
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
             textIsAnaBirimCode.Text = string.Empty;
@@ -144,7 +144,7 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textBirimCode.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textBirimCode.ReadOnly = true;
                 textBirimName.ReadOnly = true;
                 textIsAnaBirimCode.ReadOnly = true;
@@ -162,7 +162,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN005 (COMCODE,UNITCODE,UNITTEXT,ISMAINUNIT,MAINUNITCODE) values (@p1,@p2,@p3,@p4,@p5)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textBirimCode.Text);
             komut.Parameters.AddWithValue("@p3", textBirimName.Text);
             komut.Parameters.AddWithValue("@p4", textIsAnaBirimCode.Text);
@@ -171,13 +171,13 @@ namespace ERP_APP
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
 
-            textFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textBirimCode.Text = string.Empty;
             textBirimName.Text = string.Empty;
             textIsAnaBirimCode.Text = string.Empty;
             textAnabirimCode.Text = string.Empty;
 
-            textFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textBirimCode.ReadOnly = true;
             textBirimName.ReadOnly = true;
             textIsAnaBirimCode.ReadOnly = true;

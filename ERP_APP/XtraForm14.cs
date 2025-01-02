@@ -70,7 +70,7 @@ namespace ERP_APP
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMWCMTEXT SET COMCODE = @P1, WCMDOCTYPE = @P2, WCMDOCNUM = @P3, WCMDOCFROM = @P4, WCMDOCUNTIL = @P5, LANCODE = @P6, WCMSTEXT = @P7, WCMLTEXT = @P8 WHERE WCMDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@P1", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P2", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textIsMerKod.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -97,7 +97,7 @@ namespace ERP_APP
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMWCMTEXT (COMCODE,WCMDOCTYPE,WCMDOCNUM,WCMDOCFROM,WCMDOCUNTIL,LANCODE,WCMSTEXT,WCMLTEXT) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8)", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@P1", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P2", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p3", textIsMerKod.Text);
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -150,7 +150,7 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            comboBoxDil.Enabled = true;
+            comboBoxFirmaKod.Enabled = true;
             comboBoxIsMerTip.Enabled = true;
             textIsMerKod.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
@@ -159,12 +159,12 @@ namespace ERP_APP
             textIsMerKısaAck.ReadOnly = false;
             textIsMerUznAck.ReadOnly = false;
 
+            comboBoxFirmaKod.SelectedIndex = -1;
             comboBoxDil.SelectedIndex = -1;
             comboBoxIsMerTip.SelectedIndex = -1;
             textIsMerKod.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
             dateTimeBitis.Value = DateTime.Now;
-            comboBoxDil.SelectedIndex = -1;
             textIsMerKısaAck.Text = string.Empty;
             textIsMerUznAck.Text = string.Empty;
         }
@@ -183,7 +183,6 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", comboBoxIsMerTip.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                comboBoxDil.Enabled = false;
                 comboBoxIsMerTip.Enabled = false;
                 textIsMerKod.ReadOnly = true;
                 dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.

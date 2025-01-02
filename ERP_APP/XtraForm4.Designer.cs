@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sehirForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxUlkeKod = new ComboBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textSehirName = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
             textSehirCode = new DevExpress.XtraEditors.TextEdit();
             labelSehirCode = new DevExpress.XtraEditors.LabelControl();
-            textSehirFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelSehirFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerSehirText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -49,12 +49,11 @@
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            comboBoxUlkeKod = new ComboBox();
+            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
             islemlerSehirText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataSehirGrid).BeginInit();
@@ -63,13 +62,13 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(comboBoxFirmaKod);
             sehirSearchControl.Controls.Add(comboBoxUlkeKod);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textSehirName);
             sehirSearchControl.Controls.Add(labelSehirName);
             sehirSearchControl.Controls.Add(textSehirCode);
             sehirSearchControl.Controls.Add(labelSehirCode);
-            sehirSearchControl.Controls.Add(textSehirFirmaCode);
             sehirSearchControl.Controls.Add(labelSehirFirmaCode);
             sehirSearchControl.Location = new Point(-1, 0);
             sehirSearchControl.Margin = new Padding(4);
@@ -77,6 +76,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 12;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxUlkeKod
+            // 
+            comboBoxUlkeKod.Enabled = false;
+            comboBoxUlkeKod.FormattingEnabled = true;
+            comboBoxUlkeKod.Location = new Point(752, 109);
+            comboBoxUlkeKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxUlkeKod.Name = "comboBoxUlkeKod";
+            comboBoxUlkeKod.Size = new Size(151, 24);
+            comboBoxUlkeKod.TabIndex = 28;
             // 
             // labelSehirUlkeCode
             // 
@@ -128,15 +137,6 @@
             labelSehirCode.Size = new Size(132, 25);
             labelSehirCode.TabIndex = 11;
             labelSehirCode.Text = "ŞEHİR KODU";
-            // 
-            // textSehirFirmaCode
-            // 
-            textSehirFirmaCode.Location = new Point(13, 111);
-            textSehirFirmaCode.Margin = new Padding(4);
-            textSehirFirmaCode.Name = "textSehirFirmaCode";
-            textSehirFirmaCode.Properties.ReadOnly = true;
-            textSehirFirmaCode.Size = new Size(180, 22);
-            textSehirFirmaCode.TabIndex = 10;
             // 
             // labelSehirFirmaCode
             // 
@@ -300,15 +300,15 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // comboBoxUlkeKod
+            // comboBoxFirmaKod
             // 
-            comboBoxUlkeKod.Enabled = false;
-            comboBoxUlkeKod.FormattingEnabled = true;
-            comboBoxUlkeKod.Location = new Point(752, 109);
-            comboBoxUlkeKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxUlkeKod.Name = "comboBoxUlkeKod";
-            comboBoxUlkeKod.Size = new Size(151, 24);
-            comboBoxUlkeKod.TabIndex = 28;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(13, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(165, 24);
+            comboBoxFirmaKod.TabIndex = 55;
             // 
             // sehirForm
             // 
@@ -327,7 +327,6 @@
             sehirSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textSehirName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textSehirCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textSehirFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
             islemlerSehirText.ResumeLayout(false);
             islemlerSehirText.PerformLayout();
@@ -343,7 +342,6 @@
         private DevExpress.XtraEditors.LabelControl labelSehirName;
         private DevExpress.XtraEditors.TextEdit textSehirCode;
         private DevExpress.XtraEditors.LabelControl labelSehirCode;
-        private DevExpress.XtraEditors.TextEdit textSehirFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelSehirFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerSehirText;
         private DevExpress.XtraGrid.GridControl dataSehirGrid;
@@ -359,5 +357,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
         private ComboBox comboBoxUlkeKod;
+        private ComboBox comboBoxFirmaKod;
     }
 }

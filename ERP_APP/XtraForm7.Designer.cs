@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(malMerForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
+            comboBoxFirmaKod = new ComboBox();
             checkBoxPasif = new CheckBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textMalMerTipAck = new DevExpress.XtraEditors.TextEdit();
@@ -49,7 +50,6 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataMaliyetMerkezi = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            comboBoxFirmaKod = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textMalMerTipAck.Properties).BeginInit();
@@ -76,6 +76,16 @@
             sehirSearchControl.Size = new Size(1412, 208);
             sehirSearchControl.TabIndex = 21;
             sehirSearchControl.Text = "Arama";
+            // 
+            // comboBoxFirmaKod
+            // 
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(15, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 53;
             // 
             // checkBoxPasif
             // 
@@ -176,7 +186,7 @@
             // 
             // ButtonKaydet
             // 
-            ButtonKaydet.Location = new Point(1115, 39);
+            ButtonKaydet.Location = new Point(1215, 42);
             ButtonKaydet.Name = "ButtonKaydet";
             ButtonKaydet.Size = new Size(118, 36);
             ButtonKaydet.TabIndex = 47;
@@ -186,7 +196,7 @@
             // 
             // ButtonGüncelle
             // 
-            ButtonGüncelle.Location = new Point(991, 39);
+            ButtonGüncelle.Location = new Point(1091, 42);
             ButtonGüncelle.Name = "ButtonGüncelle";
             ButtonGüncelle.Size = new Size(118, 36);
             ButtonGüncelle.TabIndex = 46;
@@ -299,16 +309,6 @@
             gridView1.Name = "gridView1";
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
-            // 
-            // comboBoxFirmaKod
-            // 
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxFirmaKod.FormattingEnabled = true;
-            comboBoxFirmaKod.Location = new Point(15, 109);
-            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
-            comboBoxFirmaKod.Size = new Size(151, 24);
-            comboBoxFirmaKod.TabIndex = 53;
             // 
             // malMerForm
             // 

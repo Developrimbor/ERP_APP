@@ -58,7 +58,7 @@ namespace ERP_APP
             {
 
                 textSehirCode.Text = dr["ŞEHİR KODU"].ToString();
-                textSehirFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textSehirName.Text = dr["ŞEHİR ADI"].ToString();
                 comboBoxUlkeKod.SelectedItem = dr["ÜLKE KODU"].ToString();
 
@@ -71,12 +71,12 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
             textSehirCode.ReadOnly = false;
-            textSehirFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textSehirName.ReadOnly = false;
             comboBoxUlkeKod.Enabled = true;
 
             textSehirCode.Text = string.Empty;
-            textSehirFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textSehirName.Text = string.Empty;
             comboBoxUlkeKod.SelectedIndex = -1;
 
@@ -85,7 +85,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN004 (COMCODE,CITYCODE,CITYTEXT,COUNTRYCODE) values (@p1,@p2,@p3,@p4)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textSehirFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
             komut.Parameters.AddWithValue("@p4", comboBoxUlkeKod.SelectedItem?.ToString() ?? string.Empty);
@@ -93,11 +93,11 @@ namespace ERP_APP
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textSehirCode.Text = string.Empty;
-            textSehirFirmaCode.Text = string.Empty;
+            comboBoxFirmaKod.SelectedIndex = -1;
             textSehirName.Text = string.Empty;
             comboBoxUlkeKod.SelectedIndex = -1;
             textSehirCode.ReadOnly = true;
-            textSehirFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textSehirName.ReadOnly = true;
             comboBoxUlkeKod.Enabled = false;
             ButtonKaydet.Visible = false;
@@ -108,14 +108,14 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN004 SET COMCODE = @P1, CITYCODE = @P2, CITYTEXT = @P3, COUNTRYCODE =@P4  WHERE CITYCODE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textSehirFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
             komut.Parameters.AddWithValue("@p4", comboBoxUlkeKod.SelectedItem?.ToString() ?? string.Empty);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textSehirCode.ReadOnly = true;
-            textSehirFirmaCode.ReadOnly = true;
+            comboBoxFirmaKod.Enabled = false;
             textSehirName.ReadOnly = true;
             comboBoxUlkeKod.Enabled = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -138,7 +138,7 @@ namespace ERP_APP
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
                 textSehirCode.ReadOnly = true;
-                textSehirFirmaCode.ReadOnly = true;
+                comboBoxFirmaKod.Enabled = false;
                 textSehirName.ReadOnly = true;
                 comboBoxUlkeKod.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -156,7 +156,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             textSehirCode.ReadOnly = true;
-            textSehirFirmaCode.ReadOnly = false;
+            comboBoxFirmaKod.Enabled = true;
             textSehirName.ReadOnly = false;
             comboBoxUlkeKod.Enabled = true;
         }

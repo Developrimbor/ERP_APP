@@ -209,7 +209,7 @@ namespace ERP_APP
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMBOMHEAD (COMCODE,BOMDOCTYPE,BOMDOCNUM,BOMDOCFROM,BOMDOCUNTIL,MATDOCTYPE,MATDOCNUM,QUANTITY,ISDELETED,ISPASSIVE,DRAWNUM) values (@p1,@p2,@p3,@p4,@p5,@p6,@p7,@p8,@p9,@p10,@p11)", bgl.baglanti());
             komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@p1", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@p2", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p3", textUrunAgacKod.Text);
             komut.Parameters.AddWithValue("@p4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@p5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
