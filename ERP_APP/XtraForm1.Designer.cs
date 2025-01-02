@@ -68,10 +68,11 @@
             // 
             // dataFirmaGrid
             // 
-            dataFirmaGrid.Location = new Point(0, 241);
+            dataFirmaGrid.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dataFirmaGrid.Location = new Point(0, 242);
             dataFirmaGrid.MainView = gridView1;
             dataFirmaGrid.Name = "dataFirmaGrid";
-            dataFirmaGrid.Size = new Size(1210, 405);
+            dataFirmaGrid.Size = new Size(1209, 1080);
             dataFirmaGrid.TabIndex = 0;
             dataFirmaGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -83,6 +84,7 @@
             // 
             // islemlerFirmaText
             // 
+            islemlerFirmaText.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             islemlerFirmaText.Controls.Add(ButtonKaydet);
             islemlerFirmaText.Controls.Add(ButtonGüncelle);
             islemlerFirmaText.Controls.Add(textArat);
@@ -100,10 +102,11 @@
             // 
             // ButtonKaydet
             // 
-            ButtonKaydet.Location = new Point(1039, 32);
+            ButtonKaydet.Dock = DockStyle.Right;
+            ButtonKaydet.Location = new Point(948, 23);
             ButtonKaydet.Margin = new Padding(3, 2, 3, 2);
             ButtonKaydet.Name = "ButtonKaydet";
-            ButtonKaydet.Size = new Size(101, 29);
+            ButtonKaydet.Size = new Size(101, 48);
             ButtonKaydet.TabIndex = 52;
             ButtonKaydet.Text = "Kaydet";
             ButtonKaydet.Visible = false;
@@ -111,10 +114,11 @@
             // 
             // ButtonGüncelle
             // 
-            ButtonGüncelle.Location = new Point(933, 32);
+            ButtonGüncelle.Dock = DockStyle.Right;
+            ButtonGüncelle.Location = new Point(1049, 23);
             ButtonGüncelle.Margin = new Padding(3, 2, 3, 2);
             ButtonGüncelle.Name = "ButtonGüncelle";
-            ButtonGüncelle.Size = new Size(101, 29);
+            ButtonGüncelle.Size = new Size(101, 48);
             ButtonGüncelle.TabIndex = 51;
             ButtonGüncelle.Text = "Güncelle";
             ButtonGüncelle.Visible = false;
@@ -132,11 +136,12 @@
             // 
             homePageButton.Appearance.BackColor = SystemColors.Menu;
             homePageButton.Appearance.Options.UseBackColor = true;
+            homePageButton.Dock = DockStyle.Right;
             homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1164, 32);
+            homePageButton.Location = new Point(1150, 23);
             homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(32, 32);
+            homePageButton.Size = new Size(58, 48);
             homePageButton.TabIndex = 43;
             homePageButton.Click += homePageButton_Click;
             // 
@@ -189,7 +194,7 @@
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
             onlyViewButton.Location = new Point(427, 32);
             onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(32, 32);
+            onlyViewButton.Size = new Size(0, 0);
             onlyViewButton.TabIndex = 1;
             onlyViewButton.Click += onlyViewButton_Click;
             // 
@@ -211,6 +216,9 @@
             // 
             // firmaSearchControl
             // 
+            firmaSearchControl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            firmaSearchControl.AppearanceCaption.BorderColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question;
+            firmaSearchControl.AppearanceCaption.Options.UseBorderColor = true;
             firmaSearchControl.Controls.Add(comboBoxDil);
             firmaSearchControl.Controls.Add(comboBoxSehir);
             firmaSearchControl.Controls.Add(labelControl4);
@@ -225,7 +233,7 @@
             firmaSearchControl.Controls.Add(labelFirmaName);
             firmaSearchControl.Location = new Point(0, 0);
             firmaSearchControl.Name = "firmaSearchControl";
-            firmaSearchControl.Size = new Size(1210, 169);
+            firmaSearchControl.Size = new Size(1209, 169);
             firmaSearchControl.TabIndex = 3;
             firmaSearchControl.Text = "Arama";
             // 

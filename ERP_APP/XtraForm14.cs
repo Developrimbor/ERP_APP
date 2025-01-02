@@ -150,7 +150,7 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
 
-            comboBoxFirmaKod.Enabled = true;
+            comboBoxDil.Enabled = true;
             comboBoxIsMerTip.Enabled = true;
             textIsMerKod.ReadOnly = false;
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
@@ -159,7 +159,7 @@ namespace ERP_APP
             textIsMerKısaAck.ReadOnly = false;
             textIsMerUznAck.ReadOnly = false;
 
-            comboBoxFirmaKod.SelectedIndex = -1;
+            comboBoxDil.SelectedIndex = -1;
             comboBoxIsMerTip.SelectedIndex = -1;
             textIsMerKod.Text = string.Empty;
             dateTimeBaslangic.Value = DateTime.Now;
