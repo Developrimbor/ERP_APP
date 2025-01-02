@@ -34,7 +34,6 @@
             labelUlkeName = new DevExpress.XtraEditors.LabelControl();
             textUlkeCode = new DevExpress.XtraEditors.TextEdit();
             labelUlkeCode = new DevExpress.XtraEditors.LabelControl();
-            textUlkeFirmaCode = new DevExpress.XtraEditors.TextEdit();
             labelUlkeFirmaCode = new DevExpress.XtraEditors.LabelControl();
             islemlerUlkeText = new DevExpress.XtraEditors.GroupControl();
             textArat = new TextBox();
@@ -48,11 +47,11 @@
             searchButton = new DevExpress.XtraEditors.SimpleButton();
             dataUlkeGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            comboBoxFirmaCode = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)ulkeSearchControl).BeginInit();
             ulkeSearchControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)textDilName.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)textUlkeFirmaCode.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerUlkeText).BeginInit();
             islemlerUlkeText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataUlkeGrid).BeginInit();
@@ -61,76 +60,61 @@
             // 
             // ulkeSearchControl
             // 
+            ulkeSearchControl.Controls.Add(comboBoxFirmaCode);
             ulkeSearchControl.Controls.Add(textDilName);
             ulkeSearchControl.Controls.Add(labelUlkeName);
             ulkeSearchControl.Controls.Add(textUlkeCode);
             ulkeSearchControl.Controls.Add(labelUlkeCode);
-            ulkeSearchControl.Controls.Add(textUlkeFirmaCode);
             ulkeSearchControl.Controls.Add(labelUlkeFirmaCode);
             ulkeSearchControl.Location = new Point(-1, 0);
-            ulkeSearchControl.Margin = new Padding(4);
             ulkeSearchControl.Name = "ulkeSearchControl";
-            ulkeSearchControl.Size = new Size(1412, 208);
+            ulkeSearchControl.Size = new Size(1210, 169);
             ulkeSearchControl.TabIndex = 9;
             ulkeSearchControl.Text = "Arama";
             // 
             // textDilName
             // 
-            textDilName.Location = new Point(511, 111);
-            textDilName.Margin = new Padding(4);
+            textDilName.Location = new Point(438, 90);
             textDilName.Name = "textDilName";
             textDilName.Properties.ReadOnly = true;
-            textDilName.Size = new Size(180, 22);
+            textDilName.Size = new Size(154, 20);
             textDilName.TabIndex = 14;
             // 
             // labelUlkeName
             // 
             labelUlkeName.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelUlkeName.Appearance.Options.UseFont = true;
-            labelUlkeName.Location = new Point(511, 68);
-            labelUlkeName.Margin = new Padding(4);
+            labelUlkeName.Location = new Point(438, 55);
             labelUlkeName.Name = "labelUlkeName";
-            labelUlkeName.Size = new Size(98, 25);
+            labelUlkeName.Size = new Size(82, 20);
             labelUlkeName.TabIndex = 13;
             labelUlkeName.Text = "ÜLKE ADI";
             // 
             // textUlkeCode
             // 
-            textUlkeCode.Location = new Point(258, 111);
-            textUlkeCode.Margin = new Padding(4);
+            textUlkeCode.Location = new Point(221, 90);
             textUlkeCode.Name = "textUlkeCode";
             textUlkeCode.Properties.ReadOnly = true;
-            textUlkeCode.Size = new Size(180, 22);
+            textUlkeCode.Size = new Size(154, 20);
             textUlkeCode.TabIndex = 12;
             // 
             // labelUlkeCode
             // 
             labelUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelUlkeCode.Appearance.Options.UseFont = true;
-            labelUlkeCode.Location = new Point(258, 68);
-            labelUlkeCode.Margin = new Padding(4);
+            labelUlkeCode.Location = new Point(221, 55);
             labelUlkeCode.Name = "labelUlkeCode";
-            labelUlkeCode.Size = new Size(124, 25);
+            labelUlkeCode.Size = new Size(101, 20);
             labelUlkeCode.TabIndex = 11;
             labelUlkeCode.Text = "ÜLKE KODU";
-            // 
-            // textUlkeFirmaCode
-            // 
-            textUlkeFirmaCode.Location = new Point(13, 111);
-            textUlkeFirmaCode.Margin = new Padding(4);
-            textUlkeFirmaCode.Name = "textUlkeFirmaCode";
-            textUlkeFirmaCode.Properties.ReadOnly = true;
-            textUlkeFirmaCode.Size = new Size(180, 22);
-            textUlkeFirmaCode.TabIndex = 10;
             // 
             // labelUlkeFirmaCode
             // 
             labelUlkeFirmaCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelUlkeFirmaCode.Appearance.Options.UseFont = true;
-            labelUlkeFirmaCode.Location = new Point(13, 68);
-            labelUlkeFirmaCode.Margin = new Padding(4);
+            labelUlkeFirmaCode.Location = new Point(11, 55);
             labelUlkeFirmaCode.Name = "labelUlkeFirmaCode";
-            labelUlkeFirmaCode.Size = new Size(134, 25);
+            labelUlkeFirmaCode.Size = new Size(111, 20);
             labelUlkeFirmaCode.TabIndex = 9;
             labelUlkeFirmaCode.Text = "FİRMA KODU";
             // 
@@ -145,25 +129,26 @@
             islemlerUlkeText.Controls.Add(editButton);
             islemlerUlkeText.Controls.Add(onlyViewButton);
             islemlerUlkeText.Controls.Add(searchButton);
-            islemlerUlkeText.Location = new Point(-1, 208);
-            islemlerUlkeText.Margin = new Padding(4);
+            islemlerUlkeText.Location = new Point(-1, 169);
             islemlerUlkeText.Name = "islemlerUlkeText";
-            islemlerUlkeText.Size = new Size(1412, 90);
+            islemlerUlkeText.Size = new Size(1210, 73);
             islemlerUlkeText.TabIndex = 8;
             islemlerUlkeText.Text = "İşlemler";
             // 
             // textArat
             // 
-            textArat.Location = new Point(295, 48);
+            textArat.Location = new Point(253, 39);
+            textArat.Margin = new Padding(3, 2, 3, 2);
             textArat.Name = "textArat";
-            textArat.Size = new Size(186, 23);
+            textArat.Size = new Size(160, 21);
             textArat.TabIndex = 47;
             // 
             // ButtonKaydet
             // 
-            ButtonKaydet.Location = new Point(1233, 42);
+            ButtonKaydet.Location = new Point(1057, 34);
+            ButtonKaydet.Margin = new Padding(3, 2, 3, 2);
             ButtonKaydet.Name = "ButtonKaydet";
-            ButtonKaydet.Size = new Size(118, 36);
+            ButtonKaydet.Size = new Size(101, 29);
             ButtonKaydet.TabIndex = 47;
             ButtonKaydet.Text = "Kaydet";
             ButtonKaydet.Visible = false;
@@ -171,9 +156,10 @@
             // 
             // ButtonGüncelle
             // 
-            ButtonGüncelle.Location = new Point(1099, 42);
+            ButtonGüncelle.Location = new Point(942, 34);
+            ButtonGüncelle.Margin = new Padding(3, 2, 3, 2);
             ButtonGüncelle.Name = "ButtonGüncelle";
-            ButtonGüncelle.Size = new Size(118, 36);
+            ButtonGüncelle.Size = new Size(101, 29);
             ButtonGüncelle.TabIndex = 46;
             ButtonGüncelle.Text = "Güncelle";
             ButtonGüncelle.Visible = false;
@@ -185,10 +171,9 @@
             homePageButton.Appearance.Options.UseBackColor = true;
             homePageButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             homePageButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("homePageButton.ImageOptions.SvgImage");
-            homePageButton.Location = new Point(1358, 39);
-            homePageButton.Margin = new Padding(4);
+            homePageButton.Location = new Point(1164, 32);
             homePageButton.Name = "homePageButton";
-            homePageButton.Size = new Size(37, 39);
+            homePageButton.Size = new Size(32, 32);
             homePageButton.TabIndex = 43;
             homePageButton.Click += homePageButton_Click;
             // 
@@ -199,10 +184,9 @@
             dataAddButton.BackgroundImage = (Image)resources.GetObject("dataAddButton.BackgroundImage");
             dataAddButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             dataAddButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("dataAddButton.ImageOptions.SvgImage");
-            dataAddButton.Location = new Point(156, 39);
-            dataAddButton.Margin = new Padding(4);
+            dataAddButton.Location = new Point(134, 32);
             dataAddButton.Name = "dataAddButton";
-            dataAddButton.Size = new Size(37, 39);
+            dataAddButton.Size = new Size(32, 32);
             dataAddButton.TabIndex = 9;
             dataAddButton.Click += dataAddButton_Click;
             // 
@@ -213,10 +197,9 @@
             deleteButton.BackgroundImage = (Image)resources.GetObject("deleteButton.BackgroundImage");
             deleteButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             deleteButton.ImageOptions.SvgImage = Properties.Resources.Delete3;
-            deleteButton.Location = new Point(226, 39);
-            deleteButton.Margin = new Padding(4);
+            deleteButton.Location = new Point(194, 32);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(37, 39);
+            deleteButton.Size = new Size(32, 32);
             deleteButton.TabIndex = 8;
             deleteButton.Click += deleteButton_Click;
             // 
@@ -227,10 +210,9 @@
             editButton.BackgroundImage = (Image)resources.GetObject("editButton.BackgroundImage");
             editButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             editButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("editButton.ImageOptions.SvgImage");
-            editButton.Location = new Point(86, 39);
-            editButton.Margin = new Padding(4);
+            editButton.Location = new Point(74, 32);
             editButton.Name = "editButton";
-            editButton.Size = new Size(37, 39);
+            editButton.Size = new Size(32, 32);
             editButton.TabIndex = 7;
             editButton.Click += editButton_Click;
             // 
@@ -242,10 +224,9 @@
             onlyViewButton.BackgroundImage = (Image)resources.GetObject("onlyViewButton.BackgroundImage");
             onlyViewButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             onlyViewButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("onlyViewButton.ImageOptions.SvgImage");
-            onlyViewButton.Location = new Point(511, 39);
-            onlyViewButton.Margin = new Padding(4);
+            onlyViewButton.Location = new Point(438, 32);
             onlyViewButton.Name = "onlyViewButton";
-            onlyViewButton.Size = new Size(37, 39);
+            onlyViewButton.Size = new Size(32, 32);
             onlyViewButton.TabIndex = 6;
             onlyViewButton.Click += onlyViewButton_Click;
             // 
@@ -259,49 +240,52 @@
             searchButton.BackgroundImageLayout = ImageLayout.None;
             searchButton.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             searchButton.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("searchButton.ImageOptions.SvgImage");
-            searchButton.Location = new Point(15, 39);
-            searchButton.Margin = new Padding(4);
+            searchButton.Location = new Point(13, 32);
             searchButton.Name = "searchButton";
-            searchButton.Size = new Size(37, 39);
+            searchButton.Size = new Size(32, 32);
             searchButton.TabIndex = 5;
             searchButton.Click += searchButton_Click;
             // 
             // dataUlkeGrid
             // 
-            dataUlkeGrid.EmbeddedNavigator.Margin = new Padding(4);
-            dataUlkeGrid.Location = new Point(-1, 297);
+            dataUlkeGrid.Location = new Point(-1, 241);
             dataUlkeGrid.MainView = gridView1;
-            dataUlkeGrid.Margin = new Padding(4);
             dataUlkeGrid.Name = "dataUlkeGrid";
-            dataUlkeGrid.Size = new Size(1412, 498);
+            dataUlkeGrid.Size = new Size(1210, 405);
             dataUlkeGrid.TabIndex = 7;
             dataUlkeGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // gridView1
             // 
-            gridView1.DetailHeight = 431;
             gridView1.GridControl = dataUlkeGrid;
             gridView1.Name = "gridView1";
-            gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowObjectChanged += gridView1_FocusedRowObjectChanged;
+            // 
+            // comboBoxFirmaCode
+            // 
+            comboBoxFirmaCode.Enabled = false;
+            comboBoxFirmaCode.FormattingEnabled = true;
+            comboBoxFirmaCode.Location = new Point(11, 90);
+            comboBoxFirmaCode.Name = "comboBoxFirmaCode";
+            comboBoxFirmaCode.Size = new Size(154, 21);
+            comboBoxFirmaCode.TabIndex = 15;
             // 
             // ulkeForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1410, 796);
+            ClientSize = new Size(1209, 647);
             Controls.Add(ulkeSearchControl);
             Controls.Add(islemlerUlkeText);
             Controls.Add(dataUlkeGrid);
-            Margin = new Padding(4);
             Name = "ulkeForm";
             Text = "ÜLKE";
+            Load += ulkeForm_Load;
             ((System.ComponentModel.ISupportInitialize)ulkeSearchControl).EndInit();
             ulkeSearchControl.ResumeLayout(false);
             ulkeSearchControl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)textDilName.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textUlkeCode.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)textUlkeFirmaCode.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerUlkeText).EndInit();
             islemlerUlkeText.ResumeLayout(false);
             islemlerUlkeText.PerformLayout();
@@ -317,7 +301,6 @@
         private DevExpress.XtraEditors.LabelControl labelUlkeName;
         private DevExpress.XtraEditors.TextEdit textUlkeCode;
         private DevExpress.XtraEditors.LabelControl labelUlkeCode;
-        private DevExpress.XtraEditors.TextEdit textUlkeFirmaCode;
         private DevExpress.XtraEditors.LabelControl labelUlkeFirmaCode;
         private DevExpress.XtraEditors.GroupControl islemlerUlkeText;
         private DevExpress.XtraGrid.GridControl dataUlkeGrid;
@@ -331,5 +314,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private DevExpress.XtraEditors.SimpleButton ButtonKaydet;
         private TextBox textArat;
+        private ComboBox comboBoxFirmaCode;
     }
 }

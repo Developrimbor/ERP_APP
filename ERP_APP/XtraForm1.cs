@@ -216,8 +216,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p2", textFirmaInfoEdit.Text);
             komut.Parameters.AddWithValue("@p3", textFirmaAdres1.Text);
             komut.Parameters.AddWithValue("@p4", textFirmaAdres2.Text);
-            komut.Parameters.AddWithValue("@p5", comboBoxSehir?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@p6", comboBoxDil?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@p5", comboBoxSehir?.Text ?? string.Empty);
+            komut.Parameters.AddWithValue("@p6", comboBoxDil?.Text ?? string.Empty);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();

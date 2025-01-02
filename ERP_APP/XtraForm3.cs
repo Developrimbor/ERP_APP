@@ -47,10 +47,12 @@ namespace ERP_APP
         {
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
-            textUlkeFirmaCode.ReadOnly = false;
+
+            comboBoxFirmaCode.Enabled = true;
             textUlkeCode.ReadOnly = false;
             textDilName.ReadOnly = false;
-            textUlkeFirmaCode.Text = string.Empty;
+
+            comboBoxFirmaCode.SelectedIndex = -1;
             textUlkeCode.Text = string.Empty;
             textDilName.Text = string.Empty;
         }
@@ -58,12 +60,15 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN003 (COMCODE,COUNTRYCODE,COUNTRYTEXT) values (@p1,@p2,@p3)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textUlkeFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaCode?.Text ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textUlkeCode.Text);
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
+
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textUlkeFirmaCode.Text = string.Empty;
+
+            comboBoxFirmaCode.SelectedIndex = -1;
+            comboBoxFirmaCode.Enabled = false;
             textUlkeCode.Text = string.Empty;
             textDilName.Text = string.Empty;
             ButtonKaydet.Visible = false;
@@ -75,7 +80,7 @@ namespace ERP_APP
         {
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
-            textUlkeFirmaCode.ReadOnly = false;
+            comboBoxFirmaCode.Enabled = true;
             textUlkeCode.ReadOnly = false;
             textDilName.ReadOnly = false;
 
@@ -84,12 +89,14 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN003 SET COMCODE = @P1, COUNTRYCODE = @P2, COUNTRYTEXT = @P3 WHERE COUNTRYCODE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textUlkeFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaCode.Text ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textUlkeCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
+
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
-            textUlkeFirmaCode.ReadOnly = true;
+             
+            comboBoxFirmaCode.Enabled = false;
             textUlkeCode.ReadOnly = true;
             textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -111,7 +118,7 @@ namespace ERP_APP
                 komutsil.Parameters.AddWithValue("@p1", textUlkeCode.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
-                textUlkeFirmaCode.ReadOnly = true;
+                comboBoxFirmaCode.Enabled = false;
                 textUlkeCode.ReadOnly = true;
                 textDilName.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -130,7 +137,7 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textUlkeFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaCode.SelectedItem = dr["FİRMA KODU"].ToString();
                 textUlkeCode.Text = dr["ÜLKE KODU"].ToString();
                 textDilName.Text = dr["ÜLKE ADI"].ToString();
 
@@ -156,6 +163,22 @@ namespace ERP_APP
                     dataUlkeGrid.DataSource = dt;
                 }
             }
+        }
+
+        void FirmaCodeComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaCode.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
+        private void ulkeForm_Load(object sender, EventArgs e)
+        {
+            FirmaCodeComboBoxDoldur();
         }
     }
 }

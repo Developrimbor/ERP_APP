@@ -25,12 +25,20 @@ namespace ERP_APP
 
         }
 
+        void FirmaCodeComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT COMCODE FROM BSMGRCDMGEN001", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxFirmaCode.Items.Add(dr["COMCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
 
         private void dilForm_Load(object sender, EventArgs e)
         {
-
-
-
+            FirmaCodeComboBoxDoldur();
         }
 
 
@@ -62,11 +70,12 @@ namespace ERP_APP
         {
             ButtonGüncelle.Visible = false;
             ButtonKaydet.Visible = true;
+
             textDilCode.ReadOnly = false;
-            textDilFirmaCode.ReadOnly = false;
+            comboBoxFirmaCode.Enabled = true ;
             textDilName.ReadOnly = false;
             textDilCode.Text = string.Empty;
-            textDilFirmaCode.Text = string.Empty;
+            comboBoxFirmaCode.SelectedIndex = -1;
             textDilName.Text = string.Empty;
 
         }
@@ -74,7 +83,7 @@ namespace ERP_APP
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("insert into BSMGRCDMGEN002 (COMCODE,LANCODE,LANTEXT) values (@p1,@p2,@p3)", bgl.baglanti());
-            komut.Parameters.AddWithValue("@p1", textDilFirmaCode.Text);
+            komut.Parameters.AddWithValue("@p1", comboBoxFirmaCode?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textDilCode.Text);
             komut.Parameters.AddWithValue("@p3", textDilName.Text);
 
@@ -82,11 +91,11 @@ namespace ERP_APP
             bgl.baglanti().Close();
 
             textDilCode.Text = string.Empty;
-            textDilFirmaCode.Text = string.Empty;
+            comboBoxFirmaCode.SelectedIndex = -1;
             textDilName.Text = string.Empty;
 
             textDilCode.ReadOnly = true;
-            textDilFirmaCode.ReadOnly = true;
+            comboBoxFirmaCode.Enabled = false;
             textDilName.ReadOnly = true;
             ButtonKaydet.Visible = false;
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -99,7 +108,7 @@ namespace ERP_APP
             if (dr != null)
             {
 
-                textDilFirmaCode.Text = dr["FİRMA KODU"].ToString();
+                comboBoxFirmaCode.SelectedItem = dr["FİRMA KODU"].ToString();
                 textDilCode.Text = dr["DİL KODU"].ToString();
                 textDilName.Text = dr["DİL ADI"].ToString();
 
@@ -111,7 +120,7 @@ namespace ERP_APP
             ButtonKaydet.Visible = false;
             ButtonGüncelle.Visible = true;
             textDilCode.ReadOnly = false;
-            textDilFirmaCode.ReadOnly = false;
+            comboBoxFirmaCode.Enabled = true;
             textDilName.ReadOnly = false;
 
         }
@@ -120,13 +129,13 @@ namespace ERP_APP
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMGEN002 SET COMCODE = @P1, LANCODE = @P2, LANTEXT = @P3 WHERE LANCODE = @P2", bgl.baglanti());
-            komut.Parameters.AddWithValue("@P1", textDilFirmaCode.Text);
+            komut.Parameters.AddWithValue("@P1", comboBoxFirmaCode.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textDilCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textDilCode.ReadOnly = true;
-            textDilFirmaCode.ReadOnly = true;
+            comboBoxFirmaCode.Enabled = false;
             textDilName.ReadOnly = true;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
@@ -148,7 +157,7 @@ namespace ERP_APP
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
                 textDilCode.ReadOnly = true;
-                textDilFirmaCode.ReadOnly = true;
+                comboBoxFirmaCode.Enabled = false;
                 textDilName.ReadOnly = true;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
