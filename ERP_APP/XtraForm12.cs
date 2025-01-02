@@ -63,7 +63,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMMATTEXT SET COMCODE = @P1, MATDOCTYPE = @P2, MATDOCNUM = @P3, MATDOCFROM = @P4, MATDOCUNTIL = @P5, LANCODE = @P6, MATSTEXT = @P7, MATLTEXT = @P8 WHERE MATDOCTYPE = @P2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMMATTEXT SET COMCODE = @P1, MATDOCTYPE = @P2, MATDOCNUM = @P3, MATDOCFROM = @P4, MATDOCUNTIL = @P5, LANCODE = @P6, MATSTEXT = @P7, MATLTEXT = @P8 WHERE MATDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", comboBoxMalzemeTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textMalzKodu.Text);
@@ -177,8 +177,8 @@ namespace ERP_APP
             if (result == DialogResult.Yes)
             {
                 // SQL komutunu çalıştırma
-                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMMATTEXT where MATDOCTYPE=@p1", bgl.baglanti());
-                komutsil.Parameters.AddWithValue("@p1", comboBoxMalzemeTip.Text);
+                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMMATTEXT where MATDOCNUM = @P1", bgl.baglanti());
+                komutsil.Parameters.AddWithValue("@p1", textMalzKodu.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
                 comboBoxFirmaKod.Enabled = false;

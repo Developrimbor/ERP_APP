@@ -68,7 +68,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMWCMTEXT SET COMCODE = @P1, WCMDOCTYPE = @P2, WCMDOCNUM = @P3, WCMDOCFROM = @P4, WCMDOCUNTIL = @P5, LANCODE = @P6, WCMSTEXT = @P7, WCMLTEXT = @P8 WHERE WCMDOCTYPE = @P2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMWCMTEXT SET COMCODE = @P1, WCMDOCTYPE = @P2, WCMDOCNUM = @P3, WCMDOCFROM = @P4, WCMDOCUNTIL = @P5, LANCODE = @P6, WCMSTEXT = @P7, WCMLTEXT = @P8 WHERE WCMDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P1", comboBoxIsMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textIsMerKod.Text);

@@ -77,11 +77,11 @@ namespace ERP_APP
 
         void MaliyetMerkeziTipiComboBoxDoldur()
         {
-            SqlCommand komut = new SqlCommand("SELECT DISTINCT CCMDOCTYPE FROM BSMGRCDMCCM001", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT DOCTYPE FROM BSMGRCDMCCM001", bgl.baglanti());
             SqlDataReader dr = komut.ExecuteReader();
             while (dr.Read())
             {
-                comboBoxMalMerTip.Items.Add(dr["CCMDOCTYPE"].ToString());
+                comboBoxMalMerTip.Items.Add(dr["DOCTYPE"].ToString());
             }
             bgl.baglanti().Close();
         }
@@ -116,7 +116,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMCCMTEXT SET COMCODE = @P1, CCMDOCTYPE = @P2, CCMDOCNUM = @P3, CCMDOCFROM = @P4, CCMDOCUNTIL = @P5, LANCODE = @P6, CCMSTEXT = @P7, CCMLTEXT = @P8  WHERE CCMDOCTYPE = @P2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMCCMTEXT SET COMCODE = @P1, CCMDOCTYPE = @P2, CCMDOCNUM = @P3, CCMDOCFROM = @P4, CCMDOCUNTIL = @P5, LANCODE = @P6, CCMSTEXT = @P7, CCMLTEXT = @P8  WHERE CCMDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", comboBoxMalMerTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textMaliyetMerkezCode.Text);

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rotaTypeForm));
             sehirSearchControl = new DevExpress.XtraEditors.GroupControl();
-            textIsPassive = new DevExpress.XtraEditors.TextEdit();
+            comboBoxFirmaKod = new ComboBox();
             labelSehirUlkeCode = new DevExpress.XtraEditors.LabelControl();
             textRotaTipAck = new DevExpress.XtraEditors.TextEdit();
             labelSehirName = new DevExpress.XtraEditors.LabelControl();
@@ -49,10 +49,9 @@
             editButton = new DevExpress.XtraEditors.SimpleButton();
             dataSehirGrid = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            comboBoxFirmaKod = new ComboBox();
+            checkBoxPasif = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).BeginInit();
             sehirSearchControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textRotaTipAck.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)textRotaTip.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).BeginInit();
@@ -63,8 +62,8 @@
             // 
             // sehirSearchControl
             // 
+            sehirSearchControl.Controls.Add(checkBoxPasif);
             sehirSearchControl.Controls.Add(comboBoxFirmaKod);
-            sehirSearchControl.Controls.Add(textIsPassive);
             sehirSearchControl.Controls.Add(labelSehirUlkeCode);
             sehirSearchControl.Controls.Add(textRotaTipAck);
             sehirSearchControl.Controls.Add(labelSehirName);
@@ -78,20 +77,21 @@
             sehirSearchControl.TabIndex = 24;
             sehirSearchControl.Text = "Arama";
             // 
-            // textIsPassive
+            // comboBoxFirmaKod
             // 
-            textIsPassive.Location = new Point(768, 111);
-            textIsPassive.Margin = new Padding(4);
-            textIsPassive.Name = "textIsPassive";
-            textIsPassive.Properties.ReadOnly = true;
-            textIsPassive.Size = new Size(180, 22);
-            textIsPassive.TabIndex = 16;
+            comboBoxFirmaKod.Enabled = false;
+            comboBoxFirmaKod.FormattingEnabled = true;
+            comboBoxFirmaKod.Location = new Point(14, 109);
+            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
+            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
+            comboBoxFirmaKod.Size = new Size(151, 24);
+            comboBoxFirmaKod.TabIndex = 54;
             // 
             // labelSehirUlkeCode
             // 
             labelSehirUlkeCode.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelSehirUlkeCode.Appearance.Options.UseFont = true;
-            labelSehirUlkeCode.Location = new Point(768, 68);
+            labelSehirUlkeCode.Location = new Point(798, 68);
             labelSehirUlkeCode.Margin = new Padding(4);
             labelSehirUlkeCode.Name = "labelSehirUlkeCode";
             labelSehirUlkeCode.Size = new Size(105, 25);
@@ -302,15 +302,15 @@
             gridView1.OptionsEditForm.PopupEditFormWidth = 933;
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
-            // comboBoxFirmaKod
+            // checkBoxPasif
             // 
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxFirmaKod.FormattingEnabled = true;
-            comboBoxFirmaKod.Location = new Point(14, 109);
-            comboBoxFirmaKod.Margin = new Padding(4, 2, 4, 2);
-            comboBoxFirmaKod.Name = "comboBoxFirmaKod";
-            comboBoxFirmaKod.Size = new Size(151, 24);
-            comboBoxFirmaKod.TabIndex = 54;
+            checkBoxPasif.AutoSize = true;
+            checkBoxPasif.Enabled = false;
+            checkBoxPasif.Location = new Point(910, 76);
+            checkBoxPasif.Name = "checkBoxPasif";
+            checkBoxPasif.Size = new Size(18, 17);
+            checkBoxPasif.TabIndex = 55;
+            checkBoxPasif.UseVisualStyleBackColor = true;
             // 
             // rotaTypeForm
             // 
@@ -327,7 +327,6 @@
             ((System.ComponentModel.ISupportInitialize)sehirSearchControl).EndInit();
             sehirSearchControl.ResumeLayout(false);
             sehirSearchControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)textIsPassive.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textRotaTipAck.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)textRotaTip.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)islemlerSehirText).EndInit();
@@ -341,7 +340,6 @@
         #endregion
 
         private DevExpress.XtraEditors.GroupControl sehirSearchControl;
-        private DevExpress.XtraEditors.TextEdit textIsPassive;
         private DevExpress.XtraEditors.LabelControl labelSehirUlkeCode;
         private DevExpress.XtraEditors.TextEdit textRotaTipAck;
         private DevExpress.XtraEditors.LabelControl labelSehirName;
@@ -361,5 +359,6 @@
         private DevExpress.XtraEditors.SimpleButton ButtonGüncelle;
         private TextBox textArat;
         private ComboBox comboBoxFirmaKod;
+        private CheckBox checkBoxPasif;
     }
 }

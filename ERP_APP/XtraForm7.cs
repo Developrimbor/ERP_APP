@@ -35,8 +35,8 @@ namespace ERP_APP
             {
 
                 comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
-                textMalMerkTip.Text = dr["MALZEME TİPİ"].ToString();
-                textMalMerTipAck.Text = dr["MALZEME TİPİ AÇIKLAMASI"].ToString();
+                textMalMerkTip.Text = dr["MALİYET MERKEZİ TİPİ"].ToString();
+                textMalMerTipAck.Text = dr["MALİYET MERKEZİ TİPİ AÇIKLAMASI"].ToString();
                 if (dr["PASİF Mİ"].ToString() == "Evet")
                 {
                     checkBoxPasif.Checked = true;
@@ -53,7 +53,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALZEME TİPİ\", DOCTYPETEXT AS \"MALZEME TİPİ AÇIKLAMASI\", CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\" FROM BSMGRCDMCCM001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"MALİYET MERKEZİ TİPİ\", DOCTYPETEXT AS \"MALİYET MERKEZİ TİPİ AÇIKLAMASI\", CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\" FROM BSMGRCDMCCM001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataMaliyetMerkezi.DataSource = dt;
         }
@@ -146,7 +146,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textMalMerkTip.Text);
             komut.Parameters.AddWithValue("@p3", textMalMerTipAck.Text);
-            komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
+            komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0); // ISPASSIVE (True -> 1, False -> 0)
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();

@@ -38,7 +38,14 @@ namespace ERP_APP
                 comboBoxFirmaKod.SelectedItem = dr["FİRMA KODU"].ToString();
                 textRotaTip.Text = dr["ROTA TİPİ"].ToString();
                 textRotaTipAck.Text = dr["ROTA TİPİ AÇIKLAMASI"].ToString();
-                textIsPassive.Text = dr["PASİF Mİ"].ToString();
+                if (dr["PASİF Mİ"].ToString() == "Evet")
+                {
+                    checkBoxPasif.Checked = true;
+                }
+                else
+                {
+                    checkBoxPasif.Checked = false;
+                }
             }
         }
 
@@ -63,14 +70,14 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textRotaTip.Text);
             komut.Parameters.AddWithValue("@P3", textRotaTipAck.Text);
-            komut.Parameters.AddWithValue("@P4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
             textRotaTip.ReadOnly = true;
             textRotaTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
+            checkBoxPasif.Checked = false;
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
@@ -82,7 +89,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textRotaTip.Text);
             komut.Parameters.AddWithValue("@p3", textRotaTipAck.Text);
-            komut.Parameters.AddWithValue("@p4", textIsPassive.Text);
+            komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
@@ -90,12 +97,11 @@ namespace ERP_APP
             comboBoxFirmaKod.SelectedIndex = -1;
             textRotaTip.Text = string.Empty;
             textRotaTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
+            checkBoxPasif.Checked = false;
 
             comboBoxFirmaKod.Enabled = false;
             textRotaTip.ReadOnly = true;
             textRotaTipAck.ReadOnly = true;
-            textIsPassive.ReadOnly = true;
             ButtonKaydet.Visible = false;
 
             MessageBox.Show("Veri sisteme eklendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -109,7 +115,8 @@ namespace ERP_APP
             comboBoxFirmaKod.Enabled = true;
             textRotaTip.ReadOnly = false;
             textRotaTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+            checkBoxPasif.Enabled = true;
+
         }
 
         private void dataAddButton_Click(object sender, EventArgs e)
@@ -120,12 +127,13 @@ namespace ERP_APP
             comboBoxFirmaKod.Enabled = true;
             textRotaTip.ReadOnly = false;
             textRotaTipAck.ReadOnly = false;
-            textIsPassive.ReadOnly = false;
+
+            checkBoxPasif.Enabled = true;
+            checkBoxPasif.Checked = false;
 
             comboBoxFirmaKod.SelectedIndex = -1;
             textRotaTip.Text = string.Empty;
             textRotaTipAck.Text = string.Empty;
-            textIsPassive.Text = string.Empty;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -145,7 +153,7 @@ namespace ERP_APP
                 comboBoxFirmaKod.Enabled = false;
                 textRotaTip.ReadOnly = true;
                 textRotaTipAck.ReadOnly = true;
-                textIsPassive.ReadOnly = true;
+                checkBoxPasif.Enabled = false;
                 MessageBox.Show("Veri silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listele();
             }

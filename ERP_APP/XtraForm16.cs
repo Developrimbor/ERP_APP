@@ -142,8 +142,8 @@ namespace ERP_APP
             if (result == DialogResult.Yes)
             {
                 // SQL komutunu çalıştırma
-                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMROTHEAD where MATDOCNUM=@p1", bgl.baglanti());
-                komutsil.Parameters.AddWithValue("@p1", textMalzemeKodu.Text);
+                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMROTHEAD where ROTDOCNUM =@p1", bgl.baglanti());
+                komutsil.Parameters.AddWithValue("@p1", textUrunAgcKod.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
                 comboBoxFirmaKod.Enabled = false;
@@ -173,7 +173,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMROTHEAD SET COMCODE = @P1, ROTDOCTYPE = @P2, ROTDOCNUM = @P3, ROTDOCFROM = @P4, ROTDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11 WHERE MATDOCNUM = @P7", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMROTHEAD SET COMCODE = @P1, ROTDOCTYPE = @P2, ROTDOCNUM = @P3, ROTDOCFROM = @P4, ROTDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11 WHERE ROTDOCNUM = @P3", bgl.baglanti());
 
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P1", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);

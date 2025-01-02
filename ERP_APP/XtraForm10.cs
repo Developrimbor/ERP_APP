@@ -99,7 +99,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@p2", textIsMerkeziTip.Text);
             komut.Parameters.AddWithValue("@p3", textIsMerkTipAck.Text);
-            komut.Parameters.AddWithValue("@p14", checkBoxPasif.Checked ? 1 : 0);
+            komut.Parameters.AddWithValue("@p4", checkBoxPasif.Checked ? 1 : 0);
 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();

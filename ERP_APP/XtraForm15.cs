@@ -83,7 +83,7 @@ namespace ERP_APP
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
         {
-            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMBOMHEAD SET COMCODE = @P1, BOMDOCTYPE = @P2, BOMDOCNUM = @P3, BOMDOCFROM = @P4, BOMDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11  WHERE BOMDOCTYPE = @P2", bgl.baglanti());
+            SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMBOMHEAD SET COMCODE = @P1, BOMDOCTYPE = @P2, BOMDOCNUM = @P3, BOMDOCFROM = @P4, BOMDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11  WHERE BOMDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P1", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textUrunAgacKod.Text);
@@ -177,8 +177,8 @@ namespace ERP_APP
             if (result == DialogResult.Yes)
             {
                 // SQL komutunu çalıştırma
-                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDBOMHEAD where BOMDOCTYPE=@p1", bgl.baglanti());
-                komutsil.Parameters.AddWithValue("@p1", comboBoxUrnAgcTip.Text);
+                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDBOMHEAD where BOMDOCNUM =@p1", bgl.baglanti());
+                komutsil.Parameters.AddWithValue("@p1", textUrunAgacKod.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
                 comboBoxFirmaKod.Enabled = false;
