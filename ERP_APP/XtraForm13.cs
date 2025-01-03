@@ -110,8 +110,8 @@ namespace ERP_APP
             dateTimeBaslangic.Enabled = true;  // Bu şekilde sadece okunabilir yapabilirsiniz.
             dateTimeBitis.Enabled = true;
             comboBoxDil.Enabled = true; //enabled
-            textMalMerAcik.Enabled = true;
-            textMaliyetMerUzunAcik.Enabled = true;
+            textMalMerAcik.ReadOnly = false;
+            textMaliyetMerUzunAcik.ReadOnly = false;
         }
 
         private void ButtonGüncelle_Click(object sender, EventArgs e)
@@ -126,19 +126,26 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P7", textMalMerAcik.Text);
             komut.Parameters.AddWithValue("@P8", textMaliyetMerUzunAcik.Text);
 
-            komut.ExecuteNonQuery();
-            bgl.baglanti().Close();
-            comboBoxFirmaKod.Enabled = false;
-            comboBoxMalMerTip.Enabled = false;
-            textMaliyetMerkezCode.ReadOnly = true;
-            dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
-            dateTimeBitis.Enabled = false;
-            comboBoxDil.Enabled = false;
-            textMalMerAcik.ReadOnly = true;
-            textMaliyetMerUzunAcik.ReadOnly = true;
-            MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            ButtonGüncelle.Visible = false;
-            listele();
+            try
+            {
+                komut.ExecuteNonQuery();
+                bgl.baglanti().Close();
+                comboBoxFirmaKod.Enabled = false;
+                comboBoxMalMerTip.Enabled = false;
+                textMaliyetMerkezCode.ReadOnly = true;
+                dateTimeBaslangic.Enabled = false;  // Bu şekilde sadece okunabilir yapabilirsiniz.
+                dateTimeBitis.Enabled = false;
+                comboBoxDil.Enabled = false;
+                textMalMerAcik.ReadOnly = true;
+                textMaliyetMerUzunAcik.ReadOnly = true;
+                MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ButtonGüncelle.Visible = false;
+                listele();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)

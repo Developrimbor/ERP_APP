@@ -72,6 +72,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P3", textOprTipAck.Text);
             komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
 
+
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
@@ -81,6 +83,11 @@ namespace ERP_APP
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)

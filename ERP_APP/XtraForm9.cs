@@ -53,7 +53,7 @@ namespace ERP_APP
         void listele()
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"ROTA TİPİ\", DOCTYPETEXT AS \"ROTA TİPİ AÇIKLAMASI\" , ISPASSIVE AS \"PASİF Mİ\"   FROM BSMGRCDMROT001;\r\n", bgl.baglanti());
+            SqlDataAdapter da = new SqlDataAdapter("SELECT COMCODE AS \"FİRMA KODU\", DOCTYPE AS \"ROTA TİPİ\", DOCTYPETEXT AS \"ROTA TİPİ AÇIKLAMASI\" , CASE \r\n           WHEN ISPASSIVE = 1 THEN 'Evet' \r\n           WHEN ISPASSIVE = 0 THEN 'Hayır' \r\n           ELSE 'Bilinmiyor' \r\n       END AS \"PASİF Mİ\"   FROM BSMGRCDMROT001;\r\n", bgl.baglanti());
             da.Fill(dt);
             dataSehirGrid.DataSource = dt;
         }
@@ -72,6 +72,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P3", textRotaTipAck.Text);
             komut.Parameters.AddWithValue("@P4", checkBoxPasif.Checked ? 1 : 0);
 
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
@@ -81,7 +82,13 @@ namespace ERP_APP
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
+
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+}
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {

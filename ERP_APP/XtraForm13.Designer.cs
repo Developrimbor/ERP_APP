@@ -185,23 +185,23 @@
             // 
             // textMaliyetMerUzunAcik
             // 
-            textMaliyetMerUzunAcik.Location = new Point(764, 78);
+            textMaliyetMerUzunAcik.Location = new Point(848, 78);
             textMaliyetMerUzunAcik.Margin = new Padding(4);
             textMaliyetMerUzunAcik.Name = "textMaliyetMerUzunAcik";
             textMaliyetMerUzunAcik.Properties.ReadOnly = true;
-            textMaliyetMerUzunAcik.Size = new Size(631, 22);
+            textMaliyetMerUzunAcik.Size = new Size(547, 22);
             textMaliyetMerUzunAcik.TabIndex = 22;
             // 
             // labelControl3
             // 
             labelControl3.Appearance.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             labelControl3.Appearance.Options.UseFont = true;
-            labelControl3.Location = new Point(764, 34);
+            labelControl3.Location = new Point(848, 34);
             labelControl3.Margin = new Padding(4);
             labelControl3.Name = "labelControl3";
-            labelControl3.Size = new Size(287, 25);
+            labelControl3.Size = new Size(376, 25);
             labelControl3.TabIndex = 21;
-            labelControl3.Text = "MALZEME UZUN AÇIKLAMA";
+            labelControl3.Text = "MALİYET MERKEZİ UZUN AÇIKLAMA";
             // 
             // textMaliyetMerkezCode
             // 
@@ -240,7 +240,7 @@
             textMalMerAcik.Margin = new Padding(4);
             textMalMerAcik.Name = "textMalMerAcik";
             textMalMerAcik.Properties.ReadOnly = true;
-            textMalMerAcik.Size = new Size(308, 22);
+            textMalMerAcik.Size = new Size(389, 22);
             textMalMerAcik.TabIndex = 14;
             // 
             // labelSehirName
@@ -250,9 +250,9 @@
             labelSehirName.Location = new Point(439, 34);
             labelSehirName.Margin = new Padding(4);
             labelSehirName.Name = "labelSehirName";
-            labelSehirName.Size = new Size(300, 25);
+            labelSehirName.Size = new Size(389, 25);
             labelSehirName.TabIndex = 13;
-            labelSehirName.Text = "MALZEME KISA AÇIKLAMASI";
+            labelSehirName.Text = "MALİYET MERKEZİ KISA AÇIKLAMASI";
             // 
             // labelSehirCode
             // 

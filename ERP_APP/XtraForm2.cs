@@ -132,6 +132,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaCode.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P2", textDilCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
+
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textDilCode.ReadOnly = true;
@@ -140,7 +142,13 @@ namespace ERP_APP
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
+
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+}
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

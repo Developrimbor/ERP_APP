@@ -93,6 +93,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P2", textUlkeCode.Text);
             komut.Parameters.AddWithValue("@P3", textDilName.Text);
 
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
              
@@ -103,6 +104,11 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             listele();
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+}
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

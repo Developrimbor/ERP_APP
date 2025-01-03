@@ -112,6 +112,8 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@p2", textSehirCode.Text);
             komut.Parameters.AddWithValue("@p3", textSehirName.Text);
             komut.Parameters.AddWithValue("@p4", comboBoxUlkeKod.SelectedItem?.ToString() ?? string.Empty);
+            
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textSehirCode.ReadOnly = true;
@@ -122,6 +124,11 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             listele();
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+}
 
         private void deleteButton_Click(object sender, EventArgs e)
         {

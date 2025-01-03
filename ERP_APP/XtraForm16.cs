@@ -176,7 +176,7 @@ namespace ERP_APP
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMROTHEAD SET COMCODE = @P1, ROTDOCTYPE = @P2, ROTDOCNUM = @P3, ROTDOCFROM = @P4, ROTDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11 WHERE ROTDOCNUM = @P3", bgl.baglanti());
 
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@P1", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P2", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textUrunAgcKod.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));

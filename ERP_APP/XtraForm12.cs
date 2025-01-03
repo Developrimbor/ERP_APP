@@ -73,6 +73,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P7", textMalzKısaAck.Text);
             komut.Parameters.AddWithValue("@P8", textUzunAck.Text);
 
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
@@ -86,6 +87,11 @@ namespace ERP_APP
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
         }
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
@@ -247,10 +253,22 @@ namespace ERP_APP
             bgl.baglanti().Close();
         }
 
+        void DilComboBoxDoldur()
+        {
+            SqlCommand komut = new SqlCommand("SELECT DISTINCT LANCODE FROM BSMGRCDMGEN002", bgl.baglanti());
+            SqlDataReader dr = komut.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBoxDil.Items.Add(dr["LANCODE"].ToString());
+            }
+            bgl.baglanti().Close();
+        }
+
         private void matInfoForm_Load(object sender, EventArgs e)
         {
             FirmaKodComboBoxDoldur();
             MalzemeTipiComboBoxDoldur();
+            DilComboBoxDoldur();
         }
     }
 }

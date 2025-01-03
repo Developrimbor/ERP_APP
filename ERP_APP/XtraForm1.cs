@@ -196,6 +196,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P5", comboBoxSehir.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P6", comboBoxDil.SelectedItem?.ToString() ?? string.Empty);
 
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             textFirmaCode.ReadOnly = true;
@@ -208,6 +209,11 @@ namespace ERP_APP
             ButtonGüncelle.Visible = false;
             listele();
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
+}
 
         private void ButtonKaydet_Click(object sender, EventArgs e)
         {

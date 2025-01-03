@@ -85,7 +85,7 @@ namespace ERP_APP
         {
             SqlCommand komut = new SqlCommand("UPDATE BSMGRCDMBOMHEAD SET COMCODE = @P1, BOMDOCTYPE = @P2, BOMDOCNUM = @P3, BOMDOCFROM = @P4, BOMDOCUNTIL = @P5, MATDOCTYPE = @P6, MATDOCNUM = @P7, QUANTITY = @P8, ISDELETED = @P9, ISPASSIVE = @P10, DRAWNUM = @P11  WHERE BOMDOCNUM = @P3", bgl.baglanti());
             komut.Parameters.AddWithValue("@P1", comboBoxFirmaKod.SelectedItem?.ToString() ?? string.Empty);
-            komut.Parameters.AddWithValue("@P1", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
+            komut.Parameters.AddWithValue("@P2", comboBoxUrnAgcTip.SelectedItem?.ToString() ?? string.Empty);
             komut.Parameters.AddWithValue("@P3", textUrunAgacKod.Text);
             komut.Parameters.AddWithValue("@P4", dateTimeBaslangic.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             komut.Parameters.AddWithValue("@P5", dateTimeBitis.Value.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -97,7 +97,7 @@ namespace ERP_APP
             komut.Parameters.AddWithValue("@P10", checkBoxPasif.Checked ? 1 : 0);
             komut.Parameters.AddWithValue("@P11", textCizimNo.Text);
 
-
+            try { 
             komut.ExecuteNonQuery();
             bgl.baglanti().Close();
             comboBoxFirmaKod.Enabled = false;
@@ -114,6 +114,11 @@ namespace ERP_APP
             MessageBox.Show("Veri Güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             ButtonGüncelle.Visible = false;
             listele();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bir hata oluştu: " + ex.Message);
+            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -177,7 +182,7 @@ namespace ERP_APP
             if (result == DialogResult.Yes)
             {
                 // SQL komutunu çalıştırma
-                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDBOMHEAD where BOMDOCNUM =@p1", bgl.baglanti());
+                SqlCommand komutsil = new SqlCommand("Delete From BSMGRCDMBOMHEAD where BOMDOCNUM =@p1", bgl.baglanti());
                 komutsil.Parameters.AddWithValue("@p1", textUrunAgacKod.Text);
                 komutsil.ExecuteNonQuery();
                 bgl.baglanti().Close();
